@@ -1,21 +1,29 @@
 Manifest-Version: 1.0
 Built-By: Tyler
 Build-Jdk: 17.0.1
-Class-Path: lib/javalin-4.3.0.jar lib/jetty-server-9.4.44.v20210927.jar 
- lib/javax.servlet-api-3.1.0.jar lib/jetty-http-9.4.44.v20210927.jar lib
- /jetty-util-9.4.44.v20210927.jar lib/jetty-io-9.4.44.v20210927.jar lib/
- jetty-webapp-9.4.44.v20210927.jar lib/jetty-xml-9.4.44.v20210927.jar li
- b/jetty-servlet-9.4.44.v20210927.jar lib/jetty-security-9.4.44.v2021092
- 7.jar lib/jetty-util-ajax-9.4.44.v20210927.jar lib/websocket-server-9.4
- .44.v20210927.jar lib/websocket-common-9.4.44.v20210927.jar lib/websock
- et-api-9.4.44.v20210927.jar lib/websocket-client-9.4.44.v20210927.jar l
- ib/jetty-client-9.4.44.v20210927.jar lib/websocket-servlet-9.4.44.v2021
- 0927.jar lib/kotlin-stdlib-jdk8-1.5.31.jar lib/kotlin-stdlib-1.5.31.jar
-  lib/annotations-13.0.jar lib/kotlin-stdlib-common-1.5.31.jar lib/kotli
- n-stdlib-jdk7-1.5.31.jar lib/log4j-core-2.17.1.jar lib/log4j-api-2.17.1
- .jar lib/postgresql-42.2.14.jar lib/slf4j-simple-2.0.0-alpha5.jar lib/s
- lf4j-api-2.0.0-alpha5.jar lib/jackson-databind-2.12.4.jar lib/jackson-a
- nnotations-2.12.4.jar lib/jackson-core-2.12.4.jar
+Class-Path: src/main/java/service/javalin-4.3.0.jar src/main/java/servic
+ e/jetty-server-9.4.44.v20210927.jar src/main/java/service/javax.servlet
+ -api-3.1.0.jar src/main/java/service/jetty-http-9.4.44.v20210927.jar sr
+ c/main/java/service/jetty-util-9.4.44.v20210927.jar src/main/java/servi
+ ce/jetty-io-9.4.44.v20210927.jar src/main/java/service/jetty-webapp-9.4
+ .44.v20210927.jar src/main/java/service/jetty-xml-9.4.44.v20210927.jar 
+ src/main/java/service/jetty-servlet-9.4.44.v20210927.jar src/main/java/
+ service/jetty-security-9.4.44.v20210927.jar src/main/java/service/jetty
+ -util-ajax-9.4.44.v20210927.jar src/main/java/service/websocket-server-
+ 9.4.44.v20210927.jar src/main/java/service/websocket-common-9.4.44.v202
+ 10927.jar src/main/java/service/websocket-api-9.4.44.v20210927.jar src/
+ main/java/service/websocket-client-9.4.44.v20210927.jar src/main/java/s
+ ervice/jetty-client-9.4.44.v20210927.jar src/main/java/service/websocke
+ t-servlet-9.4.44.v20210927.jar src/main/java/service/kotlin-stdlib-jdk8
+ -1.5.31.jar src/main/java/service/kotlin-stdlib-1.5.31.jar src/main/jav
+ a/service/annotations-13.0.jar src/main/java/service/kotlin-stdlib-comm
+ on-1.5.31.jar src/main/java/service/kotlin-stdlib-jdk7-1.5.31.jar src/m
+ ain/java/service/log4j-core-2.17.1.jar src/main/java/service/log4j-api-
+ 2.17.1.jar src/main/java/service/postgresql-42.2.14.jar src/main/java/s
+ ervice/slf4j-simple-2.0.0-alpha5.jar src/main/java/service/slf4j-api-2.
+ 0.0-alpha5.jar src/main/java/service/jackson-databind-2.12.4.jar src/ma
+ in/java/service/jackson-annotations-2.12.4.jar src/main/java/service/ja
+ ckson-core-2.12.4.jar
 Main-Class: Project2Main
 Created-By: Maven Integration for Eclipse
 
