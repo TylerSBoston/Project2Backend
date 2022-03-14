@@ -7,7 +7,7 @@ import POJO.Reimbursement;
 import io.javalin.Javalin;
 
 
-public class Project1Main {
+public class Project2Main {
 	static EmployeeService employeeService = new EmployeeServiceImpl();
 
 	public static void main(String[] args) {
