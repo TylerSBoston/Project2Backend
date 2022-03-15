@@ -1,9 +1,23 @@
 pipeline {
     
     agent any
+    tools {
+        maven 'Apache Maven 3.0.5'
+        jdk 'jdk8'
+    }
+
     
     stages {
-        
+    
+    	stage("initialize"){
+    	 
+    	 	steps{
+    	 	    
+ 
+    	 	}
+   
+    	    
+    	}
         stage("build") {
             
             steps{
@@ -15,8 +29,8 @@ pipeline {
         stage("test"){
             
             steps {
-                echo 'build step'
-                
+                echo 'test step'
+                // add junit testing here
             }
 
             
@@ -24,22 +38,19 @@ pipeline {
         stage("deploy") {
         
         	steps {
-        	    echo 'build step'
+        	    echo 'deploy step'
         	    
         	}
 
             
             
         }
-
-
+        post {
+            
+            
+        }
 
     }
 
-}
-
-node {
-    
-    
 }
 

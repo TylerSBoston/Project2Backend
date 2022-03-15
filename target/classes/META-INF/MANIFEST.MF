@@ -24,6 +24,6 @@ Class-Path: src/main/java/service/javalin-4.3.0.jar src/main/java/servic
  0.0-alpha5.jar src/main/java/service/jackson-databind-2.12.4.jar src/ma
  in/java/service/jackson-annotations-2.12.4.jar src/main/java/service/ja
  ckson-core-2.12.4.jar
-Main-Class: Project2Main
+Main-Class: Project2Main.java
 Created-By: Maven Integration for Eclipse
 
