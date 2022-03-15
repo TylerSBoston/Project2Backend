@@ -89,8 +89,8 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<classpathPrefix>src/main/java/Service</classpathPrefix>
-							<mainClass>Project2Main</mainClass>
+				<!-- 		<classpathPrefix>Project2Backend</classpathPrefix> -->
+							<mainClass>com.domain.project.Project2Main</mainClass>
 						</manifest>
 					</archive>
 
@@ -110,7 +110,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>Project2Main</mainClass>
+									<mainClass>com.domain.project.Project2Main</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
