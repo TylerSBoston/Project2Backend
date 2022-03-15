@@ -1,19 +1,6 @@
 Manifest-Version: 1.0
 Built-By: Tyler
 Build-Jdk: 17.0.1
-Class-Path: javalin-4.3.0.jar jetty-server-9.4.44.v20210927.jar javax.se
- rvlet-api-3.1.0.jar jetty-http-9.4.44.v20210927.jar jetty-util-9.4.44.v
- 20210927.jar jetty-io-9.4.44.v20210927.jar jetty-webapp-9.4.44.v2021092
- 7.jar jetty-xml-9.4.44.v20210927.jar jetty-servlet-9.4.44.v20210927.jar
-  jetty-security-9.4.44.v20210927.jar jetty-util-ajax-9.4.44.v20210927.j
- ar websocket-server-9.4.44.v20210927.jar websocket-common-9.4.44.v20210
- 927.jar websocket-api-9.4.44.v20210927.jar websocket-client-9.4.44.v202
- 10927.jar jetty-client-9.4.44.v20210927.jar websocket-servlet-9.4.44.v2
- 0210927.jar kotlin-stdlib-jdk8-1.5.31.jar kotlin-stdlib-1.5.31.jar anno
- tations-13.0.jar kotlin-stdlib-common-1.5.31.jar kotlin-stdlib-jdk7-1.5
- .31.jar log4j-core-2.17.1.jar log4j-api-2.17.1.jar postgresql-42.2.14.j
- ar slf4j-simple-2.0.0-alpha5.jar slf4j-api-2.0.0-alpha5.jar jackson-dat
- abind-2.12.4.jar jackson-annotations-2.12.4.jar jackson-core-2.12.4.jar
-Main-Class: com.domain.project.Project2Main
+Main-Class: com.Project2Backend.Project2Main
 Created-By: Maven Integration for Eclipse
 
