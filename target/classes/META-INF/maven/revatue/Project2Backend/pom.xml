@@ -88,8 +88,6 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<addClasspath>true</addClasspath>
-				 			<classpathPrefix>src/main/java/Service</classpathPrefix>
 							<mainClass>Project2Main</mainClass>
 						</manifest>
 					</archive>
