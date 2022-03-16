@@ -13,7 +13,7 @@ public class DBConnection {
 	private final static Logger log = LogManager.getLogger(DBConnection.class);
 	
 	static {
-		connectionString = "jdbc:postgresql://localhost:5432/Project1";
+		connectionString = "jdbc:postgresql:ip-172-31-13-88.us-east-2.compute.internal:8888/Project2";
 		password = "1234";
 		try {
 			Class.forName("org.postgresql.Driver");
