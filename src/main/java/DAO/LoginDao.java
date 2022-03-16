@@ -51,12 +51,10 @@ public class LoginDao {
 			
 			employee.setFirstName(results.getString(1));
 			employee.setLastName(results.getString(2));
-			employee.setFullName(results.getString(3));
 			employee.setJobTitle(results.getString(4));
 			employee.setEmail(results.getString(5));
 			employee.setPhone(results.getString(6));
 			employee.setEmployeeID(results.getInt(7));
-			employee.setRoles(getRoles(employee.getEmployeeID()));
 		}
 
 		return employee;

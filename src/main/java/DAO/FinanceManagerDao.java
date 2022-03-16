@@ -177,11 +177,9 @@ public class FinanceManagerDao {
 			{
 				Employee e = new Employee();
 				e.setEmployeeID(results.getInt(1));
-				e.setFullName(results.getString(2));
 				e.setEmail(results.getString(3));
 				e.setPhone(results.getString(4));
 				e.setJobTitle(results.getString(5));
-				e.setRoles(getRoles(results.getInt(1)));
 				employees.add(e);
 				
 				// need to add select to get permissions

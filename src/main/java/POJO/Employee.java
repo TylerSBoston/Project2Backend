@@ -6,14 +6,12 @@ import java.util.List;
 public class Employee {
 	String firstName = "";
 	String lastName = "";
-	String fullName = "";
 	int employeeID = 0;
 	String email = "";
 
 	String phone = "";
 	String jobTitle = "";
 	// permissions renamed roles so it doesn't match names with other stuff as much
-	List<Role> roles = new LinkedList<Role>();
 	
 	
 	// leave empty unless except for login
@@ -33,12 +31,6 @@ public class Employee {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
 	}
 	public int getEmployeeID() {
 		return employeeID;
@@ -63,12 +55,6 @@ public class Employee {
 	}
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
-	}
-	public List<Role> getRoles() {
-		return roles;
-	}
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
 	}
 	public String getUserName() {
 		return userName;

@@ -35,7 +35,6 @@ public class EmployeeJdbcDao implements EmployeeDao {
 				Employee employeePojo = new Employee();
 				employeePojo.setEmployeeID(results.getInt(1));
 				employeePojo.setJobTitle(results.getString(2));
-				employeePojo.setFullName(results.getString(3));
 				employeePojo.setLastName(results.getString(4));
 				employeePojo.setEmail(results.getString(5));
 				employeePojo.setPhone(results.getString(6));
@@ -125,7 +124,6 @@ public class EmployeeJdbcDao implements EmployeeDao {
 						Employee fetchEmp = new Employee();
 						fetchEmp.setEmployeeID(results.getInt(1));
 						fetchEmp.setJobTitle(results.getString(2));
-						fetchEmp.setFullName(results.getString(3));
 						fetchEmp.setLastName(results.getString(4));
 						fetchEmp.setEmail(results.getString(5));
 						fetchEmp.setPhone(results.getString(6));

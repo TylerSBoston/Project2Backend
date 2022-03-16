@@ -4,7 +4,6 @@ select 'Create Database Project2'
 where not exists (select from pg_database where datname = 'Project2');
 
 
-
 --drops procedures
 drop procedure if exists  approve_request;
 drop procedure if exists  employee_login;
