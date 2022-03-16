@@ -2,19 +2,13 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.junit.jupiter.*;
-import org.mockito.mock.*;
-import org.mockito.stubbing.OngoingStubbing;
-
 import DAO.LoginDao;
 import POJO.Role;
 
-import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.*;
