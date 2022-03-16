@@ -4,6 +4,7 @@ import java.util.List;
 
 import POJO.Employee;
 import POJO.Reimbursement;
+import POJO.Role;
 import Service.EmployeeService;
 import Service.EmployeeServiceImpl;
 import Service.FinanceManagerService;
@@ -54,6 +55,11 @@ public class Project2Main {
 		myServer.post("/Login", (ctx)->{
 			Employee e = ctx.bodyAsClass(Employee.class);
 			ctx.json(LoginService.login(e));
+		});
+		
+		myServer.get("/Roles/{bid}", (ctx)->{
+			String r = ctx.pathParam("bid");
+			ctx.json(LoginService.roles(r));
 		});
 		
 		

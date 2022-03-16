@@ -22,5 +22,9 @@ public class LoginService {
 			return e;
 		}
 	}
+	public static Object roles(String r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
