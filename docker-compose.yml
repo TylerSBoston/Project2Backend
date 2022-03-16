@@ -10,7 +10,7 @@ services:
     volumes:
       - ./Project2.sql:/docker-entrypoint-initdb.d/create_tables.sql
   javalin-backend-service:
-    image: project2backend
+    image: javalin-backend
     build: .
     ports:
       - 9999:4040
