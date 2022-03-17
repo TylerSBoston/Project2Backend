@@ -29,7 +29,7 @@ public class FinanceManagerDao {
 		log.info("in getPendingReimbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * from all_reimbursements where db_status_id < 4;";
+		String query = "select * reimbursements where status_id < 4;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -39,18 +39,22 @@ public class FinanceManagerDao {
 			while(results.next())
 			{
 				Reimbursement r = new Reimbursement();
-				r.setAmount(results.getBigDecimal(7));
+				
 				r.setReimbursementID(results.getInt(1));
-				r.setStatus(results.getString(5));
-				r.setEmployee(results.getString(4));
-				r.setCurrentComment(results.getString(9));
-				r.setDetails(results.getString(8));
-				r.setDateSubmitted(results.getString(10));
-				r.setDateOfTransaction(results.getString(11));
-				r.setDateUpdated(results.getString(12));
-				r.setExpenseType(results.getString(6));
-				r.setEmployeeID(results.getInt(3));
-				r.setStatusID(results.getInt(2));
+				r.setEmployeeID(results.getInt(2));
+				r.setStatusID(results.getInt(3));
+				r.setStatus(results.getString(4));
+				r.setExpenseType(results.getString(5));
+				r.setDateOfTransaction(results.getString(6));
+				r.setDateSubmitted(results.getString(7));
+				r.setAmount(results.getBigDecimal(8));
+				r.setDetails(results.getString(9));
+				r.setMerchant(results.getString(10));
+				
+				
+				
+				
+				
 				riems.add(r);
 			}
 		}
@@ -64,7 +68,7 @@ public class FinanceManagerDao {
 		log.info("in getPendingReinbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * from all_reimbursements where db_status_id > 3;";
+		String query = "select * from reimbursements where status_id > 3;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -74,19 +78,17 @@ public class FinanceManagerDao {
 			while(results.next())
 			{
 				Reimbursement r = new Reimbursement();
-				r.setAmount(results.getBigDecimal(7));
 				r.setReimbursementID(results.getInt(1));
-				r.setStatus(results.getString(5));
-				r.setEmployee(results.getString(4));
-				r.setCurrentComment(results.getString(9));
-				r.setDetails(results.getString(8));
-				r.setDateSubmitted(results.getString(11));
-				r.setDateOfTransaction(results.getString(10));
-				r.setDateUpdated(results.getString(12));
-				r.setExpenseType(results.getString(6));
-				r.setEmployeeID(results.getInt(3));
-				r.setMerchant(results.getString(13));	
-				r.setStatusID(results.getInt(2));
+				r.setEmployeeID(results.getInt(2));
+				r.setStatusID(results.getInt(3));
+				r.setStatus(results.getString(4));
+				r.setExpenseType(results.getString(5));
+				r.setDateOfTransaction(results.getString(6));
+				r.setDateSubmitted(results.getString(7));
+				r.setAmount(results.getBigDecimal(8));
+				r.setDetails(results.getString(9));
+				r.setMerchant(results.getString(10));
+			
 				riems.add(r);
 			}
 		}
@@ -98,7 +100,7 @@ public class FinanceManagerDao {
 		log.info("in getAllReinbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * from all_reimbursements;";
+		String query = "select * from reimbursements;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -108,19 +110,17 @@ public class FinanceManagerDao {
 			while(results.next())
 			{
 				Reimbursement r = new Reimbursement();
-				r.setAmount(results.getBigDecimal(7));
 				r.setReimbursementID(results.getInt(1));
-				r.setStatus(results.getString(5));
-				r.setEmployee(results.getString(4));
-				r.setCurrentComment(results.getString(9));
-				r.setDetails(results.getString(8));
-				r.setDateSubmitted(results.getString(11));
-				r.setDateOfTransaction(results.getString(10));
-				r.setDateUpdated(results.getString(12));
-				r.setExpenseType(results.getString(6));
-				r.setEmployeeID(results.getInt(3));
-				r.setMerchant(results.getString(13));
-				r.setStatusID(results.getInt(2));
+				r.setEmployeeID(results.getInt(2));
+				r.setStatusID(results.getInt(3));
+				r.setStatus(results.getString(4));
+				r.setExpenseType(results.getString(5));
+				r.setDateOfTransaction(results.getString(6));
+				r.setDateSubmitted(results.getString(7));
+				r.setAmount(results.getBigDecimal(8));
+				r.setDetails(results.getString(9));
+				r.setMerchant(results.getString(10));
+				
 				riems.add(r);
 			}
 		}
@@ -132,7 +132,7 @@ public class FinanceManagerDao {
 		log.info("in getEmployeeReimbersements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * from all_reimbursements where db_employee_id = " + employee + ";";
+		String query = "select * from reimbursements where db_employee_id = " + employee + ";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -142,19 +142,17 @@ public class FinanceManagerDao {
 			while(results.next())
 			{
 				Reimbursement r = new Reimbursement();
-				r.setAmount(results.getBigDecimal(7));
 				r.setReimbursementID(results.getInt(1));
-				r.setStatus(results.getString(5));
-				r.setEmployee(results.getString(4));
-				r.setCurrentComment(results.getString(9));
-				r.setDetails(results.getString(8));
-				r.setDateSubmitted(results.getString(11));
-				r.setDateOfTransaction(results.getString(10));
-				r.setDateUpdated(results.getString(12));
-				r.setExpenseType(results.getString(6));
-				r.setEmployeeID(results.getInt(3));
-				r.setMerchant(results.getString(13));
-				r.setStatusID(results.getInt(2));
+				r.setEmployeeID(results.getInt(2));
+				r.setStatusID(results.getInt(3));
+				r.setStatus(results.getString(4));
+				r.setExpenseType(results.getString(5));
+				r.setDateOfTransaction(results.getString(6));
+				r.setDateSubmitted(results.getString(7));
+				r.setAmount(results.getBigDecimal(8));
+				r.setDetails(results.getString(9));
+				r.setMerchant(results.getString(10));
+				
 				riems.add(r);
 			}
 		}
@@ -234,7 +232,6 @@ public class FinanceManagerDao {
 		PreparedStatement st = DBConnection.getConnection().prepareStatement(query);
 		st.setInt(1, r.getReimbursementID());
 		st.setInt(2, r.getStatusID());
-		st.setString(3, r.getCurrentComment());
 		st.execute();
 
 		return r;

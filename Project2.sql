@@ -1,8 +1,8 @@
 
-/*create database Project2;
+create database Project2;
 
 \c Project2;
-*/
+
 
 
 --drops procedures
@@ -94,6 +94,7 @@ Create Table reimbursement_types(
 Create Table reimbursements(
 	reimbursement_id 	Integer generated always as identity,
 	employee_id			Integer not null,
+	status_id			Integer	not null,
 	status				varchar(30)	not null,
 	reimbursement_type	varchar(30)	not null,
 	date_of_transaction	date	not null,
@@ -160,14 +161,15 @@ insert into employee_permissions(employee_id, permission_id,permission_type)
 			(1,0,'standard employee'),
 			(2,0,'standard employee'),
 			(3,0,'standard employee');
-	
-insert into reimbursements(employee_id,status,reimbursement_type,date_of_transaction,amount,details,merchant,date_of_submission)
-	values	(2,'Approved','travel','2020-01-10',150,'hotel','mariot','2020-01-14'),
-			(2,'Approved','travel','2020-01-10',30,'gas','speedway','2020-01-14'),
-			(2,'Denied','travel','2020-01-10',300,'fancy restraunt','food place','2020-01-14'),
-			(1,'Approved',4,'2020-02-25',1200,'ohh new machinery','Bobs hardware','2020-02-25'),
-			(1,'New',5,'2020-02-26',3000,'worker injury compensation hospital visit','hospital','2020-02-26'),
-			(3,'New',3,'2020-02-27',140,'replace broken chair','furniture place','2020-02-28');
+			
+	-- status + status ID redundant, but kept for ORM =/
+insert into reimbursements(employee_id,status_id,status,reimbursement_type,date_of_transaction,amount,details,merchant,date_of_submission)
+	values	(2,4,'Approved','travel','2020-01-10',150,'hotel','mariot','2020-01-14'),
+			(2,4,'Approved','travel','2020-01-10',30,'gas','speedway','2020-01-14'),
+			(2,5,'Denied','travel','2020-01-10',300,'fancy restraunt','food place','2020-01-14'),
+			(1,4,'Approved',4,'2020-02-25',1200,'ohh new machinery','Bobs hardware','2020-02-25'),
+			(1,1,'New',5,'2020-02-26',3000,'worker injury compensation hospital visit','hospital','2020-02-26'),
+			(3,1,'New',3,'2020-02-27',140,'replace broken chair','furniture place','2020-02-28');
 
 
 insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_comment)
@@ -228,14 +230,14 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 	from employees
 	inner join job_titles
 	on employees.job_title_id = job_titles.job_title_id;
-*/	
-/*create view v_employee_permissions(employee_id,permission_id,permission_type)
-	as select employee_id, permissions.permission_id, permission_type
+	*/
+create view v_employee_permissions(employee_id,permission_id,permission_type)
+	as select employee_id, permissions.permission_id, employee_permissions.permission_type as permission_type
 	from permissions
 	inner join employee_permissions
 	on permissions.permission_id = employee_permissions.permission_id;
 	
-*/	
+	
 	-- view for login relevant info
 /*create view v_employee_login(employee_id,full_name,email,phone,job_title,first_name,last_name,user_name,user_password)
 	as select employee_id, 

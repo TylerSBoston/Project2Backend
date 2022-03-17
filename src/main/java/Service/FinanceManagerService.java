@@ -2,13 +2,16 @@ package Service;
 
 import java.util.LinkedList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import DAO.FinanceManagerDao;
 import POJO.Employee;
 import POJO.Reimbursement;
 
 public class FinanceManagerService {
 
-	
+	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
 	
 	public static LinkedList<Reimbursement> getPendingReimbursements()
 	{
@@ -17,6 +20,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getPendingReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -28,6 +32,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getCompletedReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -39,6 +44,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getAllReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -50,6 +56,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getEmployeeReimbursements(employee);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -61,6 +68,8 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getAllEmployees();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
+			
 			return new LinkedList<Employee>();
 		}
 		
@@ -70,6 +79,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.updateReimbursement(rUpdate);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			log.warn(e.getMessage());
 			return new Reimbursement();
 		}
 	}
