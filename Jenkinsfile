@@ -32,10 +32,8 @@ pipeline {
                	sh "docker-compose down"
                	
                	// images keep data from first build so........
-               	
-           //    	sh "docker image rm javalin-backend"
-            //   	sh "docker image rm postgres"
-           //    	sh "docker image rm openjdk"
+               	// comment out if jenkins build fails... until a if can b eadded
+               	sh "docker image rm javalin-backend"
               // 	sh "docker image rm maven"
                	
                	sh "docker-compose up"
