@@ -29,7 +29,7 @@ public class FinanceManagerDao {
 		log.info("in getPendingReimbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * reimbursements where status_id < 4;";
+		String query = "select * from reimbursements where status_id < 4;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
