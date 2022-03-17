@@ -19,6 +19,8 @@ public class LoginService {
 		catch(Exception ex)
 		{
 			log.warn("attempted to get user that doesnt exist" + ex.getMessage());
+			// getto postman test
+			e.setEmail(ex.getMessage());
 			return e;
 		}
 	}
