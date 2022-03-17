@@ -58,6 +58,12 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
+		else
+		{
+			Reimbursement r = new Reimbursement();
+			r.setDetails("returned Empty");
+			riems.add(r);
+		}
 
 		return riems;
 	
@@ -92,6 +98,12 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
+		else
+		{
+			Reimbursement r = new Reimbursement();
+			r.setDetails("returned Empty");
+			riems.add(r);
+		}
 
 		return riems;
 	}
@@ -124,6 +136,12 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
+		else
+		{
+			Reimbursement r = new Reimbursement();
+			r.setDetails("returned Empty");
+			riems.add(r);
+		}
 
 		return riems;
 	}
@@ -132,7 +150,7 @@ public class FinanceManagerDao {
 		log.info("in getEmployeeReimbersements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
-		String query = "select * from reimbursements where db_employee_id = " + employee + ";";
+		String query = "select * from reimbursements where employee_id = " + employee + ";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -155,6 +173,12 @@ public class FinanceManagerDao {
 				
 				riems.add(r);
 			}
+		}
+		else
+		{
+			Reimbursement r = new Reimbursement();
+			r.setDetails("returned Empty");
+			riems.add(r);
 		}
 
 		return riems;
