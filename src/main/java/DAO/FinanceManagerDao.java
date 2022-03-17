@@ -117,8 +117,7 @@ public class FinanceManagerDao {
 				r.setDateSubmitted(results.getString(7));
 				r.setAmount(results.getBigDecimal(8));
 				r.setDetails(results.getString(9));
-				r.setMerchant(results.getString(10));
-				
+				r.setMerchant(results.getString(10));	
 				riems.add(r);
 			}
 		}

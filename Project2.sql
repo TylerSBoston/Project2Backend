@@ -1,7 +1,7 @@
 
-create database Project2;
+--create database Project2;
 
-\c Project2;
+--\c Project2;
 
 
 
