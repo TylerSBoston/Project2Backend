@@ -29,7 +29,7 @@ pipeline {
                	echo 'deploy step'
                	sh "docker-compose down"
                	
-               	sh "docker-compose up"
+               	sh "docker-compose up -d"
             }
         }
     }
