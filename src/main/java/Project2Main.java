@@ -30,7 +30,6 @@ public class Project2Main {
 			
 		});
 		myServer.get("/RequestsAll", (ctx)-> {
-			//test
 			ctx.json(FinanceManagerService.getAllReimbursements());	
 			
 		});
