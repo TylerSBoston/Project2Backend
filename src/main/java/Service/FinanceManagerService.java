@@ -33,8 +33,11 @@ public class FinanceManagerService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			log.warn(e.getMessage());
+			e.printStackTrace();
 			return new LinkedList<Reimbursement>();
+			
 		}
+		
 		
 	}
 	public static LinkedList<Reimbursement> getAllReimbursements()
@@ -45,6 +48,7 @@ public class FinanceManagerService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			log.warn(e.getMessage());
+			e.printStackTrace();
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -57,6 +61,7 @@ public class FinanceManagerService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			log.warn(e.getMessage());
+			e.printStackTrace();
 			return new LinkedList<Reimbursement>();
 		}
 		
@@ -69,7 +74,7 @@ public class FinanceManagerService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			log.warn(e.getMessage());
-			
+			e.printStackTrace();
 			return new LinkedList<Employee>();
 		}
 		
@@ -80,6 +85,7 @@ public class FinanceManagerService {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			log.warn(e.getMessage());
+			e.printStackTrace();
 			return new Reimbursement();
 		}
 	}
