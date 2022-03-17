@@ -30,7 +30,7 @@ pipeline {
                	sh "docker-compose down"
                	// see if this effects docker-compose, doubt it
                	sleep(time:2, unit:"SECONDS")
-               	sh "docker-compose up -d"
+               	sh "docker-compose up -d -t 25999999"
             }
         }
     }
