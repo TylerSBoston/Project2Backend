@@ -20,8 +20,14 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getPendingReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			//getto message transfer	
+			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
+			Reimbursement broke = new Reimbursement();
+			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
+			broken.add(broke);
 			log.warn(e.getMessage());
-			return new LinkedList<Reimbursement>();
+			e.printStackTrace();
+			return broken;
 		}
 		
 	}
@@ -32,9 +38,14 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getCompletedReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			//getto message transfer	
+			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
+			Reimbursement broke = new Reimbursement();
+			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
+			broken.add(broke);
 			log.warn(e.getMessage());
 			e.printStackTrace();
-			return new LinkedList<Reimbursement>();
+			return broken;
 			
 		}
 		
@@ -47,9 +58,14 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getAllReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			//getto message transfer	
+			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
+			Reimbursement broke = new Reimbursement();
+			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
+			broken.add(broke);
 			log.warn(e.getMessage());
 			e.printStackTrace();
-			return new LinkedList<Reimbursement>();
+			return broken;
 		}
 		
 	}
@@ -60,9 +76,14 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getEmployeeReimbursements(employee);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			//getto message transfer	
+			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
+			Reimbursement broke = new Reimbursement();
+			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
+			broken.add(broke);
 			log.warn(e.getMessage());
 			e.printStackTrace();
-			return new LinkedList<Reimbursement>();
+			return broken;
 		}
 		
 	}
