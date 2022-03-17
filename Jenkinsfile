@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
-
-    
-        options {
-        timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
-    }
+	
+    // medium has 2 cores and still responds during delayed/timedout sessions
+   //     options {
+     //   timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
+   // }
     
         stages {
         stage('Clone') {

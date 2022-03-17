@@ -14,7 +14,7 @@ import java.util.*;
 
 import org.apache.logging.log4j.*;
 public class FinanceManagerDao {
-//	private final static Logger log = LogManager.getLogger(FinanceManagerDao.class);
+	private final static Logger log = LogManager.getLogger(FinanceManagerDao.class);
 	
 	static {
 		try {
@@ -26,7 +26,7 @@ public class FinanceManagerDao {
 	
 	public static LinkedList<Reimbursement> getPendingReimbursements() throws Exception
 	{
-//		log.info("in getPendingReimbursements Dao Layer");
+		log.info("in getPendingReimbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
 		String query = "select * from reimbursements where status_id < 4;";
@@ -62,7 +62,7 @@ public class FinanceManagerDao {
 	}
 
 	public static LinkedList<Reimbursement> getCompletedReimbursements() throws SQLException {
-	//	log.info("in getPendingReinbursements Dao Layer");
+		log.info("in getPendingReinbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
 		String query = "select * from reimbursements where status_id > 3;";
@@ -95,7 +95,7 @@ public class FinanceManagerDao {
 	}
 
 	public static LinkedList<Reimbursement> getAllReimbursements() throws SQLException {
-//		log.info("in getAllReinbursements Dao Layer");
+		log.info("in getAllReinbursements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
 		String query = "select * from reimbursements;";
@@ -126,7 +126,7 @@ public class FinanceManagerDao {
 	}
 
 	public static LinkedList<Reimbursement> getEmployeeReimbursements(int employee) throws SQLException {
-//		log.info("in getEmployeeReimbersements Dao Layer");
+		log.info("in getEmployeeReimbersements Dao Layer");
 		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
 	
 		String query = "select * from reimbursements where employee_id = " + employee + ";";
@@ -159,7 +159,7 @@ public class FinanceManagerDao {
 	}
 
 	public static LinkedList<Employee> getAllEmployees() throws SQLException {
-//		log.info("in getAllEmployees Dao Layer");
+		log.info("in getAllEmployees Dao Layer");
 		LinkedList<Employee> employees = new LinkedList<Employee>();	
 	
 		String query = "select * from v_employees;";
@@ -193,7 +193,7 @@ public class FinanceManagerDao {
 	public static LinkedList<Role> getRoles(int employeeID) throws SQLException
 	{
 		
-//		log.info("in getRoles Dao Layer");
+		log.info("in getRoles Dao Layer");
 		LinkedList<Role> roles = new LinkedList<Role>();	
 	
 		String query = "select permission_id,permission_type from v_employee_permissions where employee_id= "+ employeeID+";";
@@ -222,7 +222,7 @@ public class FinanceManagerDao {
 	
 	
 	public static Reimbursement updateReimbursement(Reimbursement rUpdate) throws SQLException  {
-//		log.info("in getPendingReinbursements Dao Layer");
+		log.info("in getPendingReinbursements Dao Layer");
 		Reimbursement r = rUpdate;	
 	
 		String query =  "call approve_request(?,?,?);";
