@@ -31,8 +31,9 @@ public class DBConnection {
 			log.info("Estabilishing DB connection");
 			conn = DriverManager.getConnection(connectionString,userName,password);
 		} catch (SQLException e) {
+			// temporary remove backup connection
 			//
-			try
+	/*		try
 			{
 				// Dimitri, place your DB password and connection string here so the backend will also work for on your side
 				password = "Samara-13";
@@ -40,9 +41,10 @@ public class DBConnection {
 				conn = DriverManager.getConnection(connectionString,userName,password);
 			}
 			catch(SQLException e2)
-			{
-				log.error("Connection Failed " + e2.getMessage());
-			}
+			{ */
+				log.error("Connection Failed " + e.getMessage());
+				e.printStackTrace();
+		//	}
 		}
 	}
 	
