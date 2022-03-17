@@ -8,8 +8,6 @@ services:
       - POSTGRES_PASSWORD=mysecretpassword
     volumes:
       - ./Project2.sql:/docker-entrypoint-initdb.d/create_tables.sql
-    networks: 
-      - net
   javalin-backend-service:
     image: javalin-backend
     build: .
@@ -17,10 +15,8 @@ services:
       - 9999:4040
     depends_on:
       - my-postgres
+      - project_2_backend-my-postgres-1
     links:
       - my-postgres
-    networks:
-      - net
 
-networks:
-  net: {}
+
