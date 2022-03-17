@@ -1,7 +1,8 @@
 
--- creates DB if doesnt exists
-select 'Create Database Project2'
-where not exists (select from pg_database where datname = 'Project2');
+/*create database Project2;
+
+\c Project2;
+*/
 
 
 --drops procedures

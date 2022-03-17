@@ -9,12 +9,19 @@ public class DBConnection {
 	private static String connectionString = "";
 	private static String userName = "postgres";
 	private static String password = "";
+	
 	private static Connection conn = null;
 	private final static Logger log = LogManager.getLogger(DBConnection.class);
+	private static String localConnectionString = "jdbc:postgresql://localhost:5432/Project1";
+	private static String ec2ConnectionString = "jdbc:postgresql:ip-172-31-13-88.us-east-2.compute.internal:8888/Project2";
 	
+	private static String localPassword = "1234";
+	private static String ec2Password = "mysecretpassword";
 	static {
-		connectionString = "jdbc:postgresql:ip-172-31-13-88.us-east-2.compute.internal:8888/Project2";
-		password = "1234";
+		
+		// switch from local to ec2 when done local testing
+		connectionString = localConnectionString;
+		password = localPassword;
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch(Exception e) {
