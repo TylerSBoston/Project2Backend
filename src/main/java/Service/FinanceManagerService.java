@@ -11,7 +11,7 @@ import POJO.Reimbursement;
 
 public class FinanceManagerService {
 
-//	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
+	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
 	
 	public static LinkedList<Reimbursement> getPendingReimbursements()
 	{
@@ -20,14 +20,9 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getPendingReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//getto message transfer	
-			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
-			Reimbursement broke = new Reimbursement();
-			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
-			broken.add(broke);
-	//		log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
-			return broken;
+			return new LinkedList<Reimbursement>();
 		}
 		
 	}
@@ -38,14 +33,9 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getCompletedReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//getto message transfer	
-			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
-			Reimbursement broke = new Reimbursement();
-			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
-			broken.add(broke);
-		//	log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
-			return broken;
+			return new LinkedList<Reimbursement>();
 			
 		}
 		
@@ -58,14 +48,9 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getAllReimbursements();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//getto message transfer	
-			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
-			Reimbursement broke = new Reimbursement();
-			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
-			broken.add(broke);
-		//	log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
-			return broken;
+			return new LinkedList<Reimbursement>();
 		}
 		
 	}
@@ -76,14 +61,9 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getEmployeeReimbursements(employee);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//getto message transfer	
-			LinkedList<Reimbursement> broken = new LinkedList<Reimbursement>();
-			Reimbursement broke = new Reimbursement();
-			broke.setDetails(e.getMessage() +" " + e.getStackTrace());
-			broken.add(broke);
-		//	log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
-			return broken;
+			return new LinkedList<Reimbursement>();
 		}
 		
 	}
@@ -94,7 +74,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.getAllEmployees();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-	//		log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
 			return new LinkedList<Employee>();
 		}
@@ -105,7 +85,7 @@ public class FinanceManagerService {
 			return FinanceManagerDao.updateReimbursement(rUpdate);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-	//		log.warn(e.getMessage());
+			log.warn(e.getMessage());
 			e.printStackTrace();
 			return new Reimbursement();
 		}

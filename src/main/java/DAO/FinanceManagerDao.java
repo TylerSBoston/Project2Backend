@@ -52,21 +52,10 @@ public class FinanceManagerDao {
 				r.setMerchant(results.getString(10));
 				
 				
-				
-				
-				
 				riems.add(r);
 			}
 		}
-		else
-		{
-			Reimbursement r = new Reimbursement();
-			r.setDetails("returned Empty");
-			riems.add(r);
-		}
-		Reimbursement extra = new Reimbursement();
-		extra.setDetails("extra");
-		riems.add(extra);
+
 		return riems;
 	
 	
@@ -100,12 +89,7 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
-		else
-		{
-			Reimbursement r = new Reimbursement();
-			r.setDetails("returned Empty");
-			riems.add(r);
-		}
+
 
 		return riems;
 	}
@@ -138,15 +122,7 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
-		else
-		{
-			Reimbursement r = new Reimbursement();
-			r.setDetails("returned Empty");
-			riems.add(r);
-		}
-		Reimbursement extra = new Reimbursement();
-		extra.setDetails("extra");
-		riems.add(extra);
+
 		return riems;
 	}
 
@@ -178,12 +154,7 @@ public class FinanceManagerDao {
 				riems.add(r);
 			}
 		}
-		else
-		{
-			Reimbursement r = new Reimbursement();
-			r.setDetails("returned Empty");
-			riems.add(r);
-		}
+
 
 		return riems;
 	}
