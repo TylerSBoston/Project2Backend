@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
- //   tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-     //   maven "/usr/share/maven"
-  //  }
+
     
         options {
         timeout(time: 4, unit: 'MINUTES')   // timeout on whole pipeline job
