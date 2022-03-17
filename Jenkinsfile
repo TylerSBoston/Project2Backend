@@ -4,7 +4,7 @@ pipeline {
 
     
         options {
-        timeout(time: 4, unit: 'MINUTES')   // timeout on whole pipeline job
+        timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
     }
     
         stages {
@@ -27,7 +27,15 @@ pipeline {
         stage('Stage') {
             steps {
                	echo 'deploy step'
+               	
+               	
                	sh "docker-compose down"
+               	
+               	// images keep data from first build so........
+               	sh "docker image rm javalin-backend"
+               	sh "docker image rm postgres"
+               	sh "docker image rm openjdk"
+               	sh "docker image rm maven"
                	
                	sh "docker-compose up"
             }
