@@ -1,7 +1,7 @@
 def buildNumber = env.BUILD_NUMBER as int
 if (buildNumber > 1) milestone(buildNumber - 1)
 milestone(buildNumber)
-
+// stops previous instance if its built but forever looping - code above
 
 pipeline {
     agent any
@@ -11,23 +11,14 @@ pipeline {
    //     options {
      //   timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
    // }
-    	// right spot?
+
 
     	
         stages {
-        stage('abort') {
-
-            steps {
-                // Get some code from a GitHub repository
-                   
-			
-			
-
-                echo 'abort previous builds'
-            }
-        }
-        
-        
+   	
+            
+   	
+      
         
         stage('Clone') {
             steps {
@@ -52,8 +43,7 @@ pipeline {
                	
                	sh "docker-compose down"
                	
-               	// images keep data from first build so........
-               	// comment out if jenkins build fails... until a if can b eadded
+               // removes previous image, as jenkins keeps reusing a previous build instead of a new one otherwise.
                	sh "docker image rm -f javalin-backend"
               // 	sh "docker image rm maven"
                	
