@@ -6,7 +6,11 @@ pipeline {
    //     options {
      //   timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
    // }
-    
+    	// right spot?
+    	def buildNumber = env.BUILD_NUMBER as int
+		if (buildNumber > 1) milestone(buildNumber - 1)
+		milestone(buildNumber)
+    	
         stages {
         stage('Clone') {
             steps {
