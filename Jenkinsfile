@@ -54,7 +54,7 @@ pipeline {
                	
                	// images keep data from first build so........
                	// comment out if jenkins build fails... until a if can b eadded
-               	sh "docker image rm javalin-backend"
+               	sh "docker image rm -f javalin-backend"
               // 	sh "docker image rm maven"
                	
                	sh "docker-compose up"
