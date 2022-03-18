@@ -11,11 +11,12 @@ pipeline {
     	
         stages {
         stage('abort') {
+    		def buildNumber = env.BUILD_NUMBER as int
+			if (buildNumber > 1) milestone(buildNumber - 1)
+			milestone(buildNumber)
             steps {
                 // Get some code from a GitHub repository
-                   	def buildNumber = env.BUILD_NUMBER as int
-					if (buildNumber > 1) milestone(buildNumber - 1)
-					milestone(buildNumber)
+                   
 			
 			
 
