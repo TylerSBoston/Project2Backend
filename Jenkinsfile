@@ -13,11 +13,11 @@ pipeline {
         stage('abort') {
             steps {
                 // Get some code from a GitHub repository
-             //      	def buildNumber = env.BUILD_NUMBER as int
-			//		if (buildNumber > 1) milestone(buildNumber - 1)
-			//		milestone(buildNumber)
+                   	def buildNumber = env.BUILD_NUMBER as int
+					if (buildNumber > 1) milestone(buildNumber - 1)
+					milestone(buildNumber)
 			
-			sh "docker-compose down"
+			
 
                 echo 'abort previous builds'
             }
@@ -46,7 +46,7 @@ pipeline {
                	echo 'deploy step'
                	
                	
-               	
+               	sh "docker-compose down"
                	
                	// images keep data from first build so........
                	// comment out if jenkins build fails... until a if can b eadded
