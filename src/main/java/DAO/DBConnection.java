@@ -20,8 +20,8 @@ public class DBConnection {
 	static {
 		
 		// switch from local to ec2 when done local testing
-		connectionString = localConnectionString;
-		password = localPassword;
+		connectionString = ec2ConnectionString;
+		password = ec2Password;
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch(Exception e) {
