@@ -1,10 +1,6 @@
-package POJO;
+package Entities;
 
-import java.util.LinkedList;
-
-import Entities.RoleEntity;
-
-public class Employee {
+public class EmployeeEntity {
 	String firstName = "";
 	String lastName = "";
 	int employeeID = 0;
@@ -12,6 +8,7 @@ public class Employee {
 
 	String phone = "";
 	String jobTitle = "";
+	// permissions renamed roles so it doesn't match names with other stuff as much
 	
 	
 	// leave empty unless except for login
@@ -19,16 +16,7 @@ public class Employee {
 	String password = "";
 	
 	
-	LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();
-	
-	
 
-	public LinkedList<RoleEntity> getRoles() {
-		return roles;
-	}
-	public void setRoles(LinkedList<RoleEntity> roles) {
-		this.roles = roles;
-	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -77,6 +65,4 @@ public class Employee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-
 }

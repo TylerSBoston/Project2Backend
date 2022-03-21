@@ -1,8 +1,8 @@
-package POJO;
+package Entities;
 
 import java.math.BigDecimal;
 
-public class Reimbursement {
+public class ReimbursementEntity {
 	int reimbursementID = 0;
 	int employeeID = 0;
 	int statusID = 0;
@@ -14,8 +14,6 @@ public class Reimbursement {
 	String details = "";
 	String dateOfTransaction = "";
 	String dateSubmitted = "";
-	
-	// still needs value for receipt
 	
 	
 	
@@ -79,5 +77,4 @@ public class Reimbursement {
 	public void setStatusID(int statusID) {
 		this.statusID = statusID;
 	}
-	
 }

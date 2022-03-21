@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DAO.LoginDao;
-import POJO.Role;
+import Entities.RoleEntity;
 
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -26,10 +26,10 @@ public class Testing {
 	{
 		try(MockedStatic<LoginDao> MockLogin = Mockito.mockStatic(LoginDao.class))
 		{
-			Role testRole = new Role();
+			RoleEntity testRole = new RoleEntity();
 			testRole.setRoleID(1);
 			testRole.setRole("reimbursment");
-			ArrayList<Role> testRoles = new ArrayList<Role>();
+			ArrayList<RoleEntity> testRoles = new ArrayList<RoleEntity>();
 			testRoles.add(testRole);
 			
 			MockLogin.when(()-> {LoginDao.getRoles(4);}).thenReturn(testRoles);

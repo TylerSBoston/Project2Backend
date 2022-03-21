@@ -4,9 +4,9 @@ import org.postgresql.util.*;
 
 
 import DAO.DBConnection;
+import Entities.RoleEntity;
 import POJO.Employee;
 import POJO.Reimbursement;
-import POJO.Role;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -190,11 +190,11 @@ public class FinanceManagerDao {
 	
 	
 	// this can be put in a shared class, but class assignment....
-	public static LinkedList<Role> getRoles(int employeeID) throws SQLException
+	public static LinkedList<RoleEntity> getRoles(int employeeID) throws SQLException
 	{
 		
 		log.info("in getRoles Dao Layer");
-		LinkedList<Role> roles = new LinkedList<Role>();	
+		LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();	
 	
 		String query = "select permission_id,permission_type from v_employee_permissions where employee_id= "+ employeeID+";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
@@ -205,7 +205,7 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Role r = new Role();
+				RoleEntity r = new RoleEntity();
 				r.setRoleID(results.getInt(1));
 				r.setRole(results.getString(2));
 				roles.add(r);

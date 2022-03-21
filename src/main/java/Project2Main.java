@@ -21,42 +21,42 @@ public class Project2Main {
 		myServer.get("/hi", ctx -> ctx.result("Hello"));
 		
 		
-		myServer.get("/RequestsPending", (ctx)-> {
+		myServer.get("/requests-pending", (ctx)-> {
 			ctx.json(FinanceManagerService.getPendingReimbursements());	
 		});
 		
-		myServer.get("/RequestsResolved", (ctx)-> {
+		myServer.get("/requests-resolved", (ctx)-> {
 			ctx.json(FinanceManagerService.getCompletedReimbursements());	
 			
 		});
-		myServer.get("/RequestsAll", (ctx)-> {
+		myServer.get("/requests-all", (ctx)-> {
 			ctx.json(FinanceManagerService.getAllReimbursements());	
 			
 		});
-		myServer.get("/RequestsEmployee/{bid}", (ctx)-> {
+		myServer.get("/requests-employee/{bid}", (ctx)-> {
 			String employeeID = ctx.pathParam("bid");
 			ctx.json(FinanceManagerService.getEmployeeReimbursements(Integer.parseInt(employeeID)));
 			
 		});
 		
-		myServer.get("/AllEmployeesManagerView", (ctx)-> {
+		myServer.get("/all-employees-manager-view", (ctx)-> {
 			ctx.json(FinanceManagerService.getAllEmployees());
 			
 		});
 		
 		// what is the practical difference between post/put my post both inserts and updates a table.
-		myServer.post("/UpdateRequest", (ctx)->{
+		myServer.post("/update-request", (ctx)->{
 			Reimbursement rUpdate = ctx.bodyAsClass(Reimbursement.class);
 			ctx.json(FinanceManagerService.updateReimbursement(rUpdate));
 		});
 		
 
-		myServer.post("/Login", (ctx)->{
+		myServer.post("/login", (ctx)->{
 			Employee e = ctx.bodyAsClass(Employee.class);
 			ctx.json(LoginService.login(e));
 		});
 		
-		myServer.get("/Roles/{bid}", (ctx)->{
+		myServer.get("/roles/{bid}", (ctx)->{
 			String r = ctx.pathParam("bid");
 			ctx.json(LoginService.roles(r));
 		});
@@ -67,12 +67,12 @@ public class Project2Main {
 		
 		
 		// all employees
-		myServer.get("/AllEmployees", (ctx)->{
+		myServer.get("/all-employees", (ctx)->{
 		ctx.json(employeeService.fetchAllEmployees());
 		});
 		
 		//fetch employee
-		myServer.get("/GetEmployee/{employee_id}", (ctx)->{
+		myServer.get("/get-employee/{employee_id}", (ctx)->{
 			//retrieve the path param value,specify path param key
 			String empId = ctx.pathParam("employee_id");
 			//tell service layer to fetch employee
@@ -81,7 +81,7 @@ public class Project2Main {
 			ctx.json(fetchedEmployee);
 		});
 		//delete an employee
-		myServer.delete("/DeleteEmployees/{employee_id}", (ctx)->{
+		myServer.delete("/delete-employees/{employee_id}", (ctx)->{
 			//retrieve the path param value,specify path param key
 			String empId = ctx.pathParam("employee_id");
 			//tell service layer to delete
@@ -90,7 +90,7 @@ public class Project2Main {
 			ctx.json(deletedEmp);});
 		
 		//add a employee
-		myServer.post("/AddEmployees", (ctx)->{
+		myServer.post("/add-employees", (ctx)->{
 			//converts json to pojo
 		Employee newEmp = ctx.bodyAsClass(Employee.class);
 		Employee returnedEmp = employeeService.addEmployee(newEmp);
@@ -99,7 +99,7 @@ public class Project2Main {
 		
 		//update a 
 		
-		myServer.put("/UpdateEmployees", (ctx)->{
+		myServer.put("/update-employees", (ctx)->{
 			
 		Employee newUpdate = ctx.bodyAsClass(Employee.class);
 		Employee returnedUpdate = employeeService.updateEmployee(newUpdate);

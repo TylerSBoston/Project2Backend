@@ -97,8 +97,8 @@ Create Table reimbursements(
 	status_id			Integer	not null,
 	status				varchar(30)	not null,
 	reimbursement_type	varchar(30)	not null,
-	date_of_transaction	date	not null,
-	date_of_submission	date	not null,
+	date_of_transaction	varchar(30)	not null,
+	date_of_submission	varchar(30)	not null,
 	amount				numeric	not null,
 	details				varchar(200),
 	merchant			varchar(30),
@@ -112,7 +112,7 @@ Create Table reimbursement_updates(
 	reimbursement_id	Integer not null,
 	status				varchar(30) not null,
 	update_comment		varchar(200),
-	date_of_update		date	not null,
+	date_of_update		varchar(30)	not null,
 	primary key(update_id),
 	Constraint fk_update_reimbursement Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
 );

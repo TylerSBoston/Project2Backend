@@ -11,8 +11,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import Entities.RoleEntity;
 import POJO.Employee;
-import POJO.Role;
 
 public class LoginDao {
 	
@@ -62,7 +62,7 @@ public class LoginDao {
 	
 	
 	// this can be put in a shared class, but class assignment....
-	public static ArrayList<Role> getRoles(int employeeID) throws SQLException
+	public static ArrayList< RoleEntity> getRoles(int employeeID) throws SQLException
 	{
 		
 		log.info("in getRoles Dao Layer");
@@ -70,7 +70,7 @@ public class LoginDao {
 		ResultSet results = null;
 		
 
-		ArrayList<Role> roles = new ArrayList<Role>();	
+		ArrayList< RoleEntity> roles = new ArrayList< RoleEntity>();	
 		
 		// the actual main query
 		String query = "select permission_id,permission_type from v_employee_permissions where employee_id= "+ employeeID+";";
@@ -81,7 +81,7 @@ public class LoginDao {
 		{
 			while(results.next())
 			{
-				Role r = new Role();
+				RoleEntity r = new  RoleEntity();
 				r.setRoleID(results.getInt(1));
 				r.setRole(results.getString(2));
 				roles.add(r);
