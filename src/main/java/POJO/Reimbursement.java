@@ -2,6 +2,9 @@ package POJO;
 
 import java.math.BigDecimal;
 
+import Entities.ReceiptEntity;
+import Entities.ReimbursementEntity;
+
 public class Reimbursement {
 	int reimbursementID = 0;
 	int employeeID = 0;
@@ -15,10 +18,43 @@ public class Reimbursement {
 	String dateOfTransaction = "";
 	String dateSubmitted = "";
 	
+	// used by manager, not employee view
+	String Employee = "";
+	
+
+
 	// still needs value for receipt
+	public Reimbursement()
+	{
+		
+	}
+	
+	public Reimbursement(ReimbursementEntity in)
+	{
+		reimbursementID = in.getReimbursementID();
+		employeeID = in.getEmployeeID();
+		statusID = in.getStatusID();
+		status = in.getStatus();
+		expenseType=in.getExpenseType();
+		merchant = in.getMerchant();
+		amount = in.getAmount();
+		details = in.getDetails();
+		dateOfTransaction = in.getDateOfTransaction();
+		dateSubmitted = in.getDateSubmitted();
+		
+	}
+	public Reimbursement(ReimbursementEntity in, ReceiptEntity reciept)
+	{
+		this(in);	
+	}
 	
 	
-	
+	public String getEmployee() {
+		return Employee;
+	}
+	public void setEmployee(String employee) {
+		Employee = employee;
+	}
 	public int getReimbursementID() {
 		return reimbursementID;
 	}

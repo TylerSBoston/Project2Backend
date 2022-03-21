@@ -2,6 +2,7 @@ package POJO;
 
 import java.util.LinkedList;
 
+import Entities.EmployeeEntity;
 import Entities.RoleEntity;
 
 public class Employee {
@@ -14,12 +15,34 @@ public class Employee {
 	String jobTitle = "";
 	
 	
+	
 	// leave empty unless except for login
 	String userName = "";
 	String password = "";
 	
 	
 	LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();
+	
+	public Employee()
+	{
+		
+	}
+	public Employee(EmployeeEntity employee)
+	{
+		firstName = employee.getFirstName();
+		lastName = employee.getLastName();
+		employeeID = employee.getEmployeeID();
+		email = employee.getEmail();
+		phone = employee.getPhone();
+		jobTitle = employee.getJobTitle();
+		//not adding ones for username/password
+		
+	}
+	public Employee(EmployeeEntity employee,RoleEntity Roles)
+	{
+		this(employee);
+		
+	}
 	
 	
 

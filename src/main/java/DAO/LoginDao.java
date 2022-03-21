@@ -31,30 +31,20 @@ public class LoginDao {
 		
 		log.info("in getAllEmployees Dao Layer");
 		Employee employee = new Employee();	
-	
-		String query = "call employee_login(?,?,?,?,?,?,?,?,?);";
-		PreparedStatement st =  DBConnection.getConnection().prepareCall(query);
-		st.setString(1, e.getUserName());
-		st.setString(2, e.getPassword());
-		st.setString(3, "");
-		st.setString(4, "");
-		st.setString(5, "");
-		st.setString(6, "");
-		st.setString(7, "");
-		st.setString(8, "");
-		st.setInt(9, 0);
+		// no sql insert check until hibernate =/
+		String query = "select * from employees where user_name = '" + e.getUserName() + "' and user_password = '" + e.getPassword() + "';";
+		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
 		results = st.executeQuery();
 		if(results.next())
 		{
-			
-			employee.setFirstName(results.getString(1));
-			employee.setLastName(results.getString(2));
-			employee.setJobTitle(results.getString(4));
+			employee.setEmployeeID(results.getInt(1));
+			employee.setJobTitle(results.getString(2));
+			employee.setFirstName(results.getString(3));
+			employee.setLastName(results.getString(4));
 			employee.setEmail(results.getString(5));
 			employee.setPhone(results.getString(6));
-			employee.setEmployeeID(results.getInt(7));
 		}
 
 		return employee;
@@ -62,7 +52,7 @@ public class LoginDao {
 	
 	
 	// this can be put in a shared class, but class assignment....
-	public static ArrayList< RoleEntity> getRoles(int employeeID) throws SQLException
+	public static LinkedList< RoleEntity> getRoles(int employeeID) throws SQLException
 	{
 		
 		log.info("in getRoles Dao Layer");
@@ -70,10 +60,10 @@ public class LoginDao {
 		ResultSet results = null;
 		
 
-		ArrayList< RoleEntity> roles = new ArrayList< RoleEntity>();	
+		LinkedList< RoleEntity> roles = new LinkedList< RoleEntity>();	
 		
 		// the actual main query
-		String query = "select permission_id,permission_type from v_employee_permissions where employee_id= "+ employeeID+";";
+		String query = "select permission_id,permission_type from employee_permissions where employee_id= "+ employeeID+";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		
 		results = st.executeQuery();

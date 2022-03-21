@@ -4,6 +4,8 @@ import org.postgresql.util.*;
 
 
 import DAO.DBConnection;
+import Entities.EmployeeEntity;
+import Entities.ReimbursementEntity;
 import Entities.RoleEntity;
 import POJO.Employee;
 import POJO.Reimbursement;
@@ -24,10 +26,10 @@ public class FinanceManagerDao {
 		}
 	}
 	
-	public static LinkedList<Reimbursement> getPendingReimbursements() throws Exception
+	public static LinkedList<ReimbursementEntity> getPendingReimbursements() throws Exception
 	{
 		log.info("in getPendingReimbursements Dao Layer");
-		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
+		LinkedList<ReimbursementEntity> riems = new LinkedList<ReimbursementEntity>();	
 	
 		String query = "select * from reimbursements where status_id < 4;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
@@ -38,7 +40,7 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Reimbursement r = new Reimbursement();
+				ReimbursementEntity r = new ReimbursementEntity();
 				
 				r.setReimbursementID(results.getInt(1));
 				r.setEmployeeID(results.getInt(2));
@@ -61,9 +63,9 @@ public class FinanceManagerDao {
 	
 	}
 
-	public static LinkedList<Reimbursement> getCompletedReimbursements() throws SQLException {
+	public static LinkedList<ReimbursementEntity> getCompletedReimbursements() throws SQLException {
 		log.info("in getPendingReinbursements Dao Layer");
-		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
+		LinkedList<ReimbursementEntity> riems = new LinkedList<ReimbursementEntity>();	
 	
 		String query = "select * from reimbursements where status_id > 3;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
@@ -74,7 +76,7 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Reimbursement r = new Reimbursement();
+				ReimbursementEntity r = new ReimbursementEntity();
 				r.setReimbursementID(results.getInt(1));
 				r.setEmployeeID(results.getInt(2));
 				r.setStatusID(results.getInt(3));
@@ -94,9 +96,9 @@ public class FinanceManagerDao {
 		return riems;
 	}
 
-	public static LinkedList<Reimbursement> getAllReimbursements() throws SQLException {
+	public static LinkedList<ReimbursementEntity> getAllReimbursements() throws SQLException {
 		log.info("in getAllReinbursements Dao Layer");
-		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
+		LinkedList<ReimbursementEntity> riems = new LinkedList<ReimbursementEntity>();	
 	
 		String query = "select * from reimbursements;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
@@ -107,7 +109,7 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Reimbursement r = new Reimbursement();
+				ReimbursementEntity r = new ReimbursementEntity();
 				r.setReimbursementID(results.getInt(1));
 				r.setEmployeeID(results.getInt(2));
 				r.setStatusID(results.getInt(3));
@@ -125,9 +127,9 @@ public class FinanceManagerDao {
 		return riems;
 	}
 
-	public static LinkedList<Reimbursement> getEmployeeReimbursements(int employee) throws SQLException {
+	public static LinkedList<ReimbursementEntity> getEmployeeReimbursements(int employee) throws SQLException {
 		log.info("in getEmployeeReimbersements Dao Layer");
-		LinkedList<Reimbursement> riems = new LinkedList<Reimbursement>();	
+		LinkedList<ReimbursementEntity> riems = new LinkedList<ReimbursementEntity>();	
 	
 		String query = "select * from reimbursements where employee_id = " + employee + ";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
@@ -138,7 +140,7 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Reimbursement r = new Reimbursement();
+				ReimbursementEntity r = new ReimbursementEntity();
 				r.setReimbursementID(results.getInt(1));
 				r.setEmployeeID(results.getInt(2));
 				r.setStatusID(results.getInt(3));
@@ -158,11 +160,11 @@ public class FinanceManagerDao {
 		return riems;
 	}
 
-	public static LinkedList<Employee> getAllEmployees() throws SQLException {
+	public static LinkedList<EmployeeEntity> getAllEmployees() throws SQLException {
 		log.info("in getAllEmployees Dao Layer");
-		LinkedList<Employee> employees = new LinkedList<Employee>();	
+		LinkedList<EmployeeEntity> employees = new LinkedList<EmployeeEntity>();	
 	
-		String query = "select * from v_employees;";
+		String query = "select * from employees;";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -171,11 +173,13 @@ public class FinanceManagerDao {
 		{
 			while(results.next())
 			{
-				Employee e = new Employee();
+				EmployeeEntity e = new EmployeeEntity();
 				e.setEmployeeID(results.getInt(1));
-				e.setEmail(results.getString(3));
-				e.setPhone(results.getString(4));
-				e.setJobTitle(results.getString(5));
+				e.setEmail(results.getString(5));
+				e.setPhone(results.getString(6));
+				e.setJobTitle(results.getString(2));
+				e.setFirstName(results.getString(3));
+				e.setLastName(results.getString(4));
 				employees.add(e);
 				
 				// need to add select to get permissions
@@ -196,7 +200,7 @@ public class FinanceManagerDao {
 		log.info("in getRoles Dao Layer");
 		LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();	
 	
-		String query = "select permission_id,permission_type from v_employee_permissions where employee_id= "+ employeeID+";";
+		String query = "select * from emloyee_permissions where employee_id= "+ employeeID+";";
 		CallableStatement st =  DBConnection.getConnection().prepareCall(query);
 		ResultSet results = null;
 
@@ -206,8 +210,8 @@ public class FinanceManagerDao {
 			while(results.next())
 			{
 				RoleEntity r = new RoleEntity();
-				r.setRoleID(results.getInt(1));
-				r.setRole(results.getString(2));
+				r.setRoleID(results.getInt(3));
+				r.setRole(results.getString(4));
 				roles.add(r);
 
 			}

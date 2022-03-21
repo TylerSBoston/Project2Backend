@@ -16,15 +16,15 @@ Class-Path: lib/javalin-4.3.0.jar lib/jetty-server-9.4.44.v20210927.jar
  .jar lib/postgresql-42.3.3.jar lib/checker-qual-3.5.0.jar lib/slf4j-sim
  ple-2.0.0-alpha5.jar lib/slf4j-api-2.0.0-alpha5.jar lib/jackson-databin
  d-2.12.4.jar lib/jackson-annotations-2.12.4.jar lib/jackson-core-2.12.4
- .jar lib/hibernate-core-5.3.7.Final.jar lib/jboss-logging-3.3.2.Final.j
- ar lib/javax.persistence-api-2.2.jar lib/javassist-3.23.1-GA.jar lib/by
- te-buddy-1.8.17.jar lib/antlr-2.7.7.jar lib/jboss-transaction-api_1.2_s
- pec-1.1.1.Final.jar lib/jandex-2.0.5.Final.jar lib/classmate-1.3.4.jar 
- lib/javax.activation-api-1.2.0.jar lib/dom4j-2.1.1.jar lib/hibernate-co
- mmons-annotations-5.0.4.Final.jar lib/jakarta.xml.bind-api-2.3.2.jar li
- b/jakarta.activation-api-1.2.1.jar lib/jaxb-runtime-2.3.2.jar lib/txw2-
- 2.3.2.jar lib/istack-commons-runtime-3.0.8.jar lib/stax-ex-1.8.1.jar li
- b/FastInfoset-1.2.16.jar
+ .jar lib/hibernate-core-5.4.24.Final.jar lib/jboss-logging-3.4.1.Final.
+ jar lib/javax.persistence-api-2.2.jar lib/javassist-3.27.0-GA.jar lib/b
+ yte-buddy-1.10.17.jar lib/antlr-2.7.7.jar lib/jboss-transaction-api_1.2
+ _spec-1.1.1.Final.jar lib/jandex-2.1.3.Final.jar lib/classmate-1.5.1.ja
+ r lib/javax.activation-api-1.2.0.jar lib/dom4j-2.1.3.jar lib/hibernate-
+ commons-annotations-5.1.2.Final.jar lib/jaxb-api-2.3.1.jar lib/jakarta.
+ xml.bind-api-2.3.2.jar lib/jakarta.activation-api-1.2.1.jar lib/jaxb-ru
+ ntime-2.3.2.jar lib/txw2-2.3.2.jar lib/istack-commons-runtime-3.0.8.jar
+  lib/stax-ex-1.8.1.jar lib/FastInfoset-1.2.16.jar
 Main-Class: Project2Main
 Created-By: Maven Integration for Eclipse
 

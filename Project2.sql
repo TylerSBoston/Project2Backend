@@ -231,13 +231,13 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 	inner join job_titles
 	on employees.job_title_id = job_titles.job_title_id;
 	*/
-create view v_employee_permissions(employee_id,permission_id,permission_type)
+/*create view v_employee_permissions(employee_id,permission_id,permission_type)
 	as select employee_id, permissions.permission_id, employee_permissions.permission_type as permission_type
 	from permissions
 	inner join employee_permissions
 	on permissions.permission_id = employee_permissions.permission_id;
 	
-	
+*/	
 	-- view for login relevant info
 /*create view v_employee_login(employee_id,full_name,email,phone,job_title,first_name,last_name,user_name,user_password)
 	as select employee_id, 

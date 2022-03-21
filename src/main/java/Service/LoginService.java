@@ -12,6 +12,7 @@ public class LoginService {
 		// TODO Auto-generated method stub
 		try {
 			Employee loggedIn = LoginDao.login(e);
+			loggedIn.setRoles(LoginDao.getRoles(loggedIn.getEmployeeID()));
 			
 			
 			return loggedIn;
