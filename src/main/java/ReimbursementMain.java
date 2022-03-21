@@ -14,7 +14,9 @@ import java.util.List;
 
 public class ReimbursementMain {
 
-	public static void main(String[] args) {
+	
+	// kept as lookup
+/*	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
@@ -145,7 +147,7 @@ public class ReimbursementMain {
 			HibernateUtil.shutdown();
 		}
 
-	}
+	} */
 }
 
 	

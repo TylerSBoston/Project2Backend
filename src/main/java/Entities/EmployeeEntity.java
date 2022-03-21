@@ -1,19 +1,37 @@
 package Entities;
 
-public class EmployeeEntity {
-	String firstName = "";
-	String lastName = "";
-	int employeeID = 0;
-	String email = "";
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 
-	String phone = "";
-	String jobTitle = "";
+
+
+@Entity
+@Table(name="reimbursements")
+public class EmployeeEntity {
+	@Column(name="first_name")
+	private String firstName = "";
+	@Column(name="last_name")
+	private String lastName = "";
+	@Column(name="employee_id")
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private int employeeID = 0;
+	@Column(name="email")
+	private String email = "";
+	@Column(name="phone")
+	private String phone = "";
+	@Column(name="job_title")
+	private String jobTitle = "";
 	// permissions renamed roles so it doesn't match names with other stuff as much
 	
 	
 	// leave empty unless except for login
-	String userName = "";
-	String password = "";
+	@Column(name="user_name")
+	private String userName = "";
+	@Column(name="user_password")
+	private String password = "";
 	
 	
 

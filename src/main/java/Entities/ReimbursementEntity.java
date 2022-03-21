@@ -15,78 +15,74 @@ import javax.persistence.Table;
 @Table(name="reimbursements")
 public class ReimbursementEntity {
 	@Id
-	@Column
+	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int reimbursement_id = 0;
+	private int reimbursementID = 0;
 	@Column(name="employee_id")
-	private int employeeId = 0;
+	private int employeeID = 0;
 	@Column(name="status_id")
-	private int statustId = 0;
-	@Column(name="type_id")
-	private int typeId = 0;
+	private int statustID = 0;
 	@Column(name="date_of_transaction")
-	private DateFormat dateOfTransaction = DateFormat.getDateInstance();
+	private String dateOfTransaction ;
+	@Column(name="date_of_submission")
+	private String dateSubmitted;
 	@Column(name="amount")
 	private BigDecimal amount = BigDecimal.ZERO;
 	@Column(name="details")
 	private String details = "";
 	@Column(name="merchant")
 	private String merchant = "";
+	@Column(name="status")
+	private String status = "";
+
+	@Column(name="rimbursement_type")
+	private String expenseType = "";
 	
 	public ReimbursementEntity() {
 		
 	}
 
-	public ReimbursementEntity(int reimbursement_id, int employeeId, int satustId, int typeId, DateFormat dateOfTransaction,
+	public ReimbursementEntity(int reimbursement_id, int employeeId, int satustId, String dateOfTransaction,
 			BigDecimal amount, String details, String merchant) {
 		super();
-		this.reimbursement_id = reimbursement_id;
-		this.employeeId = employeeId;
-		this.statustId = satustId;
-		this.typeId = typeId;
+		this.reimbursementID = reimbursement_id;
+		this.employeeID = employeeId;
+		this.statustID = satustId;
 		this.dateOfTransaction = dateOfTransaction;
 		this.amount = amount;
 		this.details = details;
 		this.merchant = merchant;
 	}
 
-	public int getReimbursementId() {
-		return reimbursement_id;
+	public int getReimbursementID() {
+		return reimbursementID;
 	}
 
-	public void setReimbursementId(int reimbursementId) {
-		this.reimbursement_id = reimbursementId;
+	public void setReimbursementID(int reimbursementId) {
+		this.reimbursementID = reimbursementId;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
+	public int getEmployeeID() {
+		return employeeID;
 	}
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
 	}
 
-	public int getSatustId() {
-		return statustId;
+	public int getStatusID() {
+		return statustID;
 	}
 
-	public void setSatustId(int satustId) {
-		this.statustId = satustId;
+	public void setStatusID(int satustID) {
+		this.statustID = satustID;
 	}
 
-	public int getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
-	}
-
-	public DateFormat getDateOfTransaction() {
+	public String getDateOfTransaction() {
 		return dateOfTransaction;
 	}
 
-	public void setDateOfTransaction(DateFormat dateOfTransaction) {
+	public void setDateOfTransaction(String dateOfTransaction) {
 		this.dateOfTransaction = dateOfTransaction;
 	}
 
@@ -114,10 +110,36 @@ public class ReimbursementEntity {
 		this.merchant = merchant;
 	}
 
+
+	public String getDateSubmitted() {
+		return dateSubmitted;
+	}
+
+	public void setDateSubmitted(String dateOfSubmission) {
+		this.dateSubmitted = dateOfSubmission;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getExpenseType() {
+		return expenseType;
+	}
+
+	public void setExpenseType(String reimbursementType) {
+		this.expenseType = expenseType;
+	}
+
+
 	@Override
 	public String toString() {
-		return "ReimbursementEntity [reimbursementId=" + reimbursement_id + ", employeeId=" + employeeId + ", satustId="
-				+ statustId + ", typeId=" + typeId + ", dateOfTransaction=" + dateOfTransaction + ", amount=" + amount
+		return "ReimbursementEntity [reimbursementID=" + reimbursementID + ", employeeID=" + employeeID + ", satustId="
+				+ statustID + ", dateOfTransaction=" + dateOfTransaction + ", amount=" + amount
 				+ ", details=" + details + ", merchant=" + merchant + "]";
 	}
 	
