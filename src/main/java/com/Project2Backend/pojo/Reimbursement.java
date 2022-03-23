@@ -20,9 +20,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Component
 public class Reimbursement {
-	int reimbursementID = 0;
-	int employeeID = 0;
-	int statusID = 0;
+	int reimbursementId = 0;
+	int employeeId = 0;
+	int statusId = 0;
+	
 	String status = "";
 	String expenseType = "";
 	String merchant = "";
@@ -32,31 +33,103 @@ public class Reimbursement {
 	String dateOfTransaction = "";
 	String dateSubmitted = "";
 	
-	
 	// used by manager, not employee view
 	String Employee = "";
 	
 
 
+	// still needs value for receipt
+	public Reimbursement()
+	{
+		
+	}
 	
 	public Reimbursement(ReimbursementEntity in)
 	{
-		reimbursementID = in.getReimbursementID();
-		employeeID = in.getEmployeeID();
-		statusID = in.getStatusID();
-		status = in.getStatus();
-		expenseType=in.getExpenseType();
-		merchant = in.getMerchant();
+		reimbursementId = in.getReimbursementId();
+		employeeId = in.getEmployeeId();
+		statusId = in.getStatusId();
+		dateOfTransaction =  in.getDateOfTransaction();
 		amount = in.getAmount();
 		details = in.getDetails();
-		dateOfTransaction = in.getDateOfTransaction();
-		dateSubmitted = in.getDateSubmitted();
-		
+		merchant = in.getMerchant();
 	}
 	public Reimbursement(ReimbursementEntity in, ImageEntity reciept)
 	{
 		this(in);	
-		
+	}
+	
+	
+	public Reimbursement(int employeeId2, int statustId2, String dateOfTransaction2, BigDecimal amount2,
+			String details2, String merchant2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getEmployee() {
+		return Employee;
+	}
+	public void setEmployee(String employee) {
+		Employee = employee;
+	}
+	public int getReimbursementId() {
+		return reimbursementId;
+	}
+	public void setReimbursementId(int reimbursementId) {
+		this.reimbursementId = reimbursementId;
+	}
+	public int getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getExpenseType () {
+		return expenseType;
+	}
+	public void setExpenseType (String type) {
+		this.expenseType = type;
+	}
+	public BigDecimal getAmount() {
+		return amount;
+	}
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+	public String getDetails() {
+		return details;
+	}
+	public void setDetails(String details) {
+		this.details = details;
+	}
+	public String getDateOfTransaction() {
+		return dateOfTransaction;
+	}
+	public void setDateOfTransaction(String dateOfTransaction) {
+		this.dateOfTransaction = dateOfTransaction;
+	}
+	public String getDateSubmitted() {
+		return dateSubmitted;
+	}
+	public void setDateSubmitted(String date_submitted) {
+		this.dateSubmitted = date_submitted;
+	}
+	public String getMerchant() {
+		return merchant;
+	}
+	public void setMerchant(String merchant) {
+		this.merchant = merchant;
+	}
+	public int getStatusId() {
+		return statusId;
+	}
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	
