@@ -16,6 +16,7 @@ drop view if exists v_employee_permissions;
 drop view if exists v_employee_login;
 
 -- drops tables
+drop table if exists images;
 drop table if exists reimbursement_updates;
 drop table if exists employee_permissions;
 drop table if exists reimbursements;
@@ -116,6 +117,15 @@ Create Table reimbursement_updates(
 	primary key(update_id),
 	Constraint fk_update_reimbursement Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
 );
+
+Create Table images(
+	image_id			integer generated always as identity,
+	reimbursement_id	integer not null,
+	image				bytea,
+	primary key (image_id),
+	Constraint fk_images_reimbursements Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
+);
+
 
 -- any extra tables added (if any) are only tangentially related and may simulate features of an production environment
 

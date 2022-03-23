@@ -12,8 +12,8 @@ public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer> {
 
 	
 	
-	@Query("select u from EmployeeEntity u where ?1.userName = u.userName and ?1.password = u.password")
-	Employee login(Employee e);
+	@Query("select u from EmployeeEntity u where ?1 = u.userName and ?2 = u.password")
+	Employee login(String username, String password);
 	
 	
 
