@@ -25,8 +25,8 @@ public class ImageEntity {
 	@Id
 	@Column(name = "image_id")
 	private int imageId = 0;
-	@Column(name="employee_id")
-	private int employeeId = 0;
+	@Column(name="reimbursement_id")
+	private int reimbursementId = 0;
 	@Column(name="image")
 	private Byte[] image = null;	
 }
