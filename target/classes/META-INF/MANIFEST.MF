@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 17
+Built-By: Tyler
+Build-Jdk: 17.0.1
 Class-Path: lib/log4j-core-2.17.1.jar lib/log4j-api-2.17.1.jar lib/slf4j
  -simple-1.7.36.jar lib/slf4j-api-1.7.36.jar lib/jackson-databind-2.13.1
  .jar lib/jackson-annotations-2.13.1.jar lib/jackson-core-2.13.1.jar lib
@@ -31,6 +32,9 @@ Class-Path: lib/log4j-core-2.17.1.jar lib/log4j-api-2.17.1.jar lib/slf4j
  g-core-5.3.16.jar lib/spring-jcl-5.3.16.jar
 Implementation-Title: Project2Backend
 Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com
+Implementation-URL: https://spring.io/projects/spring-boot/Project2Backe
+ nd
 Main-Class: Project2Main
 Created-By: Maven Integration for Eclipse
 
