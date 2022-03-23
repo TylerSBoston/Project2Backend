@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Project2Backend.dao.EmployeeDao;
+import com.Project2Backend.dao.ImageDao;
 import com.Project2Backend.dao.RoleDao;
+import com.Project2Backend.entities.ImageEntity;
 import com.Project2Backend.pojo.Employee;
 
 
@@ -23,6 +25,9 @@ public class LoginService {
 	
 	@Autowired
 	RoleDao roleDao;
+	
+	@Autowired
+	ImageDao imageDao;
 	
 	private final static Logger log = LogManager.getLogger(LoginService.class);
 	public Employee login(Employee e) throws SystemException {
@@ -42,5 +47,15 @@ public class LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public ImageEntity fetchImage() {
+		// TODO Auto-generated method stub
+		
+		
+		return imageDao.findByReimbursementID(1);
+	}
+	
+	
+	
+	
 	
 }
