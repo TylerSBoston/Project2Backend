@@ -14,5 +14,7 @@ public interface RoleDao extends JpaRepository<RoleEntity, Integer> {
 	@Query("select u from RoleEntity u where employee_id = ?1")
 	List<RoleEntity> findByEmployeeID(int employeeid);
 	
+	
+	
 }
 

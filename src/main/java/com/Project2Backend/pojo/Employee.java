@@ -1,6 +1,7 @@
 package com.Project2Backend.pojo;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.springframework.stereotype.Component;
 
@@ -20,7 +21,7 @@ import lombok.Setter;
 public class Employee {
 	String firstName = "";
 	String lastName = "";
-	int employeeID = 0;
+	int employeeId = 0;
 	String email = "";
 
 	String phone = "";
@@ -33,21 +34,21 @@ public class Employee {
 	String password = "";
 	
 	
-	LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();
+	List<RoleEntity> roles;
 	
 	
 	public Employee(EmployeeEntity employee)
 	{
 		firstName = employee.getFirstName();
 		lastName = employee.getLastName();
-		employeeID = employee.getEmployeeID();
+		employeeId = employee.getEmployeeId();
 		email = employee.getEmail();
 		phone = employee.getPhone();
 		jobTitle = employee.getJobTitle();
 		//not adding ones for username/password
 		
 	}
-	public Employee(EmployeeEntity employee,LinkedList<RoleEntity> roles)
+	public Employee(EmployeeEntity employee,List<RoleEntity> roles)
 	{
 		this(employee);
 		this.roles = roles;

@@ -29,7 +29,7 @@ public class EmployeeEntity {
 	@Id
 	@Column(name="employee_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int employeeID = 0;
+	private int employeeId = 0;
 	@Column(name="first_name")
 	private String firstName = "";
 	@Column(name="last_name")
