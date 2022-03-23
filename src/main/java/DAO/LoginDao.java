@@ -39,7 +39,7 @@ public class LoginDao {
 		results = st.executeQuery();
 		if(results.next())
 		{
-			employee.setEmployeeID(results.getInt(1));
+			employee.setEmployeeId(results.getInt(1));
 			employee.setJobTitle(results.getString(2));
 			employee.setFirstName(results.getString(3));
 			employee.setLastName(results.getString(4));
