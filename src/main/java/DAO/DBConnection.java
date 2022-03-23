@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.apache.logging.log4j.*;
 
+//Legacy
 public class DBConnection {
 	private static String connectionString = "";
 	private static String userName = "postgres";

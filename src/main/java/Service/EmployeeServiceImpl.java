@@ -1,69 +1,52 @@
 package Service;
 
-
-
-
-
-
+import java.io.FileNotFoundException;
+import java.nio.file.FileSystemException;
+import java.sql.SQLException;
 import java.util.List;
 
-
-
+//import org.postgresql.util.PSQLException;
 
 import DAO.EmployeeDao;
-import DAO.EmployeeHibernateDaoImpl;
+import DAO.EmployeeJdbcDao;
 import POJO.Employee;
-import POJO.Reimbursement;
-import exceptions.ReimbursementNotFoundException;
-import exceptions.SystemException;
-
-
 
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	EmployeeDao employeeDao;
 	
 	public EmployeeServiceImpl() {
-		employeeDao = new EmployeeHibernateDaoImpl();
+		employeeDao = new EmployeeJdbcDao();
 	}
 
 	@Override
-	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
+	public List<Employee> fetchAllEmployees() throws FileSystemException {
 		// TODO Auto-generated method stub
-		return employeeDao.fetchAllReimbursements();
+		return employeeDao.fetchAllEmployees();
 	}
 
 	@Override
-	public Reimbursement submitRequest(Reimbursement reimbursement) throws SystemException {
+	public Employee addEmployee(Employee employee) throws FileSystemException {
 		// TODO Auto-generated method stub
-		return employeeDao.submitRequest(reimbursement);
+		return employeeDao.addEmployee(employee);
 	}
 
 	@Override
-	public Reimbursement updateReimbursement(Reimbursement reimbursement) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeDao.updateReimbursement(reimbursement);
-	}
-
-	
-	@Override
-	public Reimbursement fetchARequest(int employeeID) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeDao.fetchARequest(employeeID);
-	}
-
-	
-
-	@Override
-	public Employee updateEmployee(Employee employee) throws SystemException {
+	public Employee updateEmployee(Employee employee) throws FileSystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.updateEmployee(employee);
 	}
-	
+
 	@Override
-	public void exitApplication() throws SystemException {
+	public Employee deleteEmployee(int employeeID) throws FileSystemException {
 		// TODO Auto-generated method stub
-		
+		return employeeDao.deleteEmployee(employeeID);
+	}
+
+	@Override
+	public Employee fetchAEmployee(int employeeID) throws FileSystemException {
+		// TODO Auto-generated method stub
+		return employeeDao.fetchAEmployee(employeeID);
 	}
 
 }

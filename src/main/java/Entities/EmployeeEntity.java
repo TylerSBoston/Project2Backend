@@ -4,152 +4,83 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Entity
-@Table(name="employees")
+@Table(name="reimbursements")
 public class EmployeeEntity {
-	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="employee_id")
-	private int employeeId;
-	
-	@Column(name="job_title")
-	private String jobTitle;
-	
 	@Column(name="first_name")
-	private String firstName;
-	
+	private String firstName = "";
 	@Column(name="last_name")
-	private String lastName;
-	
+	private String lastName = "";
+	@Column(name="employee_id")
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private int employeeID = 0;
 	@Column(name="email")
-	private String email;
-	
+	private String email = "";
 	@Column(name="phone")
-	private String phone;
+	private String phone = "";
+	@Column(name="job_title")
+	private String jobTitle = "";
+	// permissions renamed roles so it doesn't match names with other stuff as much
 	
+	
+	// leave empty unless except for login
 	@Column(name="user_name")
-	private String userName;
-	
+	private String userName = "";
 	@Column(name="user_password")
-	private String password;
+	private String password = "";
 	
 	
-	public EmployeeEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-	public EmployeeEntity(int employeeId, String jobTitle, String firstName, String lastName, String email,
-			String phone, String userName, String password) {
-		super();
-		this.employeeId = employeeId;
-		this.jobTitle = jobTitle;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phone = phone;
-		this.userName = userName;
-		this.password = password;
-	}
-
-
-	public int getEmployeeId() {
-		return employeeId;
-	}
-
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
-
-	public String getJobTitle() {
-		return jobTitle;
-	}
-
-
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-
 
 	public String getFirstName() {
 		return firstName;
 	}
-
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-
 	public String getLastName() {
 		return lastName;
 	}
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
+	public int getEmployeeID() {
+		return employeeID;
+	}
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
+	}
 	public String getEmail() {
 		return email;
 	}
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
 	public String getPhone() {
 		return phone;
 	}
-
-
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-
+	public String getJobTitle() {
+		return jobTitle;
+	}
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
 	public String getUserName() {
 		return userName;
 	}
-
-
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-
 	public String getPassword() {
 		return password;
 	}
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-	@Override
-	public String toString() {
-		return "EmployeeEntity [employeeId=" + employeeId + ", jobTitle=" + jobTitle + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + ", userName=" + userName
-				+ ", password=" + password + "]";
-	}
-	
-	
-	
-	
-
-	
-	
 }
