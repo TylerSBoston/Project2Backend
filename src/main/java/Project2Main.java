@@ -8,13 +8,12 @@ import Service.EmployeeService;
 import Service.EmployeeServiceImpl;
 import Service.FinanceManagerService;
 import Service.LoginService;
-import io.javalin.Javalin;
 
 
 public class Project2Main {
 	static EmployeeService employeeService = new EmployeeServiceImpl();
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Javalin myServer = Javalin.create((config) -> config.enableCorsForAllOrigins()).start(4040);
 		System.out.println("port 4040");
@@ -108,6 +107,6 @@ public class Project2Main {
 		
 		
 		
-	}
+	} */
 
 }
