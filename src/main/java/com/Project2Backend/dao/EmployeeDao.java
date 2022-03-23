@@ -12,7 +12,7 @@ public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer> {
 
 	
 	
-	@Query("select u from EmployeeEntity u where ?1 = u.userName and ?2 = u.password")
+	@Query(value = "select u from EmployeeEntity u where u.userName = ?1 and ?2 = u.password",nativeQuery = true)
 	Employee login(String username, String password);
 	
 	
