@@ -195,6 +195,9 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 			(6,'New','2020-02-27','reimbursement request submitted');
 
 
+insert into images (reimbursement_id,image)
+	values	(1,{0x0,2x2,33})
+
 -- procedure and views comment out for ORM for now
 
 -------------------------------------------------

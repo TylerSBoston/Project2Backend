@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import org.springframework.stereotype.Component;
 
-import com.Project2Backend.entities.ReceiptEntity;
+import com.Project2Backend.entities.ImageEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 import lombok.AllArgsConstructor;
@@ -53,7 +53,7 @@ public class Reimbursement {
 		dateSubmitted = in.getDateSubmitted();
 		
 	}
-	public Reimbursement(ReimbursementEntity in, ReceiptEntity reciept)
+	public Reimbursement(ReimbursementEntity in, ImageEntity reciept)
 	{
 		this(in);	
 		
