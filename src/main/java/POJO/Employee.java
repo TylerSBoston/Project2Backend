@@ -8,7 +8,7 @@ import Entities.RoleEntity;
 public class Employee {
 	String firstName = "";
 	String lastName = "";
-	int employeeID = 0;
+	int employeeId = 0;
 	String email = "";
 
 	String phone = "";
@@ -23,28 +23,46 @@ public class Employee {
 	
 	LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();
 	
-	public Employee()
-	{
-		
+	
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Employee(EmployeeEntity employee)
+
+
+
+
+
+
+	public Employee(int i, String string, String string2, String string3, String string4, String string5, String string6, String string7)
 	{
-		firstName = employee.getFirstName();
-		lastName = employee.getLastName();
-		employeeID = employee.getEmployeeID();
-		email = employee.getEmail();
-		phone = employee.getPhone();
-		jobTitle = employee.getJobTitle();
-		//not adding ones for username/password
-		
-	}
-	public Employee(EmployeeEntity employee,RoleEntity Roles)
-	{
-		this(employee);
 		
 	}
 	
 	
+
+	
+	
+
+	public Employee(String firstName, String lastName, int employeeId, String email, String phone, String jobTitle,
+			String userName, String password, LinkedList<RoleEntity> roles) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.employeeId = employeeId;
+		this.email = email;
+		this.phone = phone;
+		this.jobTitle = jobTitle;
+		this.userName = userName;
+		this.password = password;
+		this.roles = roles;
+	}
+
+
+
+
+
 
 	public LinkedList<RoleEntity> getRoles() {
 		return roles;
@@ -64,11 +82,11 @@ public class Employee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getEmployeeID() {
-		return employeeID;
+	public int getEmployeeId() {
+		return employeeId;
 	}
-	public void setEmployeeID(int employeeID) {
-		this.employeeID = employeeID;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 	public String getEmail() {
 		return email;

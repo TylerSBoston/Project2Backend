@@ -1,8 +1,8 @@
 package Entities;
 
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.util.Date;
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,15 +17,15 @@ public class ReimbursementEntity {
 	@Id
 	@Column
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int reimbursement_id = 0;
+	private int reimbursementId = 0;
 	@Column(name="employee_id")
 	private int employeeId = 0;
 	@Column(name="status_id")
-	private int statustId = 0;
+	private int statusId = 0;
 	@Column(name="type_id")
 	private int typeId = 0;
 	@Column(name="date_of_transaction")
-	private DateFormat dateOfTransaction = DateFormat.getDateInstance();
+	private String dateOfTransaction = "";
 	@Column(name="amount")
 	private BigDecimal amount = BigDecimal.ZERO;
 	@Column(name="details")
@@ -37,12 +37,12 @@ public class ReimbursementEntity {
 		
 	}
 
-	public ReimbursementEntity(int reimbursement_id, int employeeId, int satustId, int typeId, DateFormat dateOfTransaction,
+	public ReimbursementEntity(int reimbursementId, int employeeId, int statusId, int typeId, String dateOfTransaction,
 			BigDecimal amount, String details, String merchant) {
 		super();
-		this.reimbursement_id = reimbursement_id;
+		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
-		this.statustId = satustId;
+		this.statusId = statusId;
 		this.typeId = typeId;
 		this.dateOfTransaction = dateOfTransaction;
 		this.amount = amount;
@@ -51,11 +51,11 @@ public class ReimbursementEntity {
 	}
 
 	public int getReimbursementId() {
-		return reimbursement_id;
+		return reimbursementId;
 	}
 
 	public void setReimbursementId(int reimbursementId) {
-		this.reimbursement_id = reimbursementId;
+		this.reimbursementId = reimbursementId;
 	}
 
 	public int getEmployeeId() {
@@ -66,12 +66,12 @@ public class ReimbursementEntity {
 		this.employeeId = employeeId;
 	}
 
-	public int getSatustId() {
-		return statustId;
+	public int getStatustId() {
+		return statusId;
 	}
 
-	public void setSatustId(int satustId) {
-		this.statustId = satustId;
+	public void setStatustId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	public int getTypeId() {
@@ -82,11 +82,11 @@ public class ReimbursementEntity {
 		this.typeId = typeId;
 	}
 
-	public DateFormat getDateOfTransaction() {
+	public String getDateOfTransaction() {
 		return dateOfTransaction;
 	}
 
-	public void setDateOfTransaction(DateFormat dateOfTransaction) {
+	public void setDateOfTransaction(String dateOfTransaction) {
 		this.dateOfTransaction = dateOfTransaction;
 	}
 
@@ -116,8 +116,8 @@ public class ReimbursementEntity {
 
 	@Override
 	public String toString() {
-		return "ReimbursementEntity [reimbursementId=" + reimbursement_id + ", employeeId=" + employeeId + ", satustId="
-				+ statustId + ", typeId=" + typeId + ", dateOfTransaction=" + dateOfTransaction + ", amount=" + amount
+		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", satustId="
+				+ statusId + ", typeId=" + typeId + ", dateOfTransaction=" + dateOfTransaction + ", amount=" + amount
 				+ ", details=" + details + ", merchant=" + merchant + "]";
 	}
 	
