@@ -6,9 +6,10 @@ import Entities.ReceiptEntity;
 import Entities.ReimbursementEntity;
 
 public class Reimbursement {
-	int reimbursementID = 0;
-	int employeeID = 0;
-	int statusID = 0;
+	int reimbursementId = 0;
+	int employeeId = 0;
+	int statustId = 0;
+	int typeId = 0;
 	String status = "";
 	String expenseType = "";
 	String merchant = "";
@@ -31,17 +32,14 @@ public class Reimbursement {
 	
 	public Reimbursement(ReimbursementEntity in)
 	{
-		reimbursementID = in.getReimbursementID();
-		employeeID = in.getEmployeeID();
-		statusID = in.getStatusID();
-		status = in.getStatus();
-		expenseType=in.getExpenseType();
-		merchant = in.getMerchant();
+		reimbursementId = in.getReimbursementId();
+		employeeId = in.getEmployeeId();
+		statustId = in.getStatustId();
+		typeId= in.getTypeId();
+		dateOfTransaction =  in.getDateOfTransaction();
 		amount = in.getAmount();
 		details = in.getDetails();
-		dateOfTransaction = in.getDateOfTransaction();
-		dateSubmitted = in.getDateSubmitted();
-		
+		merchant = in.getMerchant();
 	}
 	public Reimbursement(ReimbursementEntity in, ReceiptEntity reciept)
 	{
@@ -49,23 +47,28 @@ public class Reimbursement {
 	}
 	
 	
+	public Reimbursement(int employeeId2, int statustId2, int typeId2, String dateOfTransaction2, BigDecimal amount2,
+			String details2, String merchant2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getEmployee() {
 		return Employee;
 	}
 	public void setEmployee(String employee) {
 		Employee = employee;
 	}
-	public int getReimbursementID() {
-		return reimbursementID;
+	public int getReimbursementId() {
+		return reimbursementId;
 	}
-	public void setReimbursementID(int reimbursementID) {
-		this.reimbursementID = reimbursementID;
+	public void setReimbursementId(int reimbursementId) {
+		this.reimbursementId = reimbursementId;
 	}
-	public int getEmployeeID() {
-		return employeeID;
+	public int getEmployeeId() {
+		return employeeId;
 	}
-	public void setEmployeeID(int employeeID) {
-		this.employeeID = employeeID;
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
 	}
 	public String getStatus() {
 		return status;
@@ -109,11 +112,17 @@ public class Reimbursement {
 	public void setMerchant(String merchant) {
 		this.merchant = merchant;
 	}
-	public int getStatusID() {
-		return statusID;
+	public int getStatusId() {
+		return statustId;
 	}
-	public void setStatusID(int statusID) {
-		this.statusID = statusID;
+	public void setStatusId(int statusId) {
+		this.statustId = statusId;
+	}
+	public int getTypeId() {
+		return typeId;
+	}
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
 	
 }

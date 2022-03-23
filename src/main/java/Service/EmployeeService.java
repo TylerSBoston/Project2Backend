@@ -1,32 +1,39 @@
 package Service;
 
-import java.io.FileNotFoundException;
-import java.nio.file.FileSystemException;
+
 import java.util.List;
 
-import DAO.DBConnection;
 import POJO.Employee;
+import POJO.Reimbursement;
+import exceptions.ReimbursementNotFoundException;
+import exceptions.SystemException;
 
-public interface EmployeeService {
+public interface EmployeeService{
+	
 	// Read - fetch all books
-			List<Employee> fetchAllEmployees()throws FileSystemException, FileNotFoundException;
-			// Create
-			Employee addEmployee(Employee employee)throws FileSystemException;
-			// Update
-			Employee updateEmployee(Employee employee)throws FileSystemException;
-			// Delete
-			Employee deleteEmployee(int employeeID)throws FileSystemException;
-			// Read - fetch a employee
-			Employee fetchAEmployee(int employeeID)throws FileSystemException;
-			
-			
-			
-			
-			
-			
-			//Exit
-			default void exitApplication()throws FileSystemException{
-				DBConnection.closeConnection();
-			}
+		List<Reimbursement> fetchAllReimbursements()throws  SystemException, ReimbursementNotFoundException;
+		// Create
+		
 
-}
+		Reimbursement submitRequest(Reimbursement reimbursement)throws  SystemException;
+		
+		Reimbursement fetchARequest(int employeeID)throws SystemException;
+		
+		Reimbursement updateReimbursement(Reimbursement reimbursement)throws SystemException;
+		
+		Employee updateEmployee (Employee employee)throws SystemException;
+		
+
+		
+		
+		
+
+		
+		
+		
+		
+		
+		//Exit
+		void exitApplication()throws SystemException;
+		
+	}
