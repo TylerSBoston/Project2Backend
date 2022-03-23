@@ -1,6 +1,7 @@
 package com.Project2Backend.service;
 
 import java.util.LinkedList;
+
 import java.util.List;
 
 import javax.transaction.SystemException;
@@ -43,7 +44,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findPending())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeID()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 				
@@ -62,7 +63,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findCompleted())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeID()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 			}
@@ -81,7 +82,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findAll())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeID()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 			}
@@ -99,7 +100,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findByEmployeeID(employee))
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeID()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 			}

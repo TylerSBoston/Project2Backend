@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.*;
+
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,12 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import DAO.LoginDao;
-import Entities.RoleEntity;
+
 
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.*;
+
+import com.Project2Backend.entities.RoleEntity;
 
 
 @ExtendWith(MockitoExtension.class)

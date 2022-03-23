@@ -1,24 +1,40 @@
-package DAO;
+package com.Project2Backend.dao;
 
 import java.util.ArrayList;
+
+
+
 
 
 import java.util.List;
 
 import javax.persistence.Query;
 
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import Entities.EmployeeEntity;
-import Entities.ReimbursementEntity;
-import POJO.Employee;
-import POJO.Reimbursement;
+import com.Project2Backend.dao.EmployeeDao;
+import com.Project2Backend.dao.HibernateUtil;
+import com.Project2Backend.entities.EmployeeEntity;
+import com.Project2Backend.entities.ReimbursementEntity;
+import com.Project2Backend.pojo.Employee;
+import com.Project2Backend.pojo.Reimbursement;
+
+
 import exceptions.ReimbursementNotFoundException;
 import exceptions.SystemException;
 
+
+
+
+
 public class EmployeeHibernateDaoImpl implements EmployeeDao {
+	
+	@Override
+	public Employee login(Employee e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
@@ -29,10 +45,9 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 		List<ReimbursementEntity> allReimbursementsEntity = query.getResultList();
 		//copying collection of entity into collection of pojo
 		for(ReimbursementEntity reimbursementEntity: allReimbursementsEntity) {
-			Reimbursement riembursement = new Reimbursement(
+			Reimbursement reimbursement = new Reimbursement(
 					reimbursementEntity.getEmployeeId(),
-					reimbursementEntity.getStatustId(),
-					reimbursementEntity.getTypeId(),
+					reimbursementEntity.getStatusId(),
 					reimbursementEntity.getDateOfTransaction(),
 					reimbursementEntity.getAmount(),
 					reimbursementEntity.getDetails(),
@@ -41,7 +56,7 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 					);
 					
 				
-			allReimbursements.add(riembursement);
+			allReimbursements.add(reimbursement);
 		}
 		return allReimbursements;
 	}
@@ -53,11 +68,14 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 				reimbursement.getReimbursementId(),
 				reimbursement.getEmployeeId(),
 				reimbursement.getStatusId(),
-				reimbursement.getTypeId(),
 				reimbursement.getDateOfTransaction(),
+				reimbursement.getDateSubmitted(),
 				reimbursement.getAmount(),
 				reimbursement.getDetails(),
-				reimbursement.getMerchant());
+				reimbursement.getMerchant(),
+				reimbursement.getStatus(),
+				reimbursement.getExpenseType());
+				
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
@@ -77,11 +95,13 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 				reimbursement.getReimbursementId(),
 				reimbursement.getEmployeeId(),
 				reimbursement.getStatusId(),
-				reimbursement.getTypeId(),
 				reimbursement.getDateOfTransaction(),
+				reimbursement.getDateSubmitted(),
 				reimbursement.getAmount(),
 				reimbursement.getDetails(),
-				reimbursement.getMerchant());
+				reimbursement.getMerchant(),
+				reimbursement.getStatus(),
+				reimbursement.getExpenseType());
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = session.beginTransaction();
@@ -134,8 +154,7 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 		//copying entity into pojo
 		Reimbursement reimbursement = new Reimbursement(
 				reimbursementEntity.getEmployeeId(),
-				reimbursementEntity.getStatustId(),
-				reimbursementEntity.getTypeId(),
+				reimbursementEntity.getStatusId(),
 				reimbursementEntity.getDateOfTransaction(),
 				reimbursementEntity.getAmount(),
 				reimbursementEntity.getDetails(),
@@ -151,6 +170,10 @@ public class EmployeeHibernateDaoImpl implements EmployeeDao {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package DAO;
+package com.Project2Backend.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;

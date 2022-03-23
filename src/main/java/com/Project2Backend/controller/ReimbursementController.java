@@ -1,6 +1,8 @@
-package controller;
+package com.Project2Backend.controller;
 
 import java.util.List;
+
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import POJO.Employee;
-import POJO.Reimbursement;
-import Service.EmployeeService;
-import Service.EmployeeServiceImpl;
+import com.Project2Backend.pojo.Employee;
+import com.Project2Backend.pojo.Reimbursement;
+import com.Project2Backend.service.EmployeeService;
+import com.Project2Backend.service.EmployeeServiceImpl;
 
 import exceptions.ReimbursementNotFoundException;
 import exceptions.SystemException;
