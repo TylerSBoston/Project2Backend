@@ -7,13 +7,14 @@ import javax.transaction.SystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.RoleDao;
 import com.Project2Backend.pojo.Employee;
 
 
-
+@Service
 public class LoginService {
 	
 	@Autowired
@@ -30,7 +31,7 @@ public class LoginService {
 		
 		
 		
-			Employee loggedIn = employeeDao.login(e);
+			Employee loggedIn = employeeDao.login(e.getUserName(), e.getPassword());
 			loggedIn.setRoles(roleDao.findByEmployeeID(loggedIn.getEmployeeId()));
 			
 			

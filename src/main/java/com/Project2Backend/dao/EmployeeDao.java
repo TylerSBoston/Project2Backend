@@ -22,8 +22,8 @@ public interface EmployeeDao  {
 
 	
 	
-	@Query("select u from EmployeeEntity u where ?1.userName = u.userName and ?1.password = u.password")
-	Employee login(Employee e);
+	@Query(value = "select u from EmployeeEntity u where u.userName = ?1 and ?2 = u.password",nativeQuery = true)
+	Employee login(String username, String password);
 	
 	// Read - fetch all books
 			List<Reimbursement> fetchAllReimbursements()throws SystemException, ReimbursementNotFoundException;

@@ -29,7 +29,7 @@ public class FinanceManagerService {
 	@Autowired
 	ReimbursementDao reimbursementDao;
 	
-	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
+	//private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
 	
 	public LinkedList<Reimbursement> getPendingReimbursements() throws SystemException
 	{
