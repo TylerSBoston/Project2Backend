@@ -8,12 +8,7 @@
     <version>2.6.4</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-<<<<<<< HEAD:target/classes/META-INF/maven/com/Project2Backend/pom.xml
   <groupId>com</groupId>
-=======
-
-  <groupId>revatue</groupId>
->>>>>>> efcabe6eaae9e04d4376a9a3245eaa3f521f0075:target/classes/META-INF/maven/revatue/Project2Backend/pom.xml
   <artifactId>Project2Backend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
@@ -58,28 +53,6 @@
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD:target/classes/META-INF/maven/com/Project2Backend/pom.xml
-=======
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.4.24.Final</version>
-		</dependency>
-				<!-- API, java.xml.bind module -->
-		<dependency>
-			<groupId>jakarta.xml.bind</groupId>
-			<artifactId>jakarta.xml.bind-api</artifactId>
-			<version>2.3.2</version>
-		</dependency>
-
-		<!-- Runtime, com.sun.xml.bind module -->
-		<dependency>
-			<groupId>org.glassfish.jaxb</groupId>
-			<artifactId>jaxb-runtime</artifactId>
-			<version>2.3.2</version>
-		</dependency>
-		
-		<dependency>
->>>>>>> efcabe6eaae9e04d4376a9a3245eaa3f521f0075:target/classes/META-INF/maven/revatue/Project2Backend/pom.xml
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-starter-data-jpa</artifactId>
 	    </dependency>
@@ -108,12 +81,6 @@
 	      <artifactId>spring-boot-starter-test</artifactId>
 	      <scope>test</scope>
 	    </dependency>
-<<<<<<< HEAD:target/classes/META-INF/maven/com/Project2Backend/pom.xml
-=======
-
-
-
->>>>>>> efcabe6eaae9e04d4376a9a3245eaa3f521f0075:target/classes/META-INF/maven/revatue/Project2Backend/pom.xml
 	</dependencies>
 	<properties>
 	     <maven.compiler.source>11</maven.compiler.source>
@@ -177,12 +144,6 @@
 		          </excludes>
 		        </configuration>
 	      </plugin>
-	      <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-resources-plugin</artifactId>
-    <version>3.1.0</version>
-</plugin>    
 		</plugins>
 	</build>
-
 </project>

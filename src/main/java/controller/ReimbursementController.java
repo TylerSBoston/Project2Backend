@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import POJO.Employee;
 import POJO.Reimbursement;
 import Service.EmployeeService;
-import Service.EmployeeServiceImpl;
+//import Service.EmployeeServiceImpl;
 
 import exceptions.ReimbursementNotFoundException;
 import exceptions.SystemException;
@@ -21,10 +21,10 @@ import exceptions.SystemException;
 @RequestMapping("api")
 public class ReimbursementController {
 	
-	EmployeeService employeeService = new EmployeeServiceImpl();
+	//EmployeeService employeeService = new EmployeeServiceImpl();
 	
 	
-	@GetMapping("reimbursements")
+/*	@GetMapping("reimbursements")
 	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
 		// TODO Auto-generated method stub
 		return employeeService.fetchAllReimbursements();
@@ -55,6 +55,6 @@ public class ReimbursementController {
 		return employeeService.updateEmployee(employee);
 	}
 
-
+*/
 
 }

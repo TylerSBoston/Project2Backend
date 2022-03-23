@@ -8,10 +8,12 @@ import java.util.List;
 //import org.postgresql.util.PSQLException;
 
 import DAO.EmployeeDao;
-import DAO.EmployeeJdbcDao;
 import POJO.Employee;
+import POJO.Reimbursement;
+import exceptions.ReimbursementNotFoundException;
+import exceptions.SystemException;
 
-public class EmployeeServiceImpl implements EmployeeService {
+/*public class EmployeeServiceImpl implements EmployeeService {
 	
 	EmployeeDao employeeDao;
 	
@@ -49,4 +51,34 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.fetchAEmployee(employeeID);
 	}
 
-}
+	@Override
+	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reimbursement submitRequest(Reimbursement reimbursement) throws SystemException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reimbursement fetchARequest(int employeeID) throws SystemException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reimbursement updateReimbursement(Reimbursement reimbursement) throws SystemException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void exitApplication() throws SystemException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}*/
