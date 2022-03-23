@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import DAO.FinanceManagerDao;
+
 import Entities.EmployeeEntity;
 import Entities.ReimbursementEntity;
 import POJO.Employee;
@@ -15,17 +15,17 @@ public class FinanceManagerService {
 
 	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
 	
-	public static LinkedList<Reimbursement> getPendingReimbursements()
+/*	public static LinkedList<Reimbursement> getPendingReimbursements()
 	{
 		
 		try {
 			LinkedList<Reimbursement> reimbursements = new LinkedList<Reimbursement>();
 			
 			// have to do this here,should be easier with spring, trust id to spot-1 is accurate until hibernate added.
-			LinkedList<EmployeeEntity> employees = FinanceManagerDao.getAllEmployees();
+	//		LinkedList<EmployeeEntity> employees = FinanceManagerDao.getAllEmployees();
 			
-			
-			for(ReimbursementEntity reimbursement : FinanceManagerDao.getPendingReimbursements())
+	//		
+	//		for(ReimbursementEntity reimbursement : FinanceManagerDao.getPendingReimbursements())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
 				input.setEmployee(employees.get(reimbursement.getEmployeeID()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
@@ -144,5 +144,5 @@ public class FinanceManagerService {
 			return new Reimbursement();
 		}
 	}
-	
+	*/
 }

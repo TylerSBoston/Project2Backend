@@ -32,10 +32,10 @@ public class Reimbursement {
 	
 	public Reimbursement(ReimbursementEntity in)
 	{
-		reimbursementId = in.getReimbursementId();
-		employeeId = in.getEmployeeId();
-		statustId = in.getStatustId();
-		typeId= in.getTypeId();
+//		reimbursementId = in.getReimbursementId();
+//		employeeId = in.getEmployeeId();
+//		statustId = in.getStatustId();
+//		typeId= in.getTypeId();
 		dateOfTransaction =  in.getDateOfTransaction();
 		amount = in.getAmount();
 		details = in.getDetails();
