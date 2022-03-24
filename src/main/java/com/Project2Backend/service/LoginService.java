@@ -26,9 +26,7 @@ public class LoginService {
 	
 	@Autowired
 	RoleDao roleDao;
-	
-	@Autowired
-	ImageDao imageDao;
+
 	
 	private final static Logger log = LogManager.getLogger(LoginService.class);
 	public Employee login(EmployeeEntity e) throws SystemException {
@@ -48,12 +46,7 @@ public class LoginService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public ImageEntity fetchImage() {
-		// TODO Auto-generated method stub
-		
-		
-		return imageDao.findByReimbursementID(1);
-	}
+
 	
 	
 	

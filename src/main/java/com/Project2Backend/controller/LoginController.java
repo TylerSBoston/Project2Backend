@@ -25,16 +25,5 @@ public class LoginController {
 	Employee login(@RequestBody EmployeeEntity employee) throws SystemException {
 		return ls.login(employee);
 	}
-	
-	//dont think this is needed, outdated version
-/*	myServer.get("/roles/{bid}", (ctx)->{
-		String r = ctx.pathParam("bid");
-		ctx.json(LoginService.roles(r));
-	});
-	*/
-	@GetMapping("ImagePullTest")
-	ImageEntity image() throws SystemException {
-		return ls.fetchImage();
-	}
 
 }

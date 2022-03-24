@@ -121,7 +121,10 @@ Create Table reimbursement_updates(
 Create Table images(
 	image_id			integer generated always as identity,
 	reimbursement_id	integer not null,
-	image				bytea,
+	image_name			varchar(50),
+	content_type		varchar(50),
+	image_size			bigint,
+	image				oid,
 	primary key (image_id),
 	Constraint fk_images_reimbursements Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
 );
@@ -195,8 +198,6 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 			(6,'New','2020-02-27','reimbursement request submitted');
 
 
-insert into images (reimbursement_id,image)
-	values	(1,decode('aefadfeadf','hex'));
 
 -- procedure and views comment out for ORM for now
 
