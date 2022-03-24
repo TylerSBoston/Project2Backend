@@ -1,8 +1,9 @@
 package com.Project2Backend.pojo;
 
 import java.util.LinkedList;
+import java.util.List;
 
-
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.RoleEntity;
 
 
@@ -24,7 +25,7 @@ public class Employee {
 	String password = "";
 	
 	
-	LinkedList<RoleEntity> roles = new LinkedList<RoleEntity>();
+	List<RoleEntity> roles = new LinkedList<RoleEntity>();
 	
 	
 	
@@ -32,9 +33,25 @@ public class Employee {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
-
-
+	public Employee(EmployeeEntity employee)
+	{
+		firstName = employee.getFirstName();
+		lastName = employee.getLastName();
+		employeeId = employee.getEmployeeId();
+		email = employee.getEmail();
+		phone = employee.getPhone();
+		jobTitle = employee.getJobTitle();
+		//not adding ones for username/password
+		
+	}
+	public Employee(EmployeeEntity employee,List<RoleEntity> roles)
+	{
+		this(employee);
+		this.roles = roles;
+		
+	}
 
 
 
@@ -67,10 +84,10 @@ public class Employee {
 
 
 
-	public LinkedList<RoleEntity> getRoles() {
+	public List<RoleEntity> getRoles() {
 		return roles;
 	}
-	public void setRoles(LinkedList<RoleEntity> roles) {
+	public void setRoles(List<RoleEntity> roles) {
 		this.roles = roles;
 	}
 	public String getFirstName() {

@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.Project2Backend.pojo.Reimbursement;
+
 
 
 @Entity
@@ -60,6 +62,25 @@ public class ReimbursementEntity {
 		this.status = status;
 		this.expenseType = expenseType;
 	}
+	
+
+	public ReimbursementEntity(Reimbursement r) {
+		// TODO Auto-generated constructor stub
+		reimbursementId = r.getReimbursementId();
+		employeeId = r.getEmployeeId();
+		statusId = r.getStatusId();
+		dateOfTransaction = r.getDateOfTransaction();
+		dateSubmitted = r.getDateSubmitted();
+		amount = r.getAmount();
+		details = r.getDetails();
+		merchant = r.getMerchant();
+		status = r.getStatus();
+		expenseType = r.getExpenseType();
+		
+	}
+	
+	
+	
 
 	public int getReimbursementId() {
 		return reimbursementId;

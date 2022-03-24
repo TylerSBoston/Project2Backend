@@ -2,6 +2,7 @@ package com.Project2Backend.pojo;
 
 import java.math.BigDecimal;
 
+import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Component;
 
 import com.Project2Backend.entities.ImageEntity;
@@ -36,28 +37,25 @@ public class Reimbursement {
 	// used by manager, not employee view
 	String Employee = "";
 	
-
-
-	// still needs value for receipt
-	public Reimbursement()
-	{
-		
-	}
 	
 	public Reimbursement(ReimbursementEntity in)
 	{
 		reimbursementId = in.getReimbursementId();
 		employeeId = in.getEmployeeId();
 		statusId = in.getStatusId();
-		dateOfTransaction =  in.getDateOfTransaction();
+		status = in.getStatus();
+		expenseType=in.getExpenseType();
+		merchant = in.getMerchant();
 		amount = in.getAmount();
 		details = in.getDetails();
-		merchant = in.getMerchant();
+		dateOfTransaction = in.getDateOfTransaction();
+		dateSubmitted = in.getDateSubmitted();
 		
 	}
 	public Reimbursement(ReimbursementEntity in, ImageEntity reciept)
 	{
 		this(in);	
+		
 	}
 	
 	

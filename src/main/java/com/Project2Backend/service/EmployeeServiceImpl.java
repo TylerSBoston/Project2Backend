@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.ReimbursementDao;
@@ -19,14 +20,17 @@ import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
 
 
-import exceptions.ReimbursementNotFoundException;
-import exceptions.SystemException;
+import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+import com.Project2Backend.exceptions.SystemException;
 
 
-
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeDao employeeDao;
+	
+	@Autowired
+	ReimbursementDao reimbursementDao;
 	
 	public EmployeeServiceImpl() {
 //		employeeDao = new EmployeeHibernateDaoImpl();
@@ -36,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
 		List<Reimbursement> allReimbursement = new ArrayList<Reimbursement>();
-		List<ReimbursementEntity> allReimbursementEntity = employeeDao.findAll();
+		List<ReimbursementEntity> allReimbursementEntity = reimbursementDao.findAll();
 		for(ReimbursementEntity reimbursementEntity: allReimbursementEntity) {
 			Reimbursement reimbursement = new Reimbursement(
 	 				reimbursementEntity.getReimbursementId(),
@@ -68,7 +72,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				reimbursement.getMerchant(),
 				reimbursement.getStatus(),
 				reimbursement.getExpenseType());
-		 	employeeDao.saveAndFlush(reimbursementEntity);
+		 	reimbursementDao.saveAndFlush(reimbursementEntity);
 		 		reimbursement = new Reimbursement(
 		 				reimbursementEntity.getReimbursementId(),
 						reimbursementEntity.getEmployeeId(),
@@ -97,7 +101,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				reimbursement.getMerchant(),
 				reimbursement.getStatus(),
 				reimbursement.getExpenseType());
-		 employeeDao.save(reimbursementEntity);
+		 reimbursementDao.save(reimbursementEntity);
 		 reimbursement = new Reimbursement(
 					reimbursementEntity.getReimbursementId(),
 					reimbursementEntity.getEmployeeId(),

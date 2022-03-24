@@ -6,12 +6,10 @@ package com.Project2Backend.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
 
 
 
@@ -23,7 +21,6 @@ public class EmployeeEntity {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="employee_id")
 	private int employeeId;
 	
@@ -54,6 +51,7 @@ public class EmployeeEntity {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 
 
 	public EmployeeEntity(int employeeId, String jobTitle, String firstName, String lastName, String email,

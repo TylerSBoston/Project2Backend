@@ -19,13 +19,15 @@ import com.Project2Backend.pojo.Reimbursement;
 
 
 @Repository
-public interface EmployeeDao extends JpaRepository<ReimbursementEntity, Reimbursement>  {
-	@Query("select u from EmployeeEntity u where ?1.userName = u.userName and ?1.password = u.password")
-	Employee login(Employee e);
-
-	void save(EmployeeEntity employeeEntity);
+public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer>  {
 
 	Optional<ReimbursementEntity> findById(int employeeId);
+	
+	@Query(value = "select u from EmployeeEntity u where u.userName = ?1 and ?2 = u.password",nativeQuery = true)
+	EmployeeEntity login(String username, String password);
+	
+	
+	
 }
 
 

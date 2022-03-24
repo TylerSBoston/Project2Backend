@@ -44,7 +44,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findPending())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeID()-1).getFirstName());
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 				
@@ -97,7 +97,7 @@ public class FinanceManagerService {
 
 			List<EmployeeEntity> employees = employeeDao.findAll();
 			LinkedList<Reimbursement> reimbursements = new LinkedList<Reimbursement>();
-			for(ReimbursementEntity reimbursement : reimbursementDao.findByEmployeeID(employee))
+			for(ReimbursementEntity reimbursement : reimbursementDao.findByEmployeeId(employee))
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
 				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());

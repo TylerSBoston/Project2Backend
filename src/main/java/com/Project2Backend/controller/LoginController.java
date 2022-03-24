@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ImageEntity;
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.service.LoginService;
@@ -21,7 +22,7 @@ public class LoginController {
 	LoginService ls;
 	
 	@PostMapping("/login") 
-	Employee login(@RequestBody Employee employee) throws SystemException {
+	Employee login(@RequestBody EmployeeEntity employee) throws SystemException {
 		return ls.login(employee);
 	}
 	

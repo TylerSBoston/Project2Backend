@@ -11,12 +11,12 @@ import com.Project2Backend.entities.ReimbursementEntity;
 public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Integer> {
 	
 	//needs changes for all completed and incompleted values if any are added
-	@Query("Select u from ReimbursementEntity u where statusID < 4")
+	@Query("Select u from ReimbursementEntity u where statusId < 4")
 	List<ReimbursementEntity> findPending();
 	
-	List<ReimbursementEntity> findByEmployeeID(int employeeID);
+	List<ReimbursementEntity> findByEmployeeId(int employeeId);
 
-	@Query("Select u from ReimbursementEntity u where statusID > 3")
+	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();
 	
 	

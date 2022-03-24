@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.ImageDao;
 import com.Project2Backend.dao.RoleDao;
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ImageEntity;
 import com.Project2Backend.pojo.Employee;
 
@@ -30,17 +31,17 @@ public class LoginService {
 	ImageDao imageDao;
 	
 	private final static Logger log = LogManager.getLogger(LoginService.class);
-	public Employee login(Employee e) throws SystemException {
+	public Employee login(EmployeeEntity e) throws SystemException {
 		// TODO Auto-generated method stub
 		
 		
 		
 		
-			Employee loggedIn = employeeDao.login(e.getUserName(), e.getPassword());
-			loggedIn.setRoles(roleDao.findByEmployeeID(loggedIn.getEmployeeId()));
+			EmployeeEntity loggedIn = employeeDao.login(e.getUserName(), e.getPassword());
+			Employee returned = new Employee(loggedIn);
+			returned.setRoles(roleDao.findByEmployeeID(loggedIn.getEmployeeId()));
 			
-			
-			return loggedIn;
+			return returned;
 
 	}
 	public static Object roles(String r) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,14 +16,14 @@ import com.Project2Backend.pojo.Reimbursement;
 import com.Project2Backend.service.EmployeeService;
 import com.Project2Backend.service.EmployeeServiceImpl;
 
-import exceptions.ReimbursementNotFoundException;
-import exceptions.SystemException;
+import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+import com.Project2Backend.exceptions.SystemException;
 
 @RestController
 @RequestMapping("api")
 public class ReimbursementController {
 	@Autowired
-	EmployeeService employeeService;
+	EmployeeServiceImpl employeeService;
 	
 	
 	@GetMapping("reimbursements")
@@ -45,9 +46,9 @@ public class ReimbursementController {
 
 	
 	@GetMapping("reimbursements/{employeeId}")
-	public Reimbursement fetchARequest(int employeeID) throws SystemException {
+	public Reimbursement fetchARequest(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
-		return employeeService.fetchARequest(employeeID);
+		return employeeService.fetchARequest(employeeId);
 	}
 	
 	@PutMapping("employee")
