@@ -29,7 +29,7 @@ public class LoginService {
 
 	
 	private final static Logger log = LogManager.getLogger(LoginService.class);
-	public Employee login(EmployeeEntity e) throws SystemException {
+	public Employee login(Employee e) throws SystemException {
 		// TODO Auto-generated method stub
 		
 		
