@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.SystemException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import com.Project2Backend.pojo.Reimbursement;
 import com.Project2Backend.service.FinanceManagerService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("finance-manager")
 public class FinanceManagerController {
 
