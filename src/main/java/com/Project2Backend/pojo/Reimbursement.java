@@ -53,6 +53,7 @@ public class Reimbursement {
 		amount = in.getAmount();
 		details = in.getDetails();
 		merchant = in.getMerchant();
+		
 	}
 	public Reimbursement(ReimbursementEntity in, ReceiptEntity reciept)
 	{
@@ -60,9 +61,23 @@ public class Reimbursement {
 	}
 	
 	
-	public Reimbursement(int employeeId2, int statustId2, String dateOfTransaction2, BigDecimal amount2,
-			String details2, String merchant2) {
-		// TODO Auto-generated constructor stub
+	
+
+
+	public Reimbursement(int reimbursementId, int employeeId, int statusId, String status, String expenseType,
+			String merchant, BigDecimal amount, String details, String dateOfTransaction, String dateSubmitted) {
+		super();
+		this.reimbursementId = reimbursementId;
+		this.employeeId = employeeId;
+		this.statusId = statusId;
+		this.status = status;
+		this.expenseType = expenseType;
+		this.merchant = merchant;
+		this.amount = amount;
+		this.details = details;
+		this.dateOfTransaction = dateOfTransaction;
+		this.dateSubmitted = dateSubmitted;
+		
 	}
 
 	public String getEmployee() {

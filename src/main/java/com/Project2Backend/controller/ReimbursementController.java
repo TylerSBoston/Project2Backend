@@ -2,8 +2,7 @@ package com.Project2Backend.controller;
 
 import java.util.List;
 
-
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,8 +21,8 @@ import exceptions.SystemException;
 @RestController
 @RequestMapping("api")
 public class ReimbursementController {
-	
-	EmployeeService employeeService = new EmployeeServiceImpl();
+	@Autowired
+	EmployeeService employeeService;
 	
 	
 	@GetMapping("reimbursements")
