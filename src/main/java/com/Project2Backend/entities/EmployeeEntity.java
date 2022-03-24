@@ -28,7 +28,6 @@ import lombok.Setter;
 public class EmployeeEntity {
 	@Id
 	@Column(name="employee_id")
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int employeeId = 0;
 	@Column(name="first_name")
 	private String firstName = "";
