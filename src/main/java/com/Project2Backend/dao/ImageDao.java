@@ -13,6 +13,7 @@ import com.Project2Backend.entities.ReimbursementEntity;
 @Repository
 public interface ImageDao extends JpaRepository<ImageEntity, Integer> {
 	
+	@Transactional
 	Optional<ImageEntity> findById(int ImageId);
 	
 	@Transactional
