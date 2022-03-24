@@ -26,10 +26,11 @@ public class ImageController {
 	@Autowired
 	ImageService imageService;
 	
-    @PostMapping()
-    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @RequestParam("id") Integer id) {
+    @PostMapping
+    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @RequestParam("id") String id) {
         try {
-            imageService.save(file,id);
+        	
+            imageService.save(file,Integer.getInteger(id));
 
             return ResponseEntity.status(HttpStatus.OK)
                                  .body(String.format("File uploaded successfully: %s", file.getOriginalFilename()));
