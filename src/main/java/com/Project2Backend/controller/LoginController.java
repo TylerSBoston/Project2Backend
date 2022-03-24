@@ -5,6 +5,7 @@ import javax.transaction.SystemException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.service.LoginService;
 
 @RestController
+@CrossOrigin
 public class LoginController {
 	
 	@Autowired
