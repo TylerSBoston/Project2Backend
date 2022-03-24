@@ -26,8 +26,8 @@ public class ImageController {
 	@Autowired
 	ImageService imageService;
 	
-    @PostMapping("{id}")
-    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @PathVariable Integer id) {
+    @PostMapping()
+    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @RequestParam("id") Integer id) {
         try {
             imageService.save(file,id);
 
