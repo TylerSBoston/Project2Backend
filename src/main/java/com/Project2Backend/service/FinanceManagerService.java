@@ -100,7 +100,7 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findByEmployeeId(employee))
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getFirstName());
+				input.setEmployee(employees.get(1).getFirstName());
 				
 				reimbursements.add(new Reimbursement(reimbursement));
 			}
