@@ -27,7 +27,7 @@ public class ImageService {
         imageEntity.setContentType(file.getContentType());
         imageEntity.setImage(file.getBytes());
         imageEntity.setSize(file.getSize());
-
+        imageEntity.setReimbursementId(1);
         imageDao.save(imageEntity);
     }
 
