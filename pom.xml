@@ -6,14 +6,11 @@
     <version>2.6.4</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-<<<<<<< HEAD
 
-  <groupId>revature</groupId>
-=======
-  <groupId>com</groupId>
->>>>>>> master
+  <groupId>revatue</groupId>
   <artifactId>Project2Backend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
 
 	  <dependencies>
 	    <dependency>
@@ -29,7 +26,6 @@
 		    <scope>test</scope>
 		</dependency>
 
-<<<<<<< HEAD
 		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -52,8 +48,6 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>2.0.0-alpha5</version>
 		</dependency>
-=======
->>>>>>> master
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -76,7 +70,6 @@
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
-<<<<<<< HEAD
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.24.Final</version>
@@ -96,8 +89,6 @@
 		</dependency>
 		
 		<dependency>
-=======
->>>>>>> master
 	      <groupId>org.springframework.boot</groupId>
 	      <artifactId>spring-boot-starter-data-jpa</artifactId>
 	    </dependency>
@@ -126,12 +117,9 @@
 	      <artifactId>spring-boot-starter-test</artifactId>
 	      <scope>test</scope>
 	    </dependency>
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> master
 	</dependencies>
 	<properties>
 	     <maven.compiler.source>11</maven.compiler.source>
@@ -141,7 +129,6 @@
 	<build>
 		<plugins>
 			<plugin>
-<<<<<<< HEAD
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
@@ -187,24 +174,6 @@
 					</execution>
 				</executions>
 			</plugin>
-=======
-		        <groupId>org.springframework.boot</groupId>
-		        <artifactId>spring-boot-maven-plugin</artifactId>
-		        <configuration>
-		          <excludes>
-		            <exclude>
-		              <groupId>org.projectlombok</groupId>
-		              <artifactId>lombok</artifactId>
-		            </exclude>
-		          </excludes>
-		        </configuration>
-	      </plugin>    
-	      <plugin>
-   			 <groupId>org.apache.maven.plugins</groupId>
-			    <artifactId>maven-resources-plugin</artifactId>
-			    <version>3.1.0</version>
-		</plugin>   
->>>>>>> master
 		</plugins>
 	</build>
 
