@@ -22,7 +22,7 @@ public class LoginController {
 	LoginService ls;
 	
 	@PostMapping("/login") 
-	Employee login(@RequestBody EmployeeEntity employee) throws SystemException {
+	Employee login(@RequestBody Employee employee) throws SystemException {
 		return ls.login(employee);
 	}
 
