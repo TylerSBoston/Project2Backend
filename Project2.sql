@@ -196,7 +196,7 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 
 
 insert into images (reimbursement_id,image)
-	values	(1,{0x0,2x2,33})
+	values	(1,decode('aefadfeadf','hex'));
 
 -- procedure and views comment out for ORM for now
 

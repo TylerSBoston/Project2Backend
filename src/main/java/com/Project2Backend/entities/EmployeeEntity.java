@@ -30,6 +30,7 @@ public class EmployeeEntity {
 	@Column(name="job_title")
 	private String jobTitle;
 	
+
 	@Column(name="first_name")
 	private String firstName;
 	
