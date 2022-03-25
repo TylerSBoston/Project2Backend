@@ -29,8 +29,6 @@ public class ImageEntity {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name = "image_id")
 	private int imageId = 0;
-	@Column(name="reimbursement_id")
-	private int reimbursementId = 1;
 	@Column(name="content_type")
 	private String contentType;
 	@Column(name="image_size")

@@ -120,7 +120,6 @@ Create Table reimbursement_updates(
 
 Create Table images(
 	image_id			integer generated always as identity,
-	reimbursement_id	integer not null,
 	image_name			varchar(50),
 	content_type		varchar(50),
 	image_size			bigint,

@@ -32,7 +32,7 @@ public class ImageController {
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @PathVariable("id") Integer id) {
         try {
         	
-            imageService.save(file,id);
+            imageService.save(file);
 
             return ResponseEntity.status(HttpStatus.OK)
                                  .body(String.format("File uploaded successfully: %s", file.getOriginalFilename()));

@@ -17,8 +17,4 @@ public interface ImageDao extends JpaRepository<ImageEntity, Integer> {
 	@Transactional
 	Optional<ImageEntity> findById(int ImageId);
 	
-	@Transactional
-	@Query("select u from ImageEntity u where u.reimbursementId =  ?1")
-	Optional<ImageEntity> findByReimbursementId(int reimbursementId);
-	
 }
