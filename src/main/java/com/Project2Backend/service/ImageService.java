@@ -22,13 +22,12 @@ public class ImageService {
 	@Autowired
     ImageDao imageDao;
 
-    public void save(MultipartFile file,int reimbursementId) throws IOException {
+    public void save(MultipartFile file) throws IOException {
         ImageEntity imageEntity = new ImageEntity();
         imageEntity.setName(StringUtils.cleanPath(file.getOriginalFilename()));
         imageEntity.setContentType(file.getContentType());
         imageEntity.setImage(file.getBytes());
         imageEntity.setSize(file.getSize());
-        imageEntity.setReimbursementId(reimbursementId);
         imageDao.save(imageEntity);
     }
 
@@ -37,7 +36,7 @@ public class ImageService {
     }
     
     public Optional<ImageEntity> getImagebyReimbursementId(int id) {
-        return imageDao.findByReimbursementId(id);
+        return imageDao.findById(id);
     }
 
 

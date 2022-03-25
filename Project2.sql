@@ -120,13 +120,11 @@ Create Table reimbursement_updates(
 
 Create Table images(
 	image_id			integer generated always as identity,
-	reimbursement_id	integer not null,
 	image_name			varchar(50),
 	content_type		varchar(50),
 	image_size			bigint,
 	image				oid,
-	primary key (image_id),
-	Constraint fk_images_reimbursements Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
+	primary key (image_id)
 );
 
 

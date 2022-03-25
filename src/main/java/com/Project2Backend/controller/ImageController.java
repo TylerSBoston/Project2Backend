@@ -33,7 +33,7 @@ public class ImageController {
     public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file, @PathVariable("id") Integer id) {
         try {
         	
-            imageService.save(file,id);
+            imageService.save(file);
 
             return ResponseEntity.status(HttpStatus.OK)
                                  .body(String.format("File uploaded successfully: %s", file.getOriginalFilename()));
@@ -44,7 +44,7 @@ public class ImageController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<byte[]> getFile(@PathVariable Integer id) {
+    public ResponseEntity<?> getFile(@PathVariable Integer id) {
         Optional<ImageEntity> fileEntityOptional = imageService.getImagebyReimbursementId(id);
 
         if (!fileEntityOptional.isPresent()) {
@@ -56,6 +56,7 @@ public class ImageController {
         return ResponseEntity.ok()
                              .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imageEntity.getName() + "\"")
                              .contentType(MediaType.valueOf(imageEntity.getContentType()))
+                             .contentLength(imageEntity.getSize())
                              .body(imageEntity.getImage());
     }
 	
