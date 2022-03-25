@@ -43,7 +43,7 @@ public class ImageController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<byte[]> getFile(@PathVariable Integer id) {
+    public ResponseEntity<?> getFile(@PathVariable Integer id) {
         Optional<ImageEntity> fileEntityOptional = imageService.getImagebyReimbursementId(id);
 
         if (!fileEntityOptional.isPresent()) {
