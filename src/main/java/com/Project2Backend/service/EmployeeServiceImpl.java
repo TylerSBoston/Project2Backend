@@ -77,8 +77,32 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	   @Override
-	    public Reimbursement submitRequest(Reimbursement reimbursement) {
-	        return reimbursementDao.save(reimbursement);
+	    public Reimbursement submitRequest(Reimbursement reimbursement)throws SystemException {
+	        ReimbursementEntity reimbursementEntity = new ReimbursementEntity(reimbursement.getReimbursementId(),
+					reimbursement.getEmployeeId(),
+					reimbursement.getStatusId(),
+					reimbursement.getDateOfTransaction(),
+					reimbursement.getDateSubmitted(),
+					reimbursement.getAmount(),
+					reimbursement.getDetails(),
+					reimbursement.getMerchant(),
+					reimbursement.getStatus(),
+					reimbursement.getExpenseType());
+	        reimbursementDao.saveAndFlush(reimbursementEntity);
+	        reimbursement = new Reimbursement(
+	        		reimbursementEntity.getReimbursementId(),
+					reimbursementEntity.getEmployeeId(),
+					reimbursementEntity.getStatusId(),
+					reimbursementEntity.getDateOfTransaction(),
+					reimbursementEntity.getDateSubmitted(),
+					reimbursementEntity.getDetails(),
+					reimbursementEntity.getAmount(),
+					reimbursementEntity.getMerchant(),
+					reimbursementEntity.getStatus(),
+					reimbursementEntity.getExpenseType());
+	        		
+	        return reimbursement;
+	        		
 	    }
 		 				
 	
