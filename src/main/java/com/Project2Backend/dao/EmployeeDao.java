@@ -21,7 +21,7 @@ import com.Project2Backend.pojo.Reimbursement;
 @Repository
 public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer>  {
 
-	Optional<ReimbursementEntity> findById(int employeeId);
+	Optional<EmployeeEntity> findById(int employeeId);
 	
 	@Query(value = "select * from employees where user_name = ?1 and ?2 = user_password",nativeQuery = true)
 	EmployeeEntity login(String username, String password);
