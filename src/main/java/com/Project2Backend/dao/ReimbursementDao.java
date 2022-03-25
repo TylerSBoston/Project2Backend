@@ -14,7 +14,7 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@Query("Select u from ReimbursementEntity u where statusId < 4")
 	List<ReimbursementEntity> findPending();
 	
-	List<ReimbursementEntity> findByEmployeeId(int employeeId);
+	List<ReimbursementEntity> findByReimbursementId(int reimbursementId);
 
 	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();

@@ -96,7 +96,7 @@ public class FinanceManagerService {
 		
 
 			LinkedList<Reimbursement> reimbursements = new LinkedList<Reimbursement>();
-			for(ReimbursementEntity reimbursement : reimbursementDao.findByEmployeeId(employee))
+			for(ReimbursementEntity reimbursement : reimbursementDao.findByReimbursementId(employee))
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
 
