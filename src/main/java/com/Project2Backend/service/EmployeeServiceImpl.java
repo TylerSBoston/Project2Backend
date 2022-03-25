@@ -6,6 +6,7 @@ package com.Project2Backend.service;
 
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,23 +60,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 	@Override
-	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {
-		List<Employee> allEmployees = new ArrayList<Employee>();
-		List<EmployeeEntity> allEmployeeEntity = employeeDao.findAll();
-		for(EmployeeEntity employeeEntity: allEmployeeEntity) {
-			Employee employee = new Employee(
-					employeeEntity.getEmployeeId(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getLastName(),
-					employeeEntity.getEmail(),
-					employeeEntity.getPhone(),
-					employeeEntity.getUserName(),
-					employeeEntity.getPassword());
-			allEmployees.add(employee);}
-		return allEmployees;
+	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound
+	{
 		
-		
+
+			LinkedList<Employee> employees = new LinkedList<Employee>();
+			for(EmployeeEntity employee : employeeDao.findAll())
+			{
+				employees.add(new Employee(employee));
+			}
+			
+			
+			return employees;
+
 	}
 
 	@Override
