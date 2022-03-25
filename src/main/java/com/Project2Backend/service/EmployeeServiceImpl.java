@@ -122,7 +122,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Reimbursement fetchARequest(int employeeId) throws SystemException {
 		Optional<ReimbursementEntity> optional = employeeDao.findById(employeeId);
-		Reimbursement reimbursement= null;
+		Reimbursement reimbursement= new Reimbursement();
 		if(optional.isPresent()) {
 		
 		 ReimbursementEntity reimbursementEntity = optional.get();
