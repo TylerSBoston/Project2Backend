@@ -55,6 +55,7 @@ public class ImageController {
         return ResponseEntity.ok()
                              .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + imageEntity.getName() + "\"")
                              .contentType(MediaType.valueOf(imageEntity.getContentType()))
+                             .contentLength(imageEntity.getSize())
                              .body(imageEntity.getImage());
     }
 	
