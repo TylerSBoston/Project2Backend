@@ -38,5 +38,5 @@ public class ImageEntity {
 	private String name;
 	@Lob
 	@Column(name="image")
-	private byte[] image;	
+	private byte[] imageByte;	
 }
