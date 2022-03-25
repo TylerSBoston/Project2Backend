@@ -31,7 +31,7 @@ public class ImageService {
         ImageEntity imageEntity = new ImageEntity();
         imageEntity.setName(StringUtils.cleanPath(file.getOriginalFilename()));
         imageEntity.setContentType(file.getContentType());
-        imageEntity.setImage(file.getBytes());
+        imageEntity.setImageByte(file.getBytes());
         imageEntity.setSize(file.getSize());
         imageDao.save(imageEntity);
     }
