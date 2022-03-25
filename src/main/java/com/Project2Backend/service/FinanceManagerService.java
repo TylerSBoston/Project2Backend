@@ -29,11 +29,11 @@ public class FinanceManagerService {
 	@Autowired
 	ReimbursementDao reimbursementDao;
 	
-	//private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
+	private final static Logger log = LogManager.getLogger(FinanceManagerService.class);
 	
 	public LinkedList<Reimbursement> getPendingReimbursements() throws SystemException
 	{
-		
+			
 			LinkedList<Reimbursement> reimbursements = new LinkedList<Reimbursement>();
 			
 			// have to do this here,should be easier with spring, trust id to spot-1 is accurate until hibernate added.

@@ -32,8 +32,8 @@ public class LoginService {
 	public Employee login(Employee e) throws SystemException {
 		// TODO Auto-generated method stub
 		
-		
-		
+			log.info("in login");
+			
 		
 			EmployeeEntity loggedIn = employeeDao.login(e.getUserName(), e.getPassword());
 			Employee returned = new Employee(loggedIn);
