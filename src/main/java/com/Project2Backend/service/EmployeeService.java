@@ -28,7 +28,5 @@ public interface EmployeeService{
 		
 		Employee updateEmployee (Employee employee)throws SystemException;
 		
-		Employee fetchEmployee (int employeeId)throws SystemException;
-		
 		
 	}

@@ -141,25 +141,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return reimbursement;
 	
 	}
-	
-	@Override
-	public Employee fetchEmployee(int employeeId) throws SystemException {
-		Optional<EmployeeEntity> optional = employeeDao.findOne(employeeId);
-		Employee employee = null;
-		if(optional.isPresent()) {
-			EmployeeEntity employeeEntity = optional.get();
-			employee = new Employee(
-					employeeEntity.getEmployeeId(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getLastName(),
-					employeeEntity.getEmail(),
-					employeeEntity.getPhone(),
-					employeeEntity.getUserName(),
-					employeeEntity.getPassword());
-					}
-		return employee;
-	}
 
 	
 
@@ -188,8 +169,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		 return employee;
 				 
 	}
-
-
 	
 	
 
