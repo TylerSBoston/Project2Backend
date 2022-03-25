@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
 import com.Project2Backend.service.EmployeeServiceImpl;
-
+import com.Project2Backend.exceptions.EmployeeNotFound;
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
 import com.Project2Backend.exceptions.SystemException;
 
@@ -31,6 +31,12 @@ public class ReimbursementController {
 	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
 		// TODO Auto-generated method stub
 		return employeeService.fetchAllReimbursements();
+	}
+	
+	@GetMapping("employees")
+	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {
+		// TODO Auto-generated method stub
+		return employeeService.fetchAllEmployees();
 	}
 
 	@PostMapping("reimbursements")

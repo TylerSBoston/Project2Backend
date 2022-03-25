@@ -18,8 +18,7 @@ import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
-
-
+import com.Project2Backend.exceptions.EmployeeNotFound;
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
 import com.Project2Backend.exceptions.SystemException;
 
@@ -55,6 +54,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 					reimbursementEntity.getExpenseType());
 			allReimbursement.add(reimbursement);}
 		return allReimbursement;
+		
+		
+	}
+	
+	@Override
+	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {
+		List<Employee> allEmployees = new ArrayList<Employee>();
+		List<EmployeeEntity> allEmployeeEntity = employeeDao.findAll();
+		for(EmployeeEntity employeeEntity: allEmployeeEntity) {
+			Employee employee = new Employee(
+					employeeEntity.getEmployeeId(),
+					employeeEntity.getFirstName(),
+					employeeEntity.getFirstName(),
+					employeeEntity.getLastName(),
+					employeeEntity.getEmail(),
+					employeeEntity.getPhone(),
+					employeeEntity.getUserName(),
+					employeeEntity.getPassword());
+			allEmployees.add(employee);}
+		return allEmployees;
 		
 		
 	}
