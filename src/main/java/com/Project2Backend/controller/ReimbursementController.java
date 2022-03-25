@@ -52,7 +52,7 @@ public class ReimbursementController {
 		return employeeService.fetchARequest(reimbursementId);
 	}
 	
-	@PutMapping("employee")
+	@PutMapping("employees")
 	public Employee updateEmployee(Employee employee) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeService.updateEmployee(employee);
