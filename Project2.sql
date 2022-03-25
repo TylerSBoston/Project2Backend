@@ -124,8 +124,7 @@ Create Table images(
 	content_type		varchar(50),
 	image_size			bigint,
 	image				oid,
-	primary key (image_id),
-	Constraint fk_images_reimbursements Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
+	primary key (image_id)
 );
 
 
