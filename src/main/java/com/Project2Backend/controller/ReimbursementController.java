@@ -64,11 +64,7 @@ public class ReimbursementController {
 	
 	@PostMapping(value = "reimbursements")
 	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		try {
 		reimbursementDao.save(reimbursementEntity);
-		} catch (Exception e) {
-			System.out.println("oh no");
-		}
 		
 	
 		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
