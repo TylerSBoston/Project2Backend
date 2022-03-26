@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.Project2Backend.entities.ReimbursementEntity;
+import com.Project2Backend.exceptions.SystemException;
 import com.Project2Backend.pojo.Reimbursement;
 
 @Repository
@@ -23,12 +24,12 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();
 
-	Reimbursement save(Reimbursement reimbursement);
+	Reimbursement save(Reimbursement reimbursement)throws SystemException;
 	
 	@SuppressWarnings("unchecked")
 	ReimbursementEntity save(ReimbursementEntity reimbursementEntity);
 	
-	Optional<ReimbursementEntity> findById(int employeeId);
+	Optional<ReimbursementEntity> findById(int employeeId)throws SystemException;
 
 	
 	
