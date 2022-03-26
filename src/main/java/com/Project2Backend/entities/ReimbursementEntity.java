@@ -11,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.Project2Backend.pojo.Reimbursement;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +28,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@RequestMapping
+
 @Table(name="reimbursements")
 
 public class ReimbursementEntity {
@@ -33,21 +38,22 @@ public class ReimbursementEntity {
 	}
 
 	@Id
+	
 	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private int reimbursementId = 0;
+	final int reimbursementId = 0;
 	
 	@Column(name="employee_id")
-	private int employeeId = 0;
+	final int employeeId = 0;
 	
 	@Column(name="status_id")
-	private int statusId = 0;
+	final int statusId = 0;
 	
 	@Column(name="status")
-	private String status = "";
+	final String status = "";
 	
 	@Column(name="reimbursement_type")
-	private String expenseType = "";
+	final String expenseType = "";
 	
 	@Column(name="date_of_transaction")
 	private String dateOfTransaction ;
@@ -56,13 +62,18 @@ public class ReimbursementEntity {
 	private String dateSubmitted;
 	
 	@Column(name="amount")
-	private BigDecimal amount = BigDecimal.ZERO;
+	final BigDecimal amount = BigDecimal.ZERO;
 	
 	@Column(name="details")
-	private String details = "";
+	final String details = "";
 	
 	@Column(name="merchant")
-	private String merchant = "";
+	final String merchant = "";
+
+	public void setStatus(String status2) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 
