@@ -77,8 +77,8 @@ public class ReimbursementService {
 
 	}
 	
-	  public Reimbursement submitRequest() {
-		   Reimbursement reimbursement = new Reimbursement();
+	  public ReimbursementEntity submitRequest() {
+		   ReimbursementEntity reimbursement = new ReimbursementEntity();
 		    Reimbursement r = new Reimbursement();
 		    r.setDateOfTransaction("");
 		    r.setDateSubmitted("");
