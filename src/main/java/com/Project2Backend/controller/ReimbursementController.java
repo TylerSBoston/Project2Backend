@@ -71,13 +71,13 @@ public class ReimbursementController {
 	
 	@PostMapping(value = "/reimbursements")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ReimbursementEntity submitRequest(@RequestBody @RequestParam ReimbursementEntity reimbursementEntity) throws SystemException {
+	public ReimbursementEntity submitRequest(@RequestBody(required = false) @RequestParam("reimbursements") ReimbursementEntity reimbursementEntity) throws SystemException {
 		return reimbursementDao.save(reimbursementEntity);
 			
 	}
 	
 	@PutMapping(value = "/reimbursements")
-	public Optional<ReimbursementEntity> updateRequest(@RequestBody @RequestParam ReimbursementEntity reimbursementEntity) throws SystemException {
+	public Optional<ReimbursementEntity> updateRequest(@RequestBody @RequestParam("reimbursements") ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
 	
