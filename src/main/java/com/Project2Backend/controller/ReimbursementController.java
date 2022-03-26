@@ -38,19 +38,19 @@ public class ReimbursementController {
 	EmployeeDao employeeDao;
 	
 	
-	@GetMapping(value = "reimbursements")
+	@GetMapping(value = "/reimbursements")
 	public List<ReimbursementEntity> findAll()throws SystemException {
 		return reimbursementDao.findAll();
 	
 	}
 	
-	@GetMapping(value = "reimbursements/{reimbursementId}")
+	@GetMapping(value = "/reimbursements/{reimbursementId}")
 	public Optional<ReimbursementEntity> fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
 		// TODO Auto-generated method stub
 		return reimbursementDao.findById(reimbursementId);
 	}
 	
-	@GetMapping(value = "employees")
+	@GetMapping(value = "/employees")
 	public List<EmployeeEntity> findAll1() {
 		// TODO Auto-generated method stub
 		return employeeDao.findAll();
@@ -59,27 +59,27 @@ public class ReimbursementController {
 	
 	@Transactional(readOnly = true)
 	@GetMapping
-	(value = "employees/{employeeId}")
+	(value = "/employees/{employeeId}")
 	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.findById(employeeId);
 	}
 	
 	@Transactional(readOnly = true)
-	@PostMapping(value = "reimbursements")
+	@PostMapping(value = "/reimbursements")
 	public ReimbursementEntity submitRequest(@Validated @RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		return reimbursementDao.save(reimbursementEntity);
 			
 	}
 	
-	@PutMapping(value = "reimbursements")
+	@PutMapping(value = "/reimbursements")
 	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
 	
 		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
 	}
-	@PutMapping(value = "employees")
+	@PutMapping(value = "/employees")
 	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
 		// TODO Auto-generated method stub
 		employeeDao.save(employeeEntity);
