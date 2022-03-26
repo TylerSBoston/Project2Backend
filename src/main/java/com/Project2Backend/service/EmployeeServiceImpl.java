@@ -5,11 +5,11 @@ package com.Project2Backend.service;
 
 
 
-import java.util.ArrayList;
+
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
 
 import com.Project2Backend.exceptions.EmployeeNotFound;
-import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+
 import com.Project2Backend.exceptions.SystemException;
 
 
@@ -194,32 +194,32 @@ public class EmployeeServiceImpl implements EmployeeService {
 				 
 	}
 
-	public Employee fetchAEmployee(int employeeId) throws SystemException{
-		
-
-Optional<EmployeeEntity> optional = employeeDao.findById(employeeId);
-		
-		Employee employee= null;
-		if(optional.isPresent()) {
-		
-		 EmployeeEntity employeeEntity = optional.get();
-		 employee = new Employee(
-				 employeeEntity.getEmployeeId(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getFirstName(),
-					employeeEntity.getLastName(),
-					employeeEntity.getEmail(),
-					employeeEntity.getPhone(),
-					employeeEntity.getUserName(),
-					employeeEntity.getPassword());}
-		
-		return employee;
-	
-		
-		
-		
-	}
-	
+//	public Employee fetchAEmployee(int employeeId) throws SystemException{
+//		
+//
+//Optional<EmployeeEntity> optional = employeeDao.findById(employeeId);
+//		
+//		Employee employee= null;
+//		if(optional.isPresent()) {
+//		
+//		 EmployeeEntity employeeEntity = optional.get();
+//		 employee = new Employee(
+//				 employeeEntity.getEmployeeId(),
+//					employeeEntity.getFirstName(),
+//					employeeEntity.getFirstName(),
+//					employeeEntity.getLastName(),
+//					employeeEntity.getEmail(),
+//					employeeEntity.getPhone(),
+//					employeeEntity.getUserName(),
+//					employeeEntity.getPassword());}
+//		
+//		return employee;
+//	
+//		
+//		
+//		
+//	}
+//	
 	
 	
 	

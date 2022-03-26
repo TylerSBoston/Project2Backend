@@ -24,7 +24,9 @@ import com.Project2Backend.service.EmployeeServiceImpl;
 
 import net.bytebuddy.description.type.TypeDescription.Generic.Visitor.Assigner;
 
+import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.ReimbursementDao;
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.exceptions.EmployeeNotFound;
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
@@ -38,6 +40,8 @@ public class ReimbursementController {
 	EmployeeServiceImpl employeeService;
 	@Autowired
 	ReimbursementDao reimbursementDao;
+	@Autowired
+	EmployeeDao employeeDao;
 	
 	
 	@GetMapping(value = "reimbursements")
@@ -50,6 +54,12 @@ public class ReimbursementController {
 	public Optional<ReimbursementEntity> fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
 		// TODO Auto-generated method stub
 		return reimbursementDao.findById(reimbursementId);
+	}
+	
+	@GetMapping(value = "employees/{employeeId}")
+	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
+		// TODO Auto-generated method stub
+		return employeeDao.findById(employeeId);
 	}
 	
 	
@@ -92,11 +102,11 @@ public class ReimbursementController {
 //		return employeeService.fetchARequest(reimbursementId);
 //	}
 	
-	@GetMapping("employees/{employeeId}")
-	public Employee fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeService.fetchAEmployee(employeeId);
-	}
+//	@GetMapping("employees/{employeeId}")
+//	public Employee fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
+//		// TODO Auto-generated method stub
+//		return employeeService.fetchAEmployee(employeeId);
+//	}
 	
 	@PutMapping("employees")
 	public Employee updateEmployee(Employee employee) throws SystemException {
