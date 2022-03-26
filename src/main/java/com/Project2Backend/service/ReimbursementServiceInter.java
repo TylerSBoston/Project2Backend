@@ -2,6 +2,8 @@ package com.Project2Backend.service;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.exceptions.SystemException;
 import com.Project2Backend.pojo.Employee;
@@ -9,7 +11,7 @@ import com.Project2Backend.pojo.Reimbursement;
 
 public interface ReimbursementServiceInter {
 	
-	ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) throws SystemException;
+	ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException;
 
 	List<Reimbursement> findAll() throws javax.transaction.SystemException;
 
@@ -19,6 +21,6 @@ public interface ReimbursementServiceInter {
 
 	Employee updateEmployee(Employee employee) throws javax.transaction.SystemException;
 
-	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity, int reibursementId);
+	ReimbursementEntity updateRequest(@RequestBody ReimbursementEntity reimbursementEntity, int reibursementId);
 
 }

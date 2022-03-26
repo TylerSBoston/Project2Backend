@@ -30,10 +30,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @RequestMapping
 
+
 @Table(name="reimbursements")
 
+
 public class ReimbursementEntity {
-	public ReimbursementEntity(Reimbursement rUpdate) {
+	public ReimbursementEntity(@RequestBody Reimbursement rUpdate) {
 		// TODO Auto-generated constructor stub
 	}
 

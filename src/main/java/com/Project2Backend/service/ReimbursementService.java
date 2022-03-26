@@ -9,6 +9,7 @@ import javax.transaction.SystemException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.ReimbursementDao;
@@ -67,7 +68,7 @@ public class ReimbursementService
 	
 	@Override
 	 public ReimbursementEntity
-	    updateRequest(ReimbursementEntity reimbursementEntity,
+	    updateRequest(@RequestBody ReimbursementEntity reimbursementEntity,
 	                     int reibursementId)
 	    {
 		ReimbursementEntity reimDB = null;
@@ -114,7 +115,7 @@ public class ReimbursementService
 	}
 	
 	@Override
-	public ReimbursementEntity submitRequest(ReimbursementEntity 
+	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity 
 			  reimbursementEntity) {
 		  
 		  return reimbursementDao.save(reimbursementEntity);
