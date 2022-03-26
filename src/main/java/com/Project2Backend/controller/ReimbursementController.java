@@ -1,6 +1,7 @@
 package com.Project2Backend.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.core.EntityMetadata;
@@ -46,9 +47,9 @@ public class ReimbursementController {
 	}
 	
 	@GetMapping(value = "reimbursements/{reimbursementId}")
-	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
+	public Optional<ReimbursementEntity> fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
 		// TODO Auto-generated method stub
-		return reimbursementDao.getById(reimbursementId);
+		return reimbursementDao.findById(reimbursementId);
 	}
 	
 	
