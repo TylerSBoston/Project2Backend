@@ -66,11 +66,9 @@ public class ReimbursementController {
 	
 	@Transactional(readOnly = true)
 	@PostMapping(value = "reimbursements")
-	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		reimbursementDao.save(reimbursementEntity);
-		
-	
-		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
+	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+		return reimbursementDao.save(reimbursementEntity);
+			
 	}
 	
 	@PutMapping(value = "reimbursements")
