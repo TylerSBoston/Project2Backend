@@ -67,7 +67,7 @@ public class ReimbursementController {
 		reimbursementDao.save(reimbursementEntity);
 		
 	
-		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
+		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
 	}
 	
 	@PutMapping(value = "reimbursements")
@@ -75,7 +75,7 @@ public class ReimbursementController {
 		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
 	
-		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
+		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
 	}
 	@PutMapping(value = "employees")
 	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
