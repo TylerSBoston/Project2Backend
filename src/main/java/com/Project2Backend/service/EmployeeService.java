@@ -12,7 +12,7 @@ import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
 
 
-import com.Project2Backend.exceptions.EmployeeNotFound;
+
 
 import com.Project2Backend.exceptions.SystemException;
 @Service
@@ -31,12 +31,12 @@ public interface EmployeeService{
 		Employee updateEmployee (Employee employee)throws SystemException;
 
 
-		List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound;
 		
 		
 		
 		
-		Reimbursement submitRequest(Reimbursement reimbursement)throws  SystemException;
+		
+	
 			
 		}
 		

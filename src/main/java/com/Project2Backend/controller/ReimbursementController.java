@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.core.EntityMetadata;
-import org.springframework.data.repository.core.RepositoryMetadata;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,14 +19,13 @@ import com.Project2Backend.pojo.Reimbursement;
 
 import com.Project2Backend.service.EmployeeServiceImpl;
 
-import net.bytebuddy.description.type.TypeDescription.Generic.Visitor.Assigner;
+
 
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
-import com.Project2Backend.exceptions.EmployeeNotFound;
-import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+
 import com.Project2Backend.exceptions.SystemException;
 
 @RestController
@@ -56,38 +52,53 @@ public class ReimbursementController {
 		return reimbursementDao.findById(reimbursementId);
 	}
 	
+	@GetMapping(value = "employees")
+	public List<EmployeeEntity> findAll1() {
+		// TODO Auto-generated method stub
+		return employeeDao.findAll();
+	}
+	
 	@GetMapping(value = "employees/{employeeId}")
 	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.findById(employeeId);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@GetMapping("employees")
-	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {
+	@PostMapping(value = "reimbursements")
+	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
-		return employeeService.fetchAllEmployees();
+		reimbursementDao.save(reimbursementEntity);
+		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	
+//	@GetMapping("employees")
+//	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {
+//		// TODO Auto-generated method stub
+//		return employeeService.fetchAllEmployees();
+//	}
 
-	@PostMapping("reimbursements")
-	public Reimbursement submitRequest(@RequestBody Reimbursement reimbursement) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeService.submitRequest(reimbursement);
-	}
+//	@PostMapping("reimbursements")
+//	public Reimbursement submitRequest(@RequestBody Reimbursement reimbursement) throws SystemException {
+//		// TODO Auto-generated method stub
+//		return employeeService.submitRequest(reimbursement);
+//	}
 
 	@PutMapping("reimbursements")
 	 Reimbursement updateReimbursement(@RequestBody Reimbursement reimbursement) throws SystemException {

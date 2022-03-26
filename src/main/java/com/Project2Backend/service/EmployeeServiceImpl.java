@@ -7,8 +7,7 @@ package com.Project2Backend.service;
 
 
 
-import java.util.LinkedList;
-import java.util.List;
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
 
-import com.Project2Backend.exceptions.EmployeeNotFound;
+
 
 import com.Project2Backend.exceptions.SystemException;
 
@@ -63,51 +62,51 @@ public class EmployeeServiceImpl implements EmployeeService {
 //		
 //	}
 	
-	@Override
-	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound
-	{
-		
+//	@Override
+//	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound
+//	{
+//		
+//
+//			LinkedList<Employee> employees = new LinkedList<Employee>();
+//			for(EmployeeEntity employee : employeeDao.findAll())
+//			{
+//				employees.add(new Employee(employee));
+//			}
+//			
+//			
+//			return employees;
+//
+//	}
 
-			LinkedList<Employee> employees = new LinkedList<Employee>();
-			for(EmployeeEntity employee : employeeDao.findAll())
-			{
-				employees.add(new Employee(employee));
-			}
-			
-			
-			return employees;
 
-	}
-
-
-	   @Override
-	    public Reimbursement submitRequest(Reimbursement reimbursement)throws SystemException {
-	        ReimbursementEntity reimbursementEntity = new ReimbursementEntity(reimbursement.getReimbursementId(),
-					reimbursement.getEmployeeId(),
-					reimbursement.getStatusId(),
-					reimbursement.getDateOfTransaction(),
-					reimbursement.getDateSubmitted(),
-					reimbursement.getAmount(),
-					reimbursement.getDetails(),
-					reimbursement.getMerchant(),
-					reimbursement.getStatus(),
-					reimbursement.getExpenseType());
-	        reimbursementDao.saveAndFlush(reimbursementEntity);
-	        reimbursement = new Reimbursement(
-	        		reimbursementEntity.getReimbursementId(),
-					reimbursementEntity.getEmployeeId(),
-					reimbursementEntity.getStatusId(),
-					reimbursementEntity.getDateOfTransaction(),
-					reimbursementEntity.getDateSubmitted(),
-					reimbursementEntity.getDetails(),
-					reimbursementEntity.getAmount(),
-					reimbursementEntity.getMerchant(),
-					reimbursementEntity.getStatus(),
-					reimbursementEntity.getExpenseType());
-	        		
-	        return reimbursement;
-	        		
-	    }
+//	   @Override
+//	    public Reimbursement submitRequest(Reimbursement reimbursement)throws SystemException {
+//	        ReimbursementEntity reimbursementEntity = new ReimbursementEntity(reimbursement.getReimbursementId(),
+//					reimbursement.getEmployeeId(),
+//					reimbursement.getStatusId(),
+//					reimbursement.getDateOfTransaction(),
+//					reimbursement.getDateSubmitted(),
+//					reimbursement.getAmount(),
+//					reimbursement.getDetails(),
+//					reimbursement.getMerchant(),
+//					reimbursement.getStatus(),
+//					reimbursement.getExpenseType());
+//	        reimbursementDao.saveAndFlush(reimbursementEntity);
+//	        reimbursement = new Reimbursement(
+//	        		reimbursementEntity.getReimbursementId(),
+//					reimbursementEntity.getEmployeeId(),
+//					reimbursementEntity.getStatusId(),
+//					reimbursementEntity.getDateOfTransaction(),
+//					reimbursementEntity.getDateSubmitted(),
+//					reimbursementEntity.getDetails(),
+//					reimbursementEntity.getAmount(),
+//					reimbursementEntity.getMerchant(),
+//					reimbursementEntity.getStatus(),
+//					reimbursementEntity.getExpenseType());
+//	        		
+//	        return reimbursement;
+//	        		
+//	    }
 		 				
 	
 
