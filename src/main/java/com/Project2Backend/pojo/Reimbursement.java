@@ -144,6 +144,9 @@ public class Reimbursement {
 	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
+	public Reimbursement(Reimbursement reimbursement) {
+		// TODO Auto-generated constructor stub
+	}
 
 	
 }

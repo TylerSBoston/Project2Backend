@@ -2,6 +2,7 @@ package com.Project2Backend.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.SystemException;
 
@@ -76,6 +77,19 @@ public class ReimbursementService {
 
 	}
 	
+	  public Reimbursement submitRequest() {
+		   Reimbursement reimbursement = new Reimbursement();
+		    Reimbursement r = new Reimbursement();
+		    r.setDateOfTransaction("");
+		    r.setDateSubmitted("");
+		    try {reimbursementDao.save(r);          
+		 } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		    return reimbursement;
+		}}
+
+	
 	
 
-}
+
