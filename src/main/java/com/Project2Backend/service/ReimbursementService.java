@@ -18,7 +18,8 @@ import com.Project2Backend.pojo.Reimbursement;
 
 
 @Service
-public class ReimbursementService {
+public class ReimbursementService 
+	implements ReimbursementServiceInter{
 	
 	@Autowired
 	EmployeeDao employeeDao;
@@ -26,7 +27,7 @@ public class ReimbursementService {
 	@Autowired
 	ReimbursementDao reimbursementDao;
 	
-	
+	@Override
 	public List<Reimbursement> findAll() throws SystemException
 	{
 		
@@ -46,6 +47,7 @@ public class ReimbursementService {
 
 	}
 	
+	@Override
 	public List<Employee> findAll1() throws SystemException
 	{
 		
@@ -62,6 +64,7 @@ public class ReimbursementService {
 
 	}
 	
+	@Override
 	public Reimbursement updateRequest(Reimbursement reimbursement) throws SystemException
 	{
 			
@@ -70,6 +73,7 @@ public class ReimbursementService {
 
 	}
 	
+	@Override
 	public Employee updateEmployee(Employee employee) throws SystemException
 	{
 			
@@ -78,7 +82,8 @@ public class ReimbursementService {
 
 	}
 	
-	  public ReimbursementEntity submitRequest(ReimbursementEntity 
+	@Override
+	public ReimbursementEntity submitRequest(ReimbursementEntity 
 			  reimbursementEntity) {
 		  
 		  return reimbursementDao.save(reimbursementEntity);
