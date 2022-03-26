@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.Project2Backend.pojo.Employee;
+
 import lombok.AllArgsConstructor;
 
 
@@ -66,6 +68,12 @@ public class EmployeeEntity {
 		this.userName = userName;
 		this.password = password;
 	}
+
+
+	public EmployeeEntity(Employee employee) {
+		// TODO Auto-generated constructor stub
+	}
+
 
 
 	public int getEmployeeId() {
