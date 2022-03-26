@@ -65,10 +65,10 @@ public class ReimbursementController {
 	}
 	
 	@PostMapping(value = "reimbursements")
-	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
-		reimbursementDao.save(reimbursementEntity);
-		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
+		return reimbursementDao.save(reimbursementEntity);
+		
 		
 	}
 	
