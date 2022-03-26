@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,8 +54,9 @@ public class ReimbursementController {
 		// TODO Auto-generated method stub
 		return employeeDao.findAll();
 	}
-	
-	@GetMapping(value = "employees/{employeeId}")
+	@Transactional(readOnly = true)
+	@GetMapping
+	(value = "employees/{employeeId}")
 	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.findById(employeeId);
