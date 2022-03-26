@@ -2,6 +2,7 @@ package com.Project2Backend.service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.transaction.SystemException;
@@ -65,13 +66,43 @@ public class ReimbursementService
 	}
 	
 	@Override
-	public Reimbursement updateRequest(Reimbursement reimbursement) throws SystemException
-	{
-			
-			// convers reimbursmenent to entity, and back for return
-			return new Reimbursement(reimbursementDao.save(new ReimbursementEntity(reimbursement)));
-
-	}
+	 public ReimbursementEntity
+	    updateRequest(ReimbursementEntity reimbursementEntity,
+	                     int reibursementId)
+	    {
+		ReimbursementEntity reimDB = null;
+		try {
+			reimDB = reimbursementDao.findById(reibursementId)
+			      .get();
+		} catch (com.Project2Backend.exceptions.SystemException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	  
+	        if (Objects.nonNull(reimbursementEntity.getDateOfTransaction())
+	            && !"".equalsIgnoreCase(
+	            		reimbursementEntity.getDateOfTransaction())) {
+	        	reimDB.setDateOfTransaction(
+	            		reimbursementEntity.getDateOfTransaction());
+	        }
+	  
+	        if (Objects.nonNull(
+	        		reimbursementEntity.getDateSubmitted())
+	            && !"".equalsIgnoreCase(
+	            		reimbursementEntity.getDateSubmitted())) {
+	        	reimDB.setDateSubmitted(
+	            		reimbursementEntity.getDateSubmitted());
+	        }
+	  
+	        if (Objects.nonNull(reimbursementEntity.getStatus())
+	            && !"".equalsIgnoreCase(
+	            		reimbursementEntity.getStatus())) {
+	        	reimDB.setStatus(
+	            		reimbursementEntity.getStatus());
+	        }
+	  
+	        return reimbursementDao.save(reimDB);
+	    }
 	
 	@Override
 	public Employee updateEmployee(Employee employee) throws SystemException
@@ -88,6 +119,8 @@ public class ReimbursementService
 		  
 		  return reimbursementDao.save(reimbursementEntity);
 	  }
+
+
 	}
 
 	

@@ -15,8 +15,10 @@ public interface ReimbursementServiceInter {
 
 	List<Employee> findAll1() throws javax.transaction.SystemException;
 
-	Reimbursement updateRequest(Reimbursement reimbursement) throws javax.transaction.SystemException;
+	
 
 	Employee updateEmployee(Employee employee) throws javax.transaction.SystemException;
+
+	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity, int reibursementId);
 
 }
