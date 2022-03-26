@@ -23,6 +23,7 @@ import com.Project2Backend.service.EmployeeServiceImpl;
 
 import net.bytebuddy.description.type.TypeDescription.Generic.Visitor.Assigner;
 
+import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.exceptions.EmployeeNotFound;
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
@@ -36,13 +37,30 @@ public class ReimbursementController {
 	EmployeeServiceImpl employeeService;
 	@Autowired
 	private ReimbursementJpaRepository reimbursementJpaRepository;
+	@Autowired
+	ReimbursementDao reimbursementDao;
 	
 	
 	@GetMapping(value = "reimbursements")
 	public List<ReimbursementEntity> findAll(){
-		return reimbursementJpaRepository.findAll();
+		return reimbursementDao.findAll();
 	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("employees")
 	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound {

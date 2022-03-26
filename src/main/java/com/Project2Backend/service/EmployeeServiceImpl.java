@@ -41,27 +41,27 @@ public class EmployeeServiceImpl implements EmployeeService {
 		//commented out bc of autowiring
 	}
 
-	@Override
-	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
-		List<Reimbursement> allReimbursement = new ArrayList<Reimbursement>();
-		List<ReimbursementEntity> allReimbursementEntity = reimbursementDao.findAll();
-		for(ReimbursementEntity reimbursementEntity: allReimbursementEntity) {
-			Reimbursement reimbursement = new Reimbursement(
-	 				reimbursementEntity.getReimbursementId(),
-					reimbursementEntity.getEmployeeId(),
-					reimbursementEntity.getStatusId(),
-					reimbursementEntity.getDateOfTransaction(),
-					reimbursementEntity.getDateSubmitted(),
-					reimbursementEntity.getDetails(),
-					reimbursementEntity.getAmount(),
-					reimbursementEntity.getMerchant(),
-					reimbursementEntity.getStatus(),
-					reimbursementEntity.getExpenseType());
-			allReimbursement.add(reimbursement);}
-		return allReimbursement;
-		
-		
-	}
+//	@Override
+//	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
+//		List<Reimbursement> allReimbursement = new ArrayList<Reimbursement>();
+//		List<ReimbursementEntity> allReimbursementEntity = reimbursementDao.findAll();
+//		for(ReimbursementEntity reimbursementEntity: allReimbursementEntity) {
+//			Reimbursement reimbursement = new Reimbursement(
+//	 				reimbursementEntity.getReimbursementId(),
+//					reimbursementEntity.getEmployeeId(),
+//					reimbursementEntity.getStatusId(),
+//					reimbursementEntity.getDateOfTransaction(),
+//					reimbursementEntity.getDateSubmitted(),
+//					reimbursementEntity.getDetails(),
+//					reimbursementEntity.getAmount(),
+//					reimbursementEntity.getMerchant(),
+//					reimbursementEntity.getStatus(),
+//					reimbursementEntity.getExpenseType());
+//			allReimbursement.add(reimbursement);}
+//		return allReimbursement;
+//		
+//		
+//	}
 	
 	@Override
 	public List<Employee> fetchAllEmployees() throws SystemException, EmployeeNotFound
