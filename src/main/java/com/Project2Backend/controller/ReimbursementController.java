@@ -54,6 +54,8 @@ public class ReimbursementController {
 		// TODO Auto-generated method stub
 		return employeeDao.findAll();
 	}
+	
+	
 	@Transactional(readOnly = true)
 	@GetMapping
 	(value = "employees/{employeeId}")
@@ -62,6 +64,7 @@ public class ReimbursementController {
 		return employeeDao.findById(employeeId);
 	}
 	
+	@Transactional(readOnly = true)
 	@PostMapping(value = "reimbursements")
 	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		reimbursementDao.save(reimbursementEntity);
