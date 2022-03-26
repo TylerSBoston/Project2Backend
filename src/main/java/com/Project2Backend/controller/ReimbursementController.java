@@ -59,7 +59,7 @@ public class ReimbursementController {
 	}
 	
 	
-	@Transactional(readOnly = true)
+	
 	@GetMapping
 	(value = "/employees/{employeeId}")
 	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
@@ -67,7 +67,7 @@ public class ReimbursementController {
 		return employeeDao.findById(employeeId);
 	}
 	
-	@Transactional(readOnly = true)
+	
 	@PostMapping(value = "/reimbursements")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
