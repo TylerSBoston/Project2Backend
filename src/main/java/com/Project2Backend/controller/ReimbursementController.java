@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Project2Backend.pojo.Employee;
-import com.Project2Backend.pojo.Reimbursement;
 
-import com.Project2Backend.service.EmployeeServiceImpl;
+
 
 
 
@@ -32,8 +30,7 @@ import com.Project2Backend.exceptions.SystemException;
 @CrossOrigin
 @RequestMapping("api")
 public class ReimbursementController {
-	@Autowired
-	EmployeeServiceImpl employeeService;
+	
 	@Autowired
 	ReimbursementDao reimbursementDao;
 	@Autowired
@@ -65,13 +62,28 @@ public class ReimbursementController {
 	}
 	
 	@PostMapping(value = "reimbursements")
-	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+	public Optional<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
-		return reimbursementDao.saveAndFlush(reimbursementEntity);
-		
-		
+	
+		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
 	}
+	
+	@PutMapping(value = "reimbursements")
+	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+		// TODO Auto-generated method stub
+		reimbursementDao.save(reimbursementEntity);
+	
+		return reimbursementDao.findById(reimbursementEntity.getEmployeeId());
+	}
+	@PutMapping(value = "employees")
+	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
+		// TODO Auto-generated method stub
+		employeeDao.save(employeeEntity);
+	
+		return employeeDao.findById(employeeEntity.getEmployeeId());
+	}
+
 	
 	
 	
@@ -100,12 +112,12 @@ public class ReimbursementController {
 //		// TODO Auto-generated method stub
 //		return employeeService.submitRequest(reimbursement);
 //	}
-
-	@PutMapping("reimbursements")
-	 Reimbursement updateReimbursement(@RequestBody Reimbursement reimbursement) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeService.updateReimbursement(reimbursement);
-	}
+//
+//	@PutMapping("reimbursements")
+//	 Reimbursement updateReimbursement(@RequestBody Reimbursement reimbursement) throws SystemException {
+//		// TODO Auto-generated method stub
+//		return employeeService.updateReimbursement(reimbursement);
+//	}
 
 	
 //	@GetMapping("reimbursements/{reimbursementId}")
@@ -120,11 +132,11 @@ public class ReimbursementController {
 //		return employeeService.fetchAEmployee(employeeId);
 //	}
 	
-	@PutMapping("employees")
-	public Employee updateEmployee(Employee employee) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeService.updateEmployee(employee);
-	}
+//	@PutMapping("employees")
+//	public Employee updateEmployee(Employee employee) throws SystemException {
+//		// TODO Auto-generated method stub
+//		return employeeService.updateEmployee(employee);
+//	}
 	
 //	  @PostMapping("reimbursements")
 //	  public ResponseEntity<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
