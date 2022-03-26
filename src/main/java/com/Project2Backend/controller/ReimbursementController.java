@@ -67,7 +67,8 @@ public class ReimbursementController {
 	@PostMapping(value = "reimbursements")
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
-		return reimbursementDao.save(reimbursementEntity);
+		reimbursementDao.save(reimbursementEntity);
+		return reimbursementDao.saveAndFlush(reimbursementEntity);
 		
 		
 	}
