@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
-import com.Project2Backend.repository.ReimbursementJpaRepository;
+
 import com.Project2Backend.service.EmployeeServiceImpl;
 
 import net.bytebuddy.description.type.TypeDescription.Generic.Visitor.Assigner;
@@ -36,8 +36,6 @@ public class ReimbursementController {
 	@Autowired
 	EmployeeServiceImpl employeeService;
 	@Autowired
-	private ReimbursementJpaRepository reimbursementJpaRepository;
-	@Autowired
 	ReimbursementDao reimbursementDao;
 	
 	
@@ -45,6 +43,12 @@ public class ReimbursementController {
 	public List<ReimbursementEntity> findAll(){
 		return reimbursementDao.findAll();
 	
+	}
+	
+	@GetMapping(value = "reimbursements/{reimbursementId}")
+	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
+		// TODO Auto-generated method stub
+		return reimbursementDao.getById(reimbursementId);
 	}
 	
 	
@@ -81,11 +85,11 @@ public class ReimbursementController {
 	}
 
 	
-	@GetMapping("reimbursements/{reimbursementId}")
-	public Reimbursement fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
-		// TODO Auto-generated method stub
-		return employeeService.fetchARequest(reimbursementId);
-	}
+//	@GetMapping("reimbursements/{reimbursementId}")
+//	public Reimbursement fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
+//		// TODO Auto-generated method stub
+//		return employeeService.fetchARequest(reimbursementId);
+//	}
 	
 	@GetMapping("employees/{employeeId}")
 	public Employee fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {

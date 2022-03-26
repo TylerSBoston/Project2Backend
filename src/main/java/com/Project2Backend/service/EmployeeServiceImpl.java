@@ -142,29 +142,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 
 	
-	@Override
-	public Reimbursement fetchARequest(int reimbursementId) throws SystemException {
-		Optional<ReimbursementEntity> optional = reimbursementDao.findById(reimbursementId);
-		
-		Reimbursement reimbursement= null;
-		if(optional.isPresent()) {
-		
-		 ReimbursementEntity reimbursementEntity = optional.get();
-		 reimbursement = new Reimbursement(
-				reimbursementEntity.getReimbursementId(),
-				reimbursementEntity.getEmployeeId(),
-				reimbursementEntity.getStatusId(),
-				reimbursementEntity.getDateOfTransaction(),
-				reimbursementEntity.getDateSubmitted(),
-				reimbursementEntity.getDetails(),
-				reimbursementEntity.getAmount(),
-				reimbursementEntity.getMerchant(),
-				reimbursementEntity.getStatus(),
-				reimbursementEntity.getExpenseType());}
-		
-		return reimbursement;
-	
-	}
+//	@Override
+//	public Reimbursement fetchARequest(int reimbursementId) throws SystemException {
+//		Optional<ReimbursementEntity> optional = reimbursementDao.findById(reimbursementId);
+//		
+//		Reimbursement reimbursement= null;
+//		if(optional.isPresent()) {
+//		
+//		 ReimbursementEntity reimbursementEntity = optional.get();
+//		 reimbursement = new Reimbursement(
+//				reimbursementEntity.getReimbursementId(),
+//				reimbursementEntity.getEmployeeId(),
+//				reimbursementEntity.getStatusId(),
+//				reimbursementEntity.getDateOfTransaction(),
+//				reimbursementEntity.getDateSubmitted(),
+//				reimbursementEntity.getDetails(),
+//				reimbursementEntity.getAmount(),
+//				reimbursementEntity.getMerchant(),
+//				reimbursementEntity.getStatus(),
+//				reimbursementEntity.getExpenseType());}
+//		
+//		return reimbursement;
+//	
+//	}
 
 	
 

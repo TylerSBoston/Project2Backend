@@ -13,7 +13,7 @@ import com.Project2Backend.pojo.Reimbursement;
 
 
 import com.Project2Backend.exceptions.EmployeeNotFound;
-import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+
 import com.Project2Backend.exceptions.SystemException;
 @Service
 public interface EmployeeService{
@@ -24,7 +24,7 @@ public interface EmployeeService{
 
 		
 		
-		Reimbursement fetchARequest(int employeeId)throws SystemException;
+	
 		
 		Reimbursement updateReimbursement(Reimbursement reimbursement)throws SystemException;
 		
