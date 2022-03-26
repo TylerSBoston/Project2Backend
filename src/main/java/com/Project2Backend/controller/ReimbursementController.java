@@ -3,7 +3,8 @@ package com.Project2Backend.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.repository.core.EntityMetadata;
+import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Project2Backend.pojo.Employee;
 import com.Project2Backend.pojo.Reimbursement;
+import com.Project2Backend.repository.ReimbursementJpaRepository;
 import com.Project2Backend.service.EmployeeServiceImpl;
+
+import net.bytebuddy.description.type.TypeDescription.Generic.Visitor.Assigner;
 
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.exceptions.EmployeeNotFound;
@@ -30,12 +34,14 @@ import com.Project2Backend.exceptions.SystemException;
 public class ReimbursementController {
 	@Autowired
 	EmployeeServiceImpl employeeService;
+	@Autowired
+	private ReimbursementJpaRepository reimbursementJpaRepository;
 	
 	
-	@GetMapping("reimbursements")
-	public List<Reimbursement> fetchAllReimbursements() throws SystemException, ReimbursementNotFoundException {
-		// TODO Auto-generated method stub
-		return employeeService.fetchAllReimbursements();
+	@GetMapping(value = "reimbursements")
+	public List<ReimbursementEntity> findAll(){
+		return reimbursementJpaRepository.findAll();
+	
 	}
 	
 	@GetMapping("employees")
@@ -44,11 +50,11 @@ public class ReimbursementController {
 		return employeeService.fetchAllEmployees();
 	}
 
-//	@PostMapping("reimbursements")
-//	public Reimbursement submitRequest(@RequestBody Reimbursement reimbursement) throws SystemException {
-//		// TODO Auto-generated method stub
-//		return employeeService.submitRequest(reimbursement);
-//	}
+	@PostMapping("reimbursements")
+	public Reimbursement submitRequest(@RequestBody Reimbursement reimbursement) throws SystemException {
+		// TODO Auto-generated method stub
+		return employeeService.submitRequest(reimbursement);
+	}
 
 	@PutMapping("reimbursements")
 	 Reimbursement updateReimbursement(@RequestBody Reimbursement reimbursement) throws SystemException {
@@ -75,16 +81,18 @@ public class ReimbursementController {
 		return employeeService.updateEmployee(employee);
 	}
 	
-	  @PostMapping("reimbursements")
-	  public ResponseEntity<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
-	    try {
-	    	ReimbursementEntity sumbitReimbursement = new ReimbursementEntity();
-	      return new ResponseEntity<>(sumbitReimbursement, HttpStatus.CREATED);
-	    } catch (Exception e) {
-	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
-	  }
+//	  @PostMapping("reimbursements")
+//	  public ResponseEntity<ReimbursementEntity> submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
+//	    try {
+//	    	ReimbursementEntity sumbitReimbursement = new ReimbursementEntity();
+//	      return new ResponseEntity<>(sumbitReimbursement, HttpStatus.CREATED);
+//	    } catch (Exception e) {
+//	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//	    }
+//	  }
 	
+
+//	
 	
 	
 	
