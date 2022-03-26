@@ -26,7 +26,7 @@ public class ReimbursementService {
 	@Autowired
 	ReimbursementDao reimbursementDao;
 	
-
+	
 	public List<Reimbursement> findAll() throws SystemException
 	{
 		
@@ -78,9 +78,10 @@ public class ReimbursementService {
 
 	}
 	
-	  public ReimbursementEntity submitRequest() {
+	  public ReimbursementEntity submitRequest(ReimbursementEntity 
+			  reimbursementEntity) {
 		  
-		  
+		  return reimbursementDao.save(reimbursementEntity);
 	  }
 	}
 
