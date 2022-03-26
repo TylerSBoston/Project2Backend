@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -70,13 +71,13 @@ public class ReimbursementController {
 	
 	@PostMapping(value = "/reimbursements")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+	public ReimbursementEntity submitRequest(@RequestBody @RequestParam ReimbursementEntity reimbursementEntity) throws SystemException {
 		return reimbursementDao.save(reimbursementEntity);
 			
 	}
 	
 	@PutMapping(value = "/reimbursements")
-	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+	public Optional<ReimbursementEntity> updateRequest(@RequestBody @RequestParam ReimbursementEntity reimbursementEntity) throws SystemException {
 		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
 	
