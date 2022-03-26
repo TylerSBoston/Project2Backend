@@ -26,6 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(name="reimbursements")
+
 public class ReimbursementEntity {
 	public ReimbursementEntity(Reimbursement rUpdate) {
 		// TODO Auto-generated constructor stub
@@ -35,25 +36,37 @@ public class ReimbursementEntity {
 	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int reimbursementId = 0;
+	
 	@Column(name="employee_id")
 	private int employeeId = 0;
+	
 	@Column(name="status_id")
 	private int statusId = 0;
-	@Column(name="date_of_transaction")
-	private String dateOfTransaction ;
-	@Column(name="date_of_submission")
-	private String dateSubmitted;
-	@Column(name="amount")
-	private BigDecimal amount = BigDecimal.ZERO;
-	@Column(name="details")
-	private String details = "";
-	@Column(name="merchant")
-	private String merchant = "";
+	
 	@Column(name="status")
 	private String status = "";
-
+	
 	@Column(name="reimbursement_type")
 	private String expenseType = "";
+	
+	@Column(name="date_of_transaction")
+	private String dateOfTransaction ;
+	
+	@Column(name="date_of_submission")
+	private String dateSubmitted;
+	
+	@Column(name="amount")
+	private BigDecimal amount = BigDecimal.ZERO;
+	
+	@Column(name="details")
+	private String details = "";
+	
+	@Column(name="merchant")
+	private String merchant = "";
+	
+	
+
+
 	
 }
 
