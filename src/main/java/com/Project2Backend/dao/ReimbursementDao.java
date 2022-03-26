@@ -1,10 +1,13 @@
 package com.Project2Backend.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.pojo.Reimbursement;
 
@@ -20,7 +23,9 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();
 
-	Reimbursement save(Reimbursement reimbursement);
+	Optional<ReimbursementEntity> findById(ReimbursementEntity reimbursementEntity);
+	
+	Optional<ReimbursementEntity> save(int employeeId);
 
 	
 	
