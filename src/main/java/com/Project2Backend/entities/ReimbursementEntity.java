@@ -13,11 +13,24 @@ import javax.persistence.Table;
 
 import com.Project2Backend.pojo.Reimbursement;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name="reimbursements")
 public class ReimbursementEntity {
+	public ReimbursementEntity(Reimbursement rUpdate) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -41,139 +54,18 @@ public class ReimbursementEntity {
 
 	@Column(name="reimbursement_type")
 	private String expenseType = "";
-
-	public ReimbursementEntity() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public ReimbursementEntity(int reimbursementId, int employeeId, int statusId, String dateOfTransaction,
-			String dateSubmitted, BigDecimal amount, String details, String merchant, String status,
-			String expenseType) {
-		super();
-		this.reimbursementId = reimbursementId;
-		this.employeeId = employeeId;
-		this.statusId = statusId;
-		this.dateOfTransaction = dateOfTransaction;
-		this.dateSubmitted = dateSubmitted;
-		this.amount = amount;
-		this.details = details;
-		this.merchant = merchant;
-		this.status = status;
-		this.expenseType = expenseType;
-	}
-	
-
-	public ReimbursementEntity(Reimbursement r) {
-		// TODO Auto-generated constructor stub
-		reimbursementId = r.getReimbursementId();
-		employeeId = r.getEmployeeId();
-		statusId = r.getStatusId();
-		dateOfTransaction = r.getDateOfTransaction();
-		dateSubmitted = r.getDateSubmitted();
-		amount = r.getAmount();
-		details = r.getDetails();
-		merchant = r.getMerchant();
-		status = r.getStatus();
-		expenseType = r.getExpenseType();
-		
-	}
-	
-	
-	
-
-	public int getReimbursementId() {
-		return reimbursementId;
-	}
-
-	public void setReimbursementId(int reimbursementId) {
-		this.reimbursementId = reimbursementId;
-	}
-
-	public int getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public int getStatusId() {
-		return statusId;
-	}
-
-	public void setStatusId(int statusId) {
-		this.statusId = statusId;
-	}
-
-	public String getDateOfTransaction() {
-		return dateOfTransaction;
-	}
-
-	public void setDateOfTransaction(String dateOfTransaction) {
-		this.dateOfTransaction = dateOfTransaction;
-	}
-
-	public String getDateSubmitted() {
-		return dateSubmitted;
-	}
-
-	public void setDateSubmitted(String dateSubmitted) {
-		this.dateSubmitted = dateSubmitted;
-	}
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
-	public String getDetails() {
-		return details;
-	}
-
-	public void setDetails(String details) {
-		this.details = details;
-	}
-
-	public String getMerchant() {
-		return merchant;
-	}
-
-	public void setMerchant(String merchant) {
-		this.merchant = merchant;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getExpenseType() {
-		return expenseType;
-	}
-
-	public void setExpenseType(String expenseType) {
-		this.expenseType = expenseType;
-	}
-
-	@Override
-	public String toString() {
-		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", statustId="
-				+ statusId + ", dateOfTransaction=" + dateOfTransaction + ", dateSubmitted=" + dateSubmitted
-				+ ", amount=" + amount + ", details=" + details + ", merchant=" + merchant + ", status=" + status
-				+ ", expenseType=" + expenseType + "]";
-	}
-
-
-
 	
 }
+
+
+
+	
+
+	
+	
+	
+
+
 	
 	
 	
