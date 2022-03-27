@@ -73,14 +73,7 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	final String merchant = "";
 
-	public void setStatus(String status2) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	public ReimbursementEntity( ReimbursementEntity reimbursementEntity) {
-		// TODO Auto-generated constructor stub
-	}
 	
 	
 

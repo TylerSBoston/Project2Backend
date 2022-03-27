@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
+import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 
@@ -26,7 +26,7 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	
 	List<ReimbursementEntity> findAll();
 	
-	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity);
+	Optional<ReimbursementEntity> findById(int reimbursementId);
 	
 	ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity);
 	
