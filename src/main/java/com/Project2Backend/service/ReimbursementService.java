@@ -66,13 +66,18 @@ public class ReimbursementService
 
 	}
 	
-	@Override
-	 public Reimbursement
-	    updateRequest(Reimbursement reimbursement) throws SystemException
+	public ReimbursementEntity
+	    updateRequest(ReimbursementEntity reimbursementEntity) throws SystemException
 	{
 			
 			// convers reimbursmenent to entity, and back for return
-			return new Reimbursement(reimbursementDao.save(new ReimbursementEntity(reimbursement)));
+			try {
+				return new ReimbursementEntity(reimbursementDao.save(new Reimbursement(reimbursementEntity)));
+			} catch (com.Project2Backend.exceptions.SystemException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return reimbursementEntity;
 	    
 	 
 	}

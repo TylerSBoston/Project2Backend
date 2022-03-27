@@ -23,8 +23,7 @@ public interface ReimbursementServiceInter {
 
 	Employee updateEmployee(Employee employee) throws javax.transaction.SystemException;
 
-	
 
-	Reimbursement updateRequest(Reimbursement reimbursement) throws javax.transaction.SystemException;
+	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity) throws javax.transaction.SystemException;
 
 }
