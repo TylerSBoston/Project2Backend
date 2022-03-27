@@ -78,10 +78,18 @@ public class ReimbursementController {
 			//LOG ERROR MESSAGE
 			System.out.println(ex.getMessage());
 			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-		}
+		}}
 	
-	}
-	
+	@PutMapping(value = "/employees")
+	public ResponseEntity<String> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
+		try {
+			reimbursementService.updateEmployee(employeeEntity);
+			return new ResponseEntity<String>(HttpStatus.OK);
+		}catch(NoSuchElementException ex) {
+			//LOG ERROR MESSAGE
+			System.out.println(ex.getMessage());
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}}
 	
 	
 	
@@ -108,12 +116,7 @@ public class ReimbursementController {
 	
 
 	
-	@PutMapping(value = "/employees")
-	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
-		employeeDao.save(employeeEntity);
-	
-		return employeeDao.findById(employeeEntity.getEmployeeId());
-	}
+
 	
 	
 	
