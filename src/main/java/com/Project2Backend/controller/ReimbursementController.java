@@ -60,9 +60,9 @@ public class ReimbursementController {
 	
 	//FIND SINGLE REIMBURSEMENT BY ID
 	@GetMapping(value = "/reimbursements/{reimbursementId}")
-	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId)throws SystemException {
+	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") ReimbursementEntity reimbursementEntity)throws SystemException {
 		// TODO Auto-generated method stub
-		return reimbursementService.findById(reimbursementId);
+		return reimbursementService.findById(reimbursementEntity);
 	}
 	
 

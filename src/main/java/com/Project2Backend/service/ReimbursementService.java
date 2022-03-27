@@ -13,7 +13,7 @@ public interface ReimbursementService {
 	 	//LIST ALL REIMBURSEMENTS
 	 List<ReimbursementEntity> findAllReimbursements()throws SystemException;
 	 	// FETCH SINGLE REIMBURSEMENT WITH REIMBURSEMENT ID
-	 ReimbursementEntity findById(int reimbursementId)throws SystemException;
+	 ReimbursementEntity findById(ReimbursementEntity reimbursementEntity)throws SystemException;
 	 	// UPDATE REIMBURSEMENT
 	 void updateRequest(ReimbursementEntity reimbursementEntity)throws SystemException;
 	
