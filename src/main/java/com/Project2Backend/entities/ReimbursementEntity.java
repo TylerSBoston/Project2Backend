@@ -35,9 +35,10 @@ import lombok.NoArgsConstructor;
 
 
 public class ReimbursementEntity {
-	public ReimbursementEntity(@RequestBody Reimbursement rUpdate) {
+	public ReimbursementEntity( Reimbursement rUpdate) {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	@Id
 	
@@ -77,7 +78,7 @@ public class ReimbursementEntity {
 		
 	}
 
-	public ReimbursementEntity(@RequestBody ReimbursementEntity reimbursementEntity) {
+	public ReimbursementEntity( ReimbursementEntity reimbursementEntity) {
 		// TODO Auto-generated constructor stub
 	}
 	
