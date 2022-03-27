@@ -2,7 +2,7 @@ package com.Project2Backend.service;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
+
 
 
 import javax.transaction.SystemException;
@@ -66,14 +66,14 @@ public class ReimbursementService
 
 	}
 	
-//	@Override
-//	public Reimbursement updateRequest(Reimbursement reimbursement) throws SystemException
-//	{
-//			
-//			// convers reimbursmenent to entity, and back for return
-//			return new Reimbursement(reimbursementDao.save(new ReimbursementEntity(reimbursement)));
-//
-//	}
+	@Override
+	public Reimbursement updateRequest(Reimbursement reimbursement) throws SystemException
+	{
+			
+			// convers reimbursmenent to entity, and back for return
+			return new Reimbursement(reimbursementDao.save(new ReimbursementEntity(reimbursement)));
+
+	}
 	@Override
 	public Employee updateEmployee(Employee employee) throws SystemException
 	{
