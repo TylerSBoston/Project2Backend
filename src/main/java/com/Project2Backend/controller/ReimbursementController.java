@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.Project2Backend.dao.EmployeeDao;
-import com.Project2Backend.dao.JpaReimbursementInterface;
 
+import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
@@ -38,35 +38,35 @@ import com.Project2Backend.exceptions.SystemException;
 public class ReimbursementController {
 	
 	@Autowired
-	JpaReimbursementInterface jpaReimbursementInterface;
+	ReimbursementDao reimbursementDao;
 	@Autowired
 	EmployeeDao employeeDao;
 	
 	
 	@GetMapping(value = "/reimbursements")
 	public List<ReimbursementEntity> reimsfindAll() {
-		return jpaReimbursementInterface.findAll();
+		return reimbursementDao.findAll();
 	
 	}
 	
 	@GetMapping(value = "/reimbursements/{reimbursementId}")
 	public Optional<ReimbursementEntity> fetchARequest(@PathVariable final int reimbursementId) {
 		// TODO Auto-generated method stub
-		return jpaReimbursementInterface.findById(reimbursementId);
+		return reimbursementDao.findById(reimbursementId);
 	}
 	
 	@PostMapping(value = "/reimbursements")
 	public Optional<ReimbursementEntity> submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
-		 jpaReimbursementInterface.save(reimbursementEntity);
-		 return jpaReimbursementInterface.findById(reimbursementEntity.getReimbursementId());
+		reimbursementDao.save(reimbursementEntity);
+		 return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
 			
 	}
 	
 	@PutMapping(value = "/reimbursements")
-	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		jpaReimbursementInterface.save(reimbursementEntity);
+	public List<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+		reimbursementDao.save(reimbursementEntity);
 	
-		return jpaReimbursementInterface.findById(reimbursementEntity);
+		return reimbursementDao.findById(reimbursementEntity);
 	}
 	
 	
