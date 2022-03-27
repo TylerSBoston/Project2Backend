@@ -67,11 +67,31 @@ public class ReimbursementEntity {
 	
 	@Column(name="merchant", nullable = false)
 	private String merchant;
+	
+	
 
 
 
 	public ReimbursementEntity(Reimbursement rUpdate) {
 		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+	public ReimbursementEntity(int employeeId, int statusId, String status, String expenseType,
+			String dateOfTransaction, String dateSubmitted, BigDecimal amount, String details, String merchant) {
+		super();
+		this.employeeId = employeeId;
+		this.statusId = statusId;
+		this.status = status;
+		this.expenseType = expenseType;
+		this.dateOfTransaction = dateOfTransaction;
+		this.dateSubmitted = dateSubmitted;
+		this.amount = amount;
+		this.details = details;
+		this.merchant = merchant;
 	}
 
 
