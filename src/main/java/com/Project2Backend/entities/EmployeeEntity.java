@@ -19,15 +19,23 @@ import com.Project2Backend.pojo.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Entity
+@Getter
+@Setter
+@Accessors(chain=true)
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Table(name="employees")
 public class EmployeeEntity {
+	  
 	
 	
 	public EmployeeEntity(Employee employee) {

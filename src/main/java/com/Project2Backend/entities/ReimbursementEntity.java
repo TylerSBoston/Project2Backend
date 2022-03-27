@@ -22,13 +22,19 @@ import com.Project2Backend.pojo.Reimbursement;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 
 
 
 
 @Entity
+@Getter
+@Setter
+@Accessors(chain=true)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
