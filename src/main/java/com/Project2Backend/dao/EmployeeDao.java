@@ -25,6 +25,9 @@ public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer>  {
 	
 	EmployeeEntity fetchAEmployee(int employeeId);
 	
+	@SuppressWarnings("unchecked")
+	EmployeeEntity save(EmployeeEntity employeeEntity);
+	
 	
 	
 	EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) ;

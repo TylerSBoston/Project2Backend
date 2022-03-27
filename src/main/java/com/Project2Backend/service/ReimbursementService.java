@@ -34,6 +34,8 @@ public interface ReimbursementService {
 	EmployeeEntity findById(int employeeId);
 
 	Optional<EmployeeEntity> fetchAEmployee(int employeeId);
+	
+	EmployeeEntity save(EmployeeEntity employeeEntity);
 	 
 	 
 	

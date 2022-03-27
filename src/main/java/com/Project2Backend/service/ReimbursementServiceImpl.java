@@ -83,6 +83,12 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 		return employeeDao.findById(employeeId);
 	}
 
+	@Override
+	public EmployeeEntity save(EmployeeEntity employeeEntity) {
+		// TODO Auto-generated method stub
+		return employeeDao.save(employeeEntity);
+	}
+
 	
 
 }
