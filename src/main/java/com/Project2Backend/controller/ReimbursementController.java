@@ -86,7 +86,7 @@ public class ReimbursementController {
 	
 	@GetMapping
 	(value = "/employees/{employeeId}")
-	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
+	public List<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.findById(employeeId);
 	}
@@ -96,7 +96,7 @@ public class ReimbursementController {
 
 	
 	@PutMapping(value = "/employees")
-	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
+	public List<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
 		employeeDao.save(employeeEntity);
 	
 		return employeeDao.findById(employeeEntity.getEmployeeId());

@@ -18,29 +18,19 @@ public class ReimbursementService {
 	@Autowired
 	JpaReimbursementInterface jpaReimbursementInterface;
 	
-	public List<ReimbursementEntity> reimsfindAll() {
+	public List<ReimbursementEntity> reimsfindAll(){
 		
-		List<ReimbursementEntity> reimsList = jpaReimbursementInterface.findAll();
+		List<ReimbursementEntity> reimsList = new ArrayList<>();
+		
+		jpaReimbursementInterface.findAll().forEach(reimsList::add);
 		
 		return reimsList;
 	}
 	
 	public ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) {
 //		reimbursementEntity = jpaReimbursementInterface.save(reimbursementEntity);
-		ReimbursementEntity reim = ReimbursementEntity.builder()
-				.employeeId(0)
-				.statusId(0)
-				.status("")
-				.expenseType("")
-				.dateOfTransaction("")
-				.dateSubmitted("")
-				.amount(null)
-				.details("")
-				.merchant("")
-				.build();				
-		return jpaReimbursementInterface.save(reim);
+		return reimbursementEntity;
 	}
-	
 	
 	public Optional<ReimbursementEntity> fetchARequest
 	(int reimbursementId) {
