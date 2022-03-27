@@ -18,7 +18,7 @@ import com.Project2Backend.pojo.Employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain=true)
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -38,6 +38,14 @@ public class EmployeeEntity {
 	  
 	
 	
+	@Override
+	public String toString() {
+		return "EmployeeEntity [employeeId=" + employeeId + ", jobTitle=" + jobTitle + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + ", userName=" + userName
+				+ ", password=" + password + "]";
+	}
+
+
 	public EmployeeEntity(Employee employee) {
 		// TODO Auto-generated constructor stub
 	}
@@ -80,6 +88,24 @@ public class EmployeeEntity {
 		this.userName = userName;
 		this.password = password;
 	}
+	
+
+	@SuppressWarnings("unused")
+	@Override
+    public boolean equals(Object employeeId) {
+        if (this == employeeId)
+            return true;
+        if (employeeId == null)
+            return false;
+        if (getClass() != employeeId.getClass())
+            return false;
+        EmployeeEntity other = (EmployeeEntity) employeeId;
+        if (employeeId == null) {
+            return false;
+        } else if (!employeeId.equals(other.employeeId))
+            return false;
+        return true;
+    }
 	
 	
 	

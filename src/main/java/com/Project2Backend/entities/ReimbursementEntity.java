@@ -11,17 +11,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.Project2Backend.pojo.Reimbursement;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,7 +35,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain=true)
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -80,6 +80,31 @@ public class ReimbursementEntity {
 
 	public ReimbursementEntity(Reimbursement rUpdate) {
 		// TODO Auto-generated constructor stub
+	}
+	
+	@SuppressWarnings("unused")
+	@Override
+    public boolean equals(Object reimbursementId) {
+        if (this == reimbursementId)
+            return true;
+        if (reimbursementId == null)
+            return false;
+        if (getClass() != reimbursementId.getClass())
+            return false;
+        ReimbursementEntity other = (ReimbursementEntity) reimbursementId;
+        if (reimbursementId == null) {
+            return false;
+        } else if (!reimbursementId.equals(other.reimbursementId))
+            return false;
+        return true;
+    }
+
+	@Override
+	public String toString() {
+		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", statusId="
+				+ statusId + ", status=" + status + ", expenseType=" + expenseType + ", dateOfTransaction="
+				+ dateOfTransaction + ", dateSubmitted=" + dateSubmitted + ", amount=" + amount + ", details=" + details
+				+ ", merchant=" + merchant + "]";
 	}
 
 
