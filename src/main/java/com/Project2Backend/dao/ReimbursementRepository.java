@@ -1,6 +1,7 @@
 package com.Project2Backend.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -16,6 +17,8 @@ public interface ReimbursementRepository
 			extends JpaRepository<ReimbursementEntity, Integer> {
 	
 	List<ReimbursementEntity> fetchARequest(@PathVariable int reimbursementId);
+
+	Optional<ReimbursementEntity> findById(ReimbursementEntity reimbursementEntity);
 	
 	
 	

@@ -31,8 +31,8 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 	}
 
 	@Override
-	public ReimbursementEntity findById(int reimbursementId) {
-		return reimbursementRepository.findById(reimbursementId).get();
+	public ReimbursementEntity findById(ReimbursementEntity reimbursementEntity) {
+		return reimbursementRepository.findById(reimbursementEntity).get();
 	}
 
 	@Override
