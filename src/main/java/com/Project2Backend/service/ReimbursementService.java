@@ -16,19 +16,20 @@ public class ReimbursementService {
 	
 	
 	@Autowired
-	private JpaReimbursementInterface jpaReimbursementInterface;
+	JpaReimbursementInterface jpaReimbursementInterface;
 	
-	public List<ReimbursementEntity> findAll(){
+	public List<ReimbursementEntity> reimsfindAll(){
 		
-		List<ReimbursementEntity> reims = new ArrayList<>();
+		List<ReimbursementEntity> reimsList = new ArrayList<>();
 		
-		jpaReimbursementInterface.findAll().forEach(reims::add);
+		jpaReimbursementInterface.findAll().forEach(reimsList::add);
 		
-		return reims;
+		return reimsList;
 	}
 	
 	public ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) {
-		return jpaReimbursementInterface.save(reimbursementEntity);
+		reimbursementEntity = jpaReimbursementInterface.save(reimbursementEntity);
+		return reimbursementEntity;
 	}
 	
 	public Optional<ReimbursementEntity> fetchARequest
