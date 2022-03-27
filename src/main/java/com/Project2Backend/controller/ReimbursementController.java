@@ -3,7 +3,7 @@ package com.Project2Backend.controller;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,13 +33,14 @@ import com.Project2Backend.exceptions.ReimbursementNotFoundException;
 import com.Project2Backend.exceptions.SystemException;
 
 import com.Project2Backend.service.ReimbursementService;
+import com.Project2Backend.service.ReimbursementServiceImpl;
 
 @RestController
 @RequestMapping("api")
 public class ReimbursementController {
 	
 	@Autowired
-	ReimbursementService reimbursementService;
+	ReimbursementServiceImpl reimbursementService;
 	@Autowired
 	EmployeeDao employeeDao;
 	
@@ -48,7 +49,7 @@ public class ReimbursementController {
 	@PostMapping(value = "/reimbursements")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity)throws SystemException, ReimbursementNotFoundException {
-				return reimbursementService.addReimbursement(reimbursementEntity);
+				return reimbursementService.submitRequest(reimbursementEntity);
 			
 	}
 	
@@ -60,10 +61,10 @@ public class ReimbursementController {
 	}
 	
 	//FIND SINGLE REIMBURSEMENT BY ID
-	@GetMapping(value = "/reimbursements/{reimbursementId}")
-	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") ReimbursementEntity reimbursementEntity)throws SystemException {
+	@GetMapping(value = "/reimbursements/{employeeId}")
+	public ReimbursementEntity fetchARequest(@PathVariable("employeeId") int reimbursementId)throws SystemException {
 		// TODO Auto-generated method stub
-		return reimbursementService.findById(reimbursementEntity);
+		return reimbursementService.findById1(reimbursementId);
 	}
 	
 
@@ -98,7 +99,7 @@ public class ReimbursementController {
 	
 	@GetMapping
 	(value = "/employees/{employeeId}")
-	public List<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
+	public Optional<EmployeeEntity> fetchAEmployee(@PathVariable("employeeId") int employeeId) throws SystemException {
 		// TODO Auto-generated method stub
 		return employeeDao.findById(employeeId);
 	}
@@ -108,7 +109,7 @@ public class ReimbursementController {
 
 	
 	@PutMapping(value = "/employees")
-	public List<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
+	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
 		employeeDao.save(employeeEntity);
 	
 		return employeeDao.findById(employeeEntity.getEmployeeId());

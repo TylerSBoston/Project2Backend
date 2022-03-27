@@ -38,10 +38,10 @@ public class ReimbursementEntity {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "reimbursement_id", nullable = false)
+	@Column(name = "reimbursement_id")
 	private int reimbursementId;
 	
-	@Column(name = "employee_id", nullable = false)
+	@Column(name = "employee_id")
 	private int employeeId;
 	
 	@Column(name="status_id")
@@ -50,22 +50,22 @@ public class ReimbursementEntity {
 	@Column(name="status")
 	private String status;
 	
-	@Column(name="reimbursement_type", nullable = false)
+	@Column(name="reimbursement_type")
 	private String expenseType;
 	
-	@Column(name="date_of_transaction", nullable = false)
+	@Column(name="date_of_transaction")
 	private String dateOfTransaction;
 	
 	@Column(name="date_of_submission")
 	private String dateSubmitted;
 	
-	@Column(name="amount", nullable = false)
+	@Column(name="amount")
 	private BigDecimal amount;
 	
 	@Column(name="details")
 	private String details;
 	
-	@Column(name="merchant", nullable = false)
+	@Column(name="merchant")
 	private String merchant;
 	
 	
