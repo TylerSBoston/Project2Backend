@@ -32,7 +32,7 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@SuppressWarnings("unchecked")
 	ReimbursementEntity save(ReimbursementEntity reimbursementEntity);
 	
-	Optional<ReimbursementEntity> findById(int employeeId)throws SystemException;
+	Optional<ReimbursementEntity> findById(int reimbursementId)throws SystemException;
 
 	
 	

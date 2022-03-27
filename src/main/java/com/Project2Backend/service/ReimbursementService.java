@@ -70,11 +70,11 @@ public class ReimbursementService
 	@Override
 	 public ReimbursementEntity
 	    updateRequest(@RequestBody ReimbursementEntity reimbursementEntity,
-	                     int reibursementId)
+	                     int reimbursementId)
 	    {
 		ReimbursementEntity reimDB = null;
 		try {
-			reimDB = reimbursementDao.findById(reibursementId)
+			reimDB = reimbursementDao.findById(reimbursementId)
 			      .get();
 		} catch (com.Project2Backend.exceptions.SystemException e) {
 			// TODO Auto-generated catch block
