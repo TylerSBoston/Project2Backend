@@ -25,7 +25,7 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();
 	
-	LinkedList<ReimbursementEntity> findAll();
+	List<ReimbursementEntity> findAll();
 
 	Reimbursement save(Reimbursement reimbursement)throws SystemException;
 	

@@ -31,7 +31,7 @@ public class ReimbursementService
 	ReimbursementDao reimbursementDao;
 	
 	@Override
-	public LinkedList<Reimbursement> findAll() throws SystemException
+	public List<Reimbursement> findAll() throws SystemException
 	{
 		
 
@@ -118,13 +118,11 @@ public class ReimbursementService
 	@Override
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity 
 			  reimbursementEntity) {
-		LinkedList<ReimbursementEntity> reim = new LinkedList<ReimbursementEntity>();
 		
-		for (ReimbursementEntity reimbursement: reim) {
-			reimbursementDao.save(reimbursementEntity);
-		}
 		
-		return reimbursementEntity;
+		
+		
+		return new  ReimbursementEntity(reimbursementDao.save(new ReimbursementEntity(null, null)));
 		
 		
 		  

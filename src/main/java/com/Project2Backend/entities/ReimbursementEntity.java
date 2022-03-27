@@ -76,6 +76,10 @@ public class ReimbursementEntity {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public ReimbursementEntity(ReimbursementEntity save) {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 

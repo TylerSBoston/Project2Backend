@@ -1,13 +1,12 @@
 package com.Project2Backend.controller;
 
-import java.util.LinkedList;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,7 +42,7 @@ public class ReimbursementController {
 	
 	
 	@GetMapping(value = "/reimbursements")
-	public LinkedList<ReimbursementEntity> findAll()throws SystemException {
+	public List<ReimbursementEntity> findAll()throws SystemException {
 		return reimbursementDao.findAll();
 	
 	}

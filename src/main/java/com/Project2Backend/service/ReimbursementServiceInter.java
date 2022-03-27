@@ -15,7 +15,7 @@ public interface ReimbursementServiceInter {
 	
 	ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException;
 
-	LinkedList<Reimbursement> findAll() throws javax.transaction.SystemException;
+	List<Reimbursement> findAll() throws javax.transaction.SystemException;
 
 	List<Employee> findAll1() throws javax.transaction.SystemException;
 
