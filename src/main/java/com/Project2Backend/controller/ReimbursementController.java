@@ -28,7 +28,7 @@ import com.Project2Backend.dao.EmployeeDao;
 
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
-
+import com.Project2Backend.exceptions.ReimbursementNotFoundException;
 import com.Project2Backend.exceptions.SystemException;
 
 import com.Project2Backend.service.ReimbursementService;
@@ -46,21 +46,21 @@ public class ReimbursementController {
 	//INSERT NEW REIMBURSEMENT
 	@PostMapping(value = "/reimbursements")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
+	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity)throws SystemException, ReimbursementNotFoundException {
 				return reimbursementService.addReimbursement(reimbursementEntity);
 			
 	}
 	
 	//FETCH ALL REIMBURSEMENTS
 	@GetMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> findAllReimbursements() {
+	public List<ReimbursementEntity> findAllReimbursements()throws SystemException {
 		return reimbursementService.findAllReimbursements();
 	
 	}
 	
 	//FIND SINGLE REIMBURSEMENT BY ID
 	@GetMapping(value = "/reimbursements/{reimbursementId}")
-	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId) {
+	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId)throws SystemException {
 		// TODO Auto-generated method stub
 		return reimbursementService.findById(reimbursementId);
 	}
@@ -68,7 +68,7 @@ public class ReimbursementController {
 
 	
 	@PutMapping(value = "/reimbursements")
-	public ResponseEntity<String> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
+	public ResponseEntity<String> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity)throws SystemException {
 		try {
 			reimbursementService.updateRequest(reimbursementEntity);
 			return new ResponseEntity<String>(HttpStatus.OK);

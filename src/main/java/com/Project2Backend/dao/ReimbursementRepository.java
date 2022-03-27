@@ -1,4 +1,4 @@
-package com.Project2Backend.repository;
+package com.Project2Backend.dao;
 
 import java.util.List;
 
