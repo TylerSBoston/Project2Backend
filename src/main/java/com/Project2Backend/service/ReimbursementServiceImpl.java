@@ -36,14 +36,12 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 	}
 
 	@Override
-	public ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity) {
+	public void updateRequest(ReimbursementEntity reimbursementEntity) {
 		// Check if REIMBURSEMENT WITH ID EXISTS
 		ReimbursementEntity reimbursementDB = reimbursementRepository.findById(reimbursementEntity.getReimbursementId()
 				).orElseThrow();
 		//IF USER EXISTS UPDATE
 		reimbursementRepository.save(reimbursementEntity);
-		
-		return reimbursementEntity;
 		
 	}
 

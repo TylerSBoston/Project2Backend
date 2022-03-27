@@ -15,7 +15,9 @@ public interface ReimbursementService {
 	 	// FETCH SINGLE REIMBURSEMENT WITH REIMBURSEMENT ID
 	 ReimbursementEntity findById(int reimbursementId)throws SystemException;
 	 	// UPDATE REIMBURSEMENT
-	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity)throws SystemException;
+	 void updateRequest(ReimbursementEntity reimbursementEntity)throws SystemException;
+	
+	
 
 	 
 	 	
