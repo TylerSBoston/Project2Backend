@@ -28,9 +28,21 @@ public class ReimbursementService {
 	}
 	
 	public ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) {
-		reimbursementEntity = jpaReimbursementInterface.save(reimbursementEntity);
-		return reimbursementEntity;
+//		reimbursementEntity = jpaReimbursementInterface.save(reimbursementEntity);
+		ReimbursementEntity reim = ReimbursementEntity.builder()
+				.employeeId(0)
+				.statusId(0)
+				.status("")
+				.expenseType("")
+				.dateOfTransaction("")
+				.dateSubmitted("")
+				.amount(null)
+				.details("")
+				.merchant("")
+				.build();				
+		return jpaReimbursementInterface.save(reim);
 	}
+	
 	
 	public Optional<ReimbursementEntity> fetchARequest
 	(int reimbursementId) {
