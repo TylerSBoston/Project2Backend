@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.Project2Backend.dao.EmployeeDao;
+import com.Project2Backend.dao.JpaReimbursementInterface;
 import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
@@ -37,21 +38,21 @@ import com.Project2Backend.exceptions.SystemException;
 public class ReimbursementController {
 	
 	@Autowired
-	ReimbursementDao reimbursementDao;
+	JpaReimbursementInterface jpaReimbursementInterface;
 	@Autowired
 	EmployeeDao employeeDao;
 	
 	
-	@GetMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> findAll()throws SystemException {
-		return reimbursementDao.findAll();
+	@GetMapping(value = "/reimbursements/all")
+	public List<ReimbursementEntity> findAll() {
+		return jpaReimbursementInterface.findAll();
 	
 	}
 	
 	@GetMapping(value = "/reimbursements/{reimbursementId}")
-	public Optional<ReimbursementEntity> fetchARequest(@PathVariable("reimbursementId") int reimbursementId) throws SystemException {
+	public Optional<ReimbursementEntity> fetchARequest(@PathVariable final int reimbursementId) {
 		// TODO Auto-generated method stub
-		return reimbursementDao.findById(reimbursementId);
+		return jpaReimbursementInterface.findById(reimbursementId);
 	}
 	
 	@GetMapping(value = "/employees")
@@ -70,17 +71,17 @@ public class ReimbursementController {
 	}
 	
 	
-	@PostMapping(value = "/reimbursements")
-	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		return reimbursementDao.save(reimbursementEntity);
+	@PostMapping(value = "/reimbursements/post")
+	public ReimbursementEntity submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
+		return jpaReimbursementInterface.save(reimbursementEntity);
 			
 	}
 	
 	@PutMapping(value = "/reimbursements")
 	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		reimbursementDao.save(reimbursementEntity);
+		jpaReimbursementInterface.save(reimbursementEntity);
 	
-		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
+		return jpaReimbursementInterface.findById(reimbursementEntity.getReimbursementId());
 	}
 	
 	

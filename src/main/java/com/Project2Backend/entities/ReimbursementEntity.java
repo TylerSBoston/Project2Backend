@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Project2Backend.pojo.Reimbursement;
@@ -44,19 +45,19 @@ public class ReimbursementEntity {
 	
 	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	final int reimbursementId = 0;
+	private int reimbursementId = 0;
 	
 	@Column(name="employee_id")
-	final int employeeId = 0;
+	private int employeeId = 0;
 	
 	@Column(name="status_id")
-	final int statusId = 0;
+	private int statusId = 0;
 	
 	@Column(name="status")
-	final String status = "";
+	private String status = "";
 	
 	@Column(name="reimbursement_type")
-	final String expenseType = "";
+	private String expenseType = "";
 	
 	@Column(name="date_of_transaction")
 	private String dateOfTransaction ;
@@ -65,13 +66,13 @@ public class ReimbursementEntity {
 	private String dateSubmitted;
 	
 	@Column(name="amount")
-	final BigDecimal amount = BigDecimal.ZERO;
+	private BigDecimal amount = BigDecimal.ZERO;
 	
 	@Column(name="details")
-	final String details = "";
+	private String details = "";
 	
 	@Column(name="merchant")
-	final String merchant = "";
+	private String merchant = "";
 
 
 	
