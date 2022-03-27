@@ -2,21 +2,20 @@ package com.Project2Backend.controller;
 
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
-
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,47 +25,59 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Project2Backend.dao.EmployeeDao;
 
-import com.Project2Backend.dao.ReimbursementDao;
+
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 import com.Project2Backend.exceptions.SystemException;
 
+import com.Project2Backend.service.ReimbursementService;
+
 @RestController
-@CrossOrigin
 @RequestMapping("api")
 public class ReimbursementController {
 	
 	@Autowired
-	ReimbursementDao reimbursementDao;
+	ReimbursementService reimbursementService;
 	@Autowired
 	EmployeeDao employeeDao;
 	
 	
-	@GetMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> reimsfindAll() {
-		return reimbursementDao.findAll();
-	
-	}
-	
-	@GetMapping(value = "/reimbursements/{reimbursementId}")
-	public Optional<ReimbursementEntity> fetchARequest(@PathVariable final int reimbursementId) {
-		// TODO Auto-generated method stub
-		return reimbursementDao.findById(reimbursementId);
-	}
-	
+	//INSERT NEW REIMBURSEMENT
 	@PostMapping(value = "/reimbursements")
-	public Optional<ReimbursementEntity> submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
-		reimbursementDao.save(reimbursementEntity);
-		 return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
+	@ResponseStatus(HttpStatus.CREATED)
+	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
+				return reimbursementService.addReimbursement(reimbursementEntity);
 			
 	}
 	
-	@PutMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		reimbursementDao.save(reimbursementEntity);
+	//FETCH ALL REIMBURSEMENTS
+	@GetMapping(value = "/reimbursements")
+	public List<ReimbursementEntity> findAllReimbursements() {
+		return reimbursementService.findAllReimbursements();
 	
-		return reimbursementDao.findById(reimbursementEntity);
+	}
+	
+	//FIND SINGLE REIMBURSEMENT BY ID
+	@GetMapping(value = "/reimbursements/{reimbursementId}")
+	public ReimbursementEntity fetchARequest(@PathVariable("reimbursementId") int reimbursementId) {
+		// TODO Auto-generated method stub
+		return reimbursementService.findById(reimbursementId);
+	}
+	
+
+	
+	@PutMapping(value = "/reimbursements")
+	public ResponseEntity<String> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) {
+		try {
+			reimbursementService.updateRequest(reimbursementEntity);
+			return new ResponseEntity<String>(HttpStatus.OK);
+		}catch(NoSuchElementException ex) {
+			//LOG ERROR MESSAGE
+			System.out.println(ex.getMessage());
+			return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		}
+	
 	}
 	
 	
