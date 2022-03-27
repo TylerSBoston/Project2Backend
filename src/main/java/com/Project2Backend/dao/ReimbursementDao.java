@@ -30,7 +30,8 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	
 	ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity);
 	
-	
+	@SuppressWarnings("unchecked")
+	ReimbursementEntity save(ReimbursementEntity reimbursementEntity);
 	
 
 	
