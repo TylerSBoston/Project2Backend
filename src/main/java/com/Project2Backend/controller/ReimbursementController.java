@@ -1,5 +1,6 @@
 package com.Project2Backend.controller;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +43,7 @@ public class ReimbursementController {
 	
 	
 	@GetMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> findAll()throws SystemException {
+	public LinkedList<ReimbursementEntity> findAll()throws SystemException {
 		return reimbursementDao.findAll();
 	
 	}

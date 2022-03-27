@@ -1,5 +1,6 @@
 package com.Project2Backend.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,7 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	@Query("Select u from ReimbursementEntity u where statusId > 3")
 	List<ReimbursementEntity> findCompleted();
 	
-	List<ReimbursementEntity> findAll();
+	LinkedList<ReimbursementEntity> findAll();
 
 	Reimbursement save(Reimbursement reimbursement)throws SystemException;
 	
