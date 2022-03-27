@@ -44,7 +44,7 @@ public class ReimbursementController {
 	
 	
 	@GetMapping(value = "/reimbursements")
-	public List<ReimbursementEntity> findAll() {
+	public List<ReimbursementEntity> reimsfindAll() {
 		return jpaReimbursementInterface.findAll();
 	
 	}

@@ -18,11 +18,9 @@ public class ReimbursementService {
 	@Autowired
 	JpaReimbursementInterface jpaReimbursementInterface;
 	
-	public List<ReimbursementEntity> reimsfindAll(){
+	public List<ReimbursementEntity> reimsfindAll() {
 		
-		List<ReimbursementEntity> reimsList = new ArrayList<>();
-		
-		jpaReimbursementInterface.findAll().forEach(reimsList::add);
+		List<ReimbursementEntity> reimsList = jpaReimbursementInterface.findAll();
 		
 		return reimsList;
 	}
