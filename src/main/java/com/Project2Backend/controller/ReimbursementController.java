@@ -78,14 +78,14 @@ public class ReimbursementController {
 	
 	@PutMapping(value = "/reimbursements")
 	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		// TODO Auto-generated method stub
 		reimbursementDao.save(reimbursementEntity);
 	
 		return reimbursementDao.findById(reimbursementEntity.getReimbursementId());
 	}
+	
+	
 	@PutMapping(value = "/employees")
 	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {
-		// TODO Auto-generated method stub
 		employeeDao.save(employeeEntity);
 	
 		return employeeDao.findById(employeeEntity.getEmployeeId());
