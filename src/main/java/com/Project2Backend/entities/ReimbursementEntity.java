@@ -77,7 +77,7 @@ public class ReimbursementEntity {
 		
 	}
 
-	public ReimbursementEntity(ReimbursementEntity save) {
+	public ReimbursementEntity(@RequestBody ReimbursementEntity reimbursementEntity) {
 		// TODO Auto-generated constructor stub
 	}
 	
