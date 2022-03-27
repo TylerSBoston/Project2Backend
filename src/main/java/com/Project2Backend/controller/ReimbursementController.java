@@ -90,7 +90,7 @@ public class ReimbursementController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+			reim.setReimbursementId(newReimbursement.getReimbursementId());
 			reim.setEmployeeId(newReimbursement.getEmployeeId());
 			reim.setStatusId(newReimbursement.getStatusId());
 			reim.setStatus(newReimbursement.getStatus());

@@ -58,7 +58,7 @@ public class EmployeeController {
 			}
 			
 		
-			@PutMapping(value = "/employees{employeeIdId}")
+			@PutMapping(value = "/employees{employeeId}")
 			public EmployeeEntity updateEmployee(@PathVariable("employeeId")
 				int employeeId, @Validated @RequestBody EmployeeEntity newEmployee){
 				
@@ -71,7 +71,7 @@ public class EmployeeController {
 					e.printStackTrace();
 				}
 				
-				
+				emp.setEmployeeId(newEmployee.getEmployeeId());
 				emp.setJobTitle(newEmployee.getJobTitle());
 				emp.setFirstName(newEmployee.getFirstName());
 				emp.setLastName(newEmployee.getLastName());
