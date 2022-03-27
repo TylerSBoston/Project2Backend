@@ -27,9 +27,9 @@ public interface EmployeeDao extends JpaRepository<EmployeeEntity, Integer>  {
 	
 	
 	
-	EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) throws SystemException;
+	EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) ;
 	
-	List<EmployeeEntity> findAll1()throws SystemException;
+	List<EmployeeEntity> findAll();
 	
 	
 	

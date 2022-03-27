@@ -32,7 +32,7 @@ import com.Project2Backend.entities.ReimbursementEntity;
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
 import com.Project2Backend.exceptions.SystemException;
 
-import com.Project2Backend.service.ReimbursementService;
+
 import com.Project2Backend.service.ReimbursementServiceImpl;
 
 @RestController
@@ -90,7 +90,7 @@ public class ReimbursementController {
 	
 	
 	@GetMapping(value = "/employees")
-	public List<EmployeeEntity> findAll1() {
+	public List<EmployeeEntity> findAll() {
 		// TODO Auto-generated method stub
 		return employeeDao.findAll();
 	}
