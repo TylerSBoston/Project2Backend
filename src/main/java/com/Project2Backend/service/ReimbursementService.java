@@ -69,41 +69,12 @@ public class ReimbursementService
 	@Override
 	 public ReimbursementEntity
 	    updateRequest(@RequestBody ReimbursementEntity reimbursementEntity,
-	                     int reibursementId)
-	    {
-		ReimbursementEntity reimDB = null;
-		try {
-			reimDB = reimbursementDao.findById(reibursementId)
-			      .get();
-		} catch (com.Project2Backend.exceptions.SystemException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	  
-	        if (Objects.nonNull(reimbursementEntity.getDateOfTransaction())
-	            && !"".equalsIgnoreCase(
-	            		reimbursementEntity.getDateOfTransaction())) {
-	        	reimDB.setDateOfTransaction(
-	            		reimbursementEntity.getDateOfTransaction());
-	        }
-	  
-	        if (Objects.nonNull(
-	        		reimbursementEntity.getDateSubmitted())
-	            && !"".equalsIgnoreCase(
-	            		reimbursementEntity.getDateSubmitted())) {
-	        	reimDB.setDateSubmitted(
-	            		reimbursementEntity.getDateSubmitted());
-	        }
-	  
-	        if (Objects.nonNull(reimbursementEntity.getStatus())
-	            && !"".equalsIgnoreCase(
-	            		reimbursementEntity.getStatus())) {
-	        	reimDB.setStatus(
-	            		reimbursementEntity.getStatus());
-	        }
-	  
-	        return reimbursementDao.save(reimDB);
-	    }
+	                     int reimbursementId){
+		
+		return reimbursementDao.save(reimbursementId);
+	}
+	    
+	 
 	
 	@Override
 	public Employee updateEmployee(Employee employee) throws SystemException
