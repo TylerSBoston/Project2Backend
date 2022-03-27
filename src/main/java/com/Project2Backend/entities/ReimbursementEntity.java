@@ -43,12 +43,11 @@ public class ReimbursementEntity {
 	
 
 	@Id
-	
 	@Column(name = "reimbursement_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int reimbursementId = 0;
 	
-	@Column(name="employee_id")
+	@Column(name = "reimbursement_id")
 	private int employeeId = 0;
 	
 	@Column(name="status_id")
