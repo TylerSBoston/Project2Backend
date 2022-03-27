@@ -26,6 +26,6 @@ public interface ReimbursementServiceInter {
 
 	
 
-	Reimbursement updateRequest(Reimbursement reimbursement) throws javax.transaction.SystemException;
+//	Reimbursement updateRequest(Reimbursement reimbursement) throws javax.transaction.SystemException;
 
 }
