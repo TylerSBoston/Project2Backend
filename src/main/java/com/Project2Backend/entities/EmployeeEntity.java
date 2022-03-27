@@ -60,6 +60,20 @@ public class EmployeeEntity {
 	
 	@Column(name="user_password")
 	private String password;
+
+	public EmployeeEntity(String jobTitle, String firstName, String lastName, String email, String phone,
+			String userName, String password) {
+		super();
+		this.jobTitle = jobTitle;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.userName = userName;
+		this.password = password;
+	}
+	
+	
 	
 	
 	

@@ -10,8 +10,10 @@ import com.Project2Backend.entities.ReimbursementEntity;
 @Component
 public interface JpaReimbursementInterface extends 
 JpaRepository<ReimbursementEntity, Integer> {
-	
-	
+
 	Optional<ReimbursementEntity> findById(ReimbursementEntity reimbursementEntity);
+	
+	
+
 
 }
