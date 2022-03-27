@@ -11,6 +11,6 @@ public interface JpaReimbursementInterface extends
 JpaRepository<ReimbursementEntity, Integer> {
 	
 	
-	Optional<ReimbursementEntity> findById(int reimbursementId);
+	Optional<ReimbursementEntity> findById(ReimbursementEntity reimbursementEntity);
 
 }

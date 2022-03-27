@@ -55,6 +55,27 @@ public class ReimbursementController {
 		return jpaReimbursementInterface.findById(reimbursementId);
 	}
 	
+	@PostMapping(value = "/reimbursements")
+	public Optional<ReimbursementEntity> submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
+		 jpaReimbursementInterface.save(reimbursementEntity);
+		 return jpaReimbursementInterface.findById(reimbursementEntity.getReimbursementId());
+			
+	}
+	
+	@PutMapping(value = "/reimbursements")
+	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
+		jpaReimbursementInterface.save(reimbursementEntity);
+	
+		return jpaReimbursementInterface.findById(reimbursementEntity);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@GetMapping(value = "/employees")
 	public List<EmployeeEntity> findAll1() {
 		// TODO Auto-generated method stub
@@ -71,19 +92,8 @@ public class ReimbursementController {
 	}
 	
 	
-	@PostMapping(value = "/reimbursements")
-	public ReimbursementEntity submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
-		return jpaReimbursementInterface.save(reimbursementEntity);
-			
-	}
 	
-	@PutMapping(value = "/reimbursements")
-	public Optional<ReimbursementEntity> updateRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException {
-		jpaReimbursementInterface.save(reimbursementEntity);
-	
-		return jpaReimbursementInterface.findById(reimbursementEntity.getReimbursementId());
-	}
-	
+
 	
 	@PutMapping(value = "/employees")
 	public Optional<EmployeeEntity> updateEmployee(@RequestBody EmployeeEntity employeeEntity) throws SystemException {

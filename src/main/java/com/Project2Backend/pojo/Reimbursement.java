@@ -2,7 +2,8 @@ package com.Project2Backend.pojo;
 
 import java.math.BigDecimal;
 
-import org.springframework.http.RequestEntity;
+
+
 import org.springframework.stereotype.Component;
 
 import com.Project2Backend.entities.ImageEntity;

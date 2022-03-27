@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Project2Backend.dao.JpaReimbursementInterface;
 import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.ReimbursementEntity;
 
@@ -15,28 +16,28 @@ public class ReimbursementService {
 	
 	
 	@Autowired
-	private ReimbursementDao reimbursementDao;
+	private JpaReimbursementInterface jpaReimbursementInterface;
 	
 	public List<ReimbursementEntity> findAll(){
 		
 		List<ReimbursementEntity> reims = new ArrayList<>();
 		
-		reimbursementDao.findAll().forEach(reims::add);
+		jpaReimbursementInterface.findAll().forEach(reims::add);
 		
 		return reims;
 	}
 	
 	public ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) {
-		return reimbursementDao.save(reimbursementEntity);
+		return jpaReimbursementInterface.save(reimbursementEntity);
 	}
 	
 	public Optional<ReimbursementEntity> fetchARequest
 	(int reimbursementId) {
-		return reimbursementDao.findById(reimbursementId);
+		return jpaReimbursementInterface.findById(reimbursementId);
 	}
 	
 	public ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity) {
-		return reimbursementDao.save(reimbursementEntity);
+		return jpaReimbursementInterface.save(reimbursementEntity);
 	}
 	
 	
