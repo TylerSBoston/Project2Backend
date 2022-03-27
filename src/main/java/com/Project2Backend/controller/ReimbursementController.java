@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Project2Backend.dao.EmployeeDao;
 import com.Project2Backend.dao.JpaReimbursementInterface;
-import com.Project2Backend.dao.ReimbursementDao;
+
 import com.Project2Backend.entities.EmployeeEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
@@ -43,7 +43,7 @@ public class ReimbursementController {
 	EmployeeDao employeeDao;
 	
 	
-	@GetMapping(value = "/reimbursements/all")
+	@GetMapping(value = "/reimbursements")
 	public List<ReimbursementEntity> findAll() {
 		return jpaReimbursementInterface.findAll();
 	
@@ -71,7 +71,7 @@ public class ReimbursementController {
 	}
 	
 	
-	@PostMapping(value = "/reimbursements/post")
+	@PostMapping(value = "/reimbursements")
 	public ReimbursementEntity submitRequest(@RequestBody final ReimbursementEntity reimbursementEntity) throws SystemException {
 		return jpaReimbursementInterface.save(reimbursementEntity);
 			
