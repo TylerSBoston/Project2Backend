@@ -1,4 +1,4 @@
-package exceptions;
+package com.Project2Backend.exceptions;
 
 public class SystemException extends Exception {
 

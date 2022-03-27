@@ -1,13 +1,18 @@
-package Service;
+package com.Project2Backend.service;
 
 
 import java.util.List;
 
-import POJO.Employee;
-import POJO.Reimbursement;
-import exceptions.ReimbursementNotFoundException;
-import exceptions.SystemException;
+import org.springframework.stereotype.Service;
 
+import com.Project2Backend.pojo.Employee;
+import com.Project2Backend.pojo.Reimbursement;
+
+
+
+import com.Project2Backend.exceptions.ReimbursementNotFoundException;
+import com.Project2Backend.exceptions.SystemException;
+@Service
 public interface EmployeeService{
 	
 	// Read - fetch all books
@@ -17,23 +22,11 @@ public interface EmployeeService{
 
 		Reimbursement submitRequest(Reimbursement reimbursement)throws  SystemException;
 		
-		Reimbursement fetchARequest(int employeeID)throws SystemException;
+		Reimbursement fetchARequest(int employeeId)throws SystemException;
 		
 		Reimbursement updateReimbursement(Reimbursement reimbursement)throws SystemException;
 		
 		Employee updateEmployee (Employee employee)throws SystemException;
 		
-
-		
-		
-		
-
-		
-		
-		
-		
-		
-		//Exit
-		void exitApplication()throws SystemException;
 		
 	}

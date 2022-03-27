@@ -11,7 +11,7 @@ pipeline {
    //     options {
      //   timeout(time: 5, unit: 'MINUTES')   // timeout on whole pipeline job
    // }
-
+	
 
     	
         stages {
@@ -24,6 +24,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/TylerSBoston/Project2Backend'
+                sh "docker volume prune -f"
 
                 echo 'clone step'
             }
@@ -31,8 +32,11 @@ pipeline {
         stage('Build') {
             steps {
                 
-                sh "mvn clean package -DskipTests "
-
+                withMaven(
+			        maven: 'springversion'
+	   			 ) {
+	                sh "mvn clean package -DskipTests "
+				}
                 echo 'build step'
             }
         }

@@ -1,11 +1,10 @@
-package DAO;
+package com.Project2Backend.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.apache.logging.log4j.*;
 
-//Legacy
 public class DBConnection {
 	private static String connectionString = "";
 	private static String userName = "postgres";
@@ -34,7 +33,7 @@ public class DBConnection {
 		} catch (SQLException e) {
 			// temporary remove backup connection
 			//
-	/*		try
+			try
 			{
 				// Dimitri, place your DB password and connection string here so the backend will also work for on your side
 				password = "Samara-13";
@@ -42,10 +41,10 @@ public class DBConnection {
 				conn = DriverManager.getConnection(connectionString,userName,password);
 			}
 			catch(SQLException e2)
-			{ */
+			{ 
 				log.error("Connection Failed " + e.getMessage());
 				e.printStackTrace();
-		//	}
+			}
 		}
 	}
 	

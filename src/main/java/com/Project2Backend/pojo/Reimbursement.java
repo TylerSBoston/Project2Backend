@@ -2,9 +2,10 @@ package com.Project2Backend.pojo;
 
 import java.math.BigDecimal;
 
+import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Component;
 
-import com.Project2Backend.entities.ReceiptEntity;
+import com.Project2Backend.entities.ImageEntity;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 import lombok.AllArgsConstructor;
@@ -20,9 +21,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Component
 public class Reimbursement {
-	int reimbursementID = 0;
-	int employeeID = 0;
-	int statusID = 0;
+	int reimbursementId = 0;
+	int employeeId = 0;
+	int statusId = 0;
+	
 	String status = "";
 	String expenseType = "";
 	String merchant = "";
@@ -32,18 +34,15 @@ public class Reimbursement {
 	String dateOfTransaction = "";
 	String dateSubmitted = "";
 	
-	
 	// used by manager, not employee view
 	String Employee = "";
 	
-
-
 	
 	public Reimbursement(ReimbursementEntity in)
 	{
-		reimbursementID = in.getReimbursementID();
-		employeeID = in.getEmployeeID();
-		statusID = in.getStatusID();
+		reimbursementId = in.getReimbursementId();
+		employeeId = in.getEmployeeId();
+		statusId = in.getStatusId();
 		status = in.getStatus();
 		expenseType=in.getExpenseType();
 		merchant = in.getMerchant();
@@ -53,10 +52,97 @@ public class Reimbursement {
 		dateSubmitted = in.getDateSubmitted();
 		
 	}
-	public Reimbursement(ReimbursementEntity in, ReceiptEntity reciept)
+	public Reimbursement(ReimbursementEntity in, ImageEntity reciept)
 	{
 		this(in);	
 		
+	}
+	
+	
+	
+
+
+	public Reimbursement(int reimbursementId, int employeeId, int statusId, String status, String expenseType,
+			String merchant, BigDecimal amount, String details, String dateOfTransaction, String dateSubmitted) {
+		super();
+		this.reimbursementId = reimbursementId;
+		this.employeeId = employeeId;
+		this.statusId = statusId;
+		this.status = status;
+		this.expenseType = expenseType;
+		this.merchant = merchant;
+		this.amount = amount;
+		this.details = details;
+		this.dateOfTransaction = dateOfTransaction;
+		this.dateSubmitted = dateSubmitted;
+		
+	}
+
+	public String getEmployee() {
+		return Employee;
+	}
+	public void setEmployee(String employee) {
+		Employee = employee;
+	}
+	public int getReimbursementId() {
+		return reimbursementId;
+	}
+	public void setReimbursementId(int reimbursementId) {
+		this.reimbursementId = reimbursementId;
+	}
+	public int getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getExpenseType () {
+		return expenseType;
+	}
+	public void setExpenseType (String type) {
+		this.expenseType = type;
+	}
+	public BigDecimal getAmount() {
+		return amount;
+	}
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+	public String getDetails() {
+		return details;
+	}
+	public void setDetails(String details) {
+		this.details = details;
+	}
+	public String getDateOfTransaction() {
+		return dateOfTransaction;
+	}
+	public void setDateOfTransaction(String dateOfTransaction) {
+		this.dateOfTransaction = dateOfTransaction;
+	}
+	public String getDateSubmitted() {
+		return dateSubmitted;
+	}
+	public void setDateSubmitted(String date_submitted) {
+		this.dateSubmitted = date_submitted;
+	}
+	public String getMerchant() {
+		return merchant;
+	}
+	public void setMerchant(String merchant) {
+		this.merchant = merchant;
+	}
+	public int getStatusId() {
+		return statusId;
+	}
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
 	}
 
 	

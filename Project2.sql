@@ -16,6 +16,7 @@ drop view if exists v_employee_permissions;
 drop view if exists v_employee_login;
 
 -- drops tables
+drop table if exists images;
 drop table if exists reimbursement_updates;
 drop table if exists employee_permissions;
 drop table if exists reimbursements;
@@ -117,6 +118,16 @@ Create Table reimbursement_updates(
 	Constraint fk_update_reimbursement Foreign Key(reimbursement_id) References reimbursements(reimbursement_id)
 );
 
+Create Table images(
+	image_id			integer generated always as identity,
+	image_name			varchar(50),
+	content_type		varchar(50),
+	image_size			bigint,
+	image				oid,
+	primary key (image_id)
+);
+
+
 -- any extra tables added (if any) are only tangentially related and may simulate features of an production environment
 
 -------------------------------------------------
@@ -183,6 +194,7 @@ insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_
 			(4,'Approved','2020-02-26','approved'),
 			(5,'New','2020-02-26','reimbursement request submitted'),
 			(6,'New','2020-02-27','reimbursement request submitted');
+
 
 
 -- procedure and views comment out for ORM for now
