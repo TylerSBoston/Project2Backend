@@ -1,6 +1,5 @@
 package com.Project2Backend.service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -70,11 +69,11 @@ public class ReimbursementService
 	@Override
 	 public ReimbursementEntity
 	    updateRequest(@RequestBody ReimbursementEntity reimbursementEntity,
-	                     int reimbursementId)
+	                     int reibursementId)
 	    {
 		ReimbursementEntity reimDB = null;
 		try {
-			reimDB = reimbursementDao.findById(reimbursementId)
+			reimDB = reimbursementDao.findById(reibursementId)
 			      .get();
 		} catch (com.Project2Backend.exceptions.SystemException e) {
 			// TODO Auto-generated catch block
@@ -118,15 +117,8 @@ public class ReimbursementService
 	@Override
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity 
 			  reimbursementEntity) {
-		
-		
-		
-		
-		return new  ReimbursementEntity(reimbursementDao.save(new ReimbursementEntity(null, null)));
-		
-		
 		  
-		
+		  return reimbursementDao.save(reimbursementEntity);
 	  }
 
 
