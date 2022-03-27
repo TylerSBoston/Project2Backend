@@ -26,7 +26,9 @@ public interface ReimbursementDao extends JpaRepository<ReimbursementEntity, Int
 	
 	List<ReimbursementEntity> findAll();
 	
-	Optional<ReimbursementEntity> updateRequest(ReimbursementEntity reimbursementEntity);
+	ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity);
+	
+	ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity);
 	
 	
 	

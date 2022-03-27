@@ -26,8 +26,8 @@ public class ReimbursementService {
 		return reims;
 	}
 	
-	public void submitRequest(ReimbursementEntity reimbursementEntity) {
-		reimbursementDao.save(reimbursementEntity);
+	public ReimbursementEntity submitRequest(ReimbursementEntity reimbursementEntity) {
+		return reimbursementDao.save(reimbursementEntity);
 	}
 	
 	public Optional<ReimbursementEntity> fetchARequest
@@ -35,8 +35,8 @@ public class ReimbursementService {
 		return reimbursementDao.findById(reimbursementId);
 	}
 	
-	public void updateRequest(ReimbursementEntity reimbursementEntity) {
-		reimbursementDao.save(reimbursementEntity);
+	public ReimbursementEntity updateRequest(ReimbursementEntity reimbursementEntity) {
+		return reimbursementDao.save(reimbursementEntity);
 	}
 	
 	
