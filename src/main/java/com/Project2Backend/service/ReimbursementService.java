@@ -1,5 +1,6 @@
 package com.Project2Backend.service;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -30,7 +31,7 @@ public class ReimbursementService
 	ReimbursementDao reimbursementDao;
 	
 	@Override
-	public List<Reimbursement> findAll() throws SystemException
+	public LinkedList<Reimbursement> findAll() throws SystemException
 	{
 		
 
@@ -117,8 +118,17 @@ public class ReimbursementService
 	@Override
 	public ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity 
 			  reimbursementEntity) {
+		LinkedList<ReimbursementEntity> reim = new LinkedList<ReimbursementEntity>();
+		
+		for (ReimbursementEntity reimbursement: reim) {
+			reimbursementDao.save(reimbursementEntity);
+		}
+		
+		return reimbursementEntity;
+		
+		
 		  
-		  return reimbursementDao.save(reimbursementEntity);
+		
 	  }
 
 

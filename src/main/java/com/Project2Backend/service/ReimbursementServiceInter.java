@@ -1,5 +1,7 @@
 package com.Project2Backend.service;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +15,7 @@ public interface ReimbursementServiceInter {
 	
 	ReimbursementEntity submitRequest(@RequestBody ReimbursementEntity reimbursementEntity) throws SystemException;
 
-	List<Reimbursement> findAll() throws javax.transaction.SystemException;
+	LinkedList<Reimbursement> findAll() throws javax.transaction.SystemException;
 
 	List<Employee> findAll1() throws javax.transaction.SystemException;
 
