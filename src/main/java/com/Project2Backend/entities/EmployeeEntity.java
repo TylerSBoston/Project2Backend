@@ -54,7 +54,6 @@ public class EmployeeEntity {
 	@Id
 	@Column(name="employee_id")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@OneToMany(targetEntity=ReimbursementEntity.class)
 	private int employeeId;
 	
 	@Column(name="job_title")
