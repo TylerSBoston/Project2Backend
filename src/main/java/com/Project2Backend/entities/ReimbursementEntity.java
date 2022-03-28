@@ -75,6 +75,9 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
+	@Column(name="reciept")
+	private String receiptPhoto;
+	
 	
 
 
