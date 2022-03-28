@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,10 +72,24 @@ public class ReimbursementController {
 		
 		//INSERT NEW REIMBURSEMENT
 		@PostMapping(value = "/reimbursements/new")
-		public ResponseEntity<ReimbursementEntity> addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
+		public ResponseEntity<ReimbursementEntity> addReimbursement(@Validated @RequestBody ReimbursementEntity reimbursementEntity){
 					return ResponseEntity.ok(reimbursementServiceImpl.save(reimbursementEntity));
 				
+		
+		
+		
+		
+		
+		
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		@PutMapping(value = "/reimbursements/update")
 		public ReimbursementEntity updateReimbursement(@RequestBody ReimbursementEntity reimbursementEntity)
