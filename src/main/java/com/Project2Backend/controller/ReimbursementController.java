@@ -80,22 +80,22 @@ public class ReimbursementController {
 			return reimbursementServiceImpl.save(reimbursementEntity);
 		}
 		
-		@PostMapping("/riembursements/save")
-	    public RedirectView saveReimbursement(ReimbursementEntity reimbursementEntity,
-	            @RequestParam("image") MultipartFile multipartFile) throws IOException {
-	         
-	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	        reimbursementEntity.setReceiptImage(fileName);
-	         
-	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
-	 
-	        String uploadDir = "user-photos/" + savedReimbursement.getId();
-	 
-	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-	         
-	        return new RedirectView("/users", true);
-	        
-		}
+//		@PostMapping("/riembursements/save")
+//	    public RedirectView saveReimbursement(ReimbursementEntity reimbursementEntity,
+//	            @RequestParam("image") MultipartFile multipartFile) throws IOException {
+//	         
+//	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//	        reimbursementEntity.setReceiptImage(fileName);
+//	         
+//	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
+//	 
+//	        String uploadDir = "user-photos/" + savedReimbursement.getId();
+//	 
+//	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+//	         
+//	        return new RedirectView("/users", true);
+//	        
+//		}
 		
 
 

@@ -75,8 +75,8 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
-	@Column(name="receipt")
-	private String receiptImage;
+//	@Column(name="receipt")
+//	private String receiptImage;
 	
 
 	
@@ -123,7 +123,7 @@ public class ReimbursementEntity {
 		this.amount = amount;
 		this.details = details;
 		this.merchant = merchant;
-		this.receiptImage = receiptImage;
+//		this.receiptImage = receiptImage;
 	}
 
 	public String getId() {
@@ -136,7 +136,7 @@ public class ReimbursementEntity {
 		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", statusId="
 				+ statusId + ", status=" + status + ", expenseType=" + expenseType + ", dateOfTransaction="
 				+ dateOfTransaction + ", dateSubmitted=" + dateSubmitted + ", amount=" + amount + ", details=" + details
-				+ ", merchant=" + merchant + ", receiptImage=" + receiptImage + "]";
+				+ ", merchant=" + merchant +  "]";
 	}
 
 
