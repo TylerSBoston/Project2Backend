@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.Project2Backend.dao.ReimbursementDao;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 @Service
+@Transactional
 public class ReimbursementServiceImpl implements ReimbursementService {
 	
 	  ReimbursementDao reimbursementDao;
@@ -37,16 +39,26 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 		return reimbursementDao.save(reimbursementEntity);
 	}
 	
+//	@Override
+//	public ReimbursementEntity addReimbursement(ReimbursementEntity reimbursementEntity) {
+//		// TODO Auto-generated method stub
+//		return reimbursementDao.save(reimbursementEntity);
+//	}
+
 	@Override
-	public ReimbursementEntity addReimbursement(ReimbursementEntity reimbursementEntity) {
+	public void save(ReimbursementEntity reimbursementEntity) {
 		// TODO Auto-generated method stub
+		reimbursementDao.save(reimbursementEntity);
+	}
+	
+	@Override
+	public ReimbursementEntity save1(ReimbursementEntity reimbursementEntity) {
 		return reimbursementDao.save(reimbursementEntity);
 	}
 
-	@Override
-	public ReimbursementEntity save(ReimbursementEntity reimbursementEntity) {
+	public ReimbursementEntity get(Integer reimbursementId) {
 		// TODO Auto-generated method stub
-		return reimbursementDao.save(reimbursementEntity);
+		return null;
 	}
 
 }

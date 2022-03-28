@@ -19,11 +19,13 @@ public interface ReimbursementService {
 	 
 	 Optional<ReimbursementEntity> findById(int reimbursementId);
 	
-	 ReimbursementEntity save(ReimbursementEntity reimbursementEntity);
+	 void save(ReimbursementEntity reimbursementEntity);
 
 	ReimbursementEntity updateReimbursement(ReimbursementEntity reimbursementEntity);
 
-	ReimbursementEntity addReimbursement(ReimbursementEntity reimbursementEntity);
+	ReimbursementEntity save1(ReimbursementEntity reimbursementEntity);
+
+//	ReimbursementEntity addReimbursement(ReimbursementEntity reimbursementEntity);
 	 
 	
 
