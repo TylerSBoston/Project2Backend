@@ -2,12 +2,10 @@ package com.Project2Backend.controller;
 
 
 import java.io.IOException;
-
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -70,39 +68,34 @@ public class ReimbursementController {
 		
 		//INSERT NEW REIMBURSEMENT
 		@PostMapping(value = "/reimbursements/new")
-		public void addReimbursement(@Validated @RequestBody ReimbursementEntity reimbursementEntity){
-					reimbursementServiceImpl.save(reimbursementEntity);
+		public ResponseEntity<ReimbursementEntity> addReimbursement(@Validated @RequestBody ReimbursementEntity reimbursementEntity){
+					return ResponseEntity.ok(reimbursementServiceImpl.save(reimbursementEntity));
 
 		}
 		
 
 		@PutMapping(value = "/reimbursements/update")
-		public ResponseEntity<?> updateReimbursement(@RequestBody ReimbursementEntity reimbursementEntity,
-				@PathVariable Integer reimbursementId){
-			try {
-				ReimbursementEntity currentReim = reimbursementServiceImpl.get(reimbursementId);
-				reimbursementServiceImpl.save(reimbursementEntity);
-				return new ResponseEntity<>(HttpStatus.OK);
-			} catch (NoSuchElementException e) {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
+		public ReimbursementEntity updateReimbursement(@RequestBody ReimbursementEntity reimbursementEntity)
+			 throws SystemException{
+			return reimbursementServiceImpl.save(reimbursementEntity);
 		}
-//		@PostMapping("/riembursements/save")
-//	    public RedirectView saveReimbursement(ReimbursementEntity reimbursementEntity,
-//	            @RequestParam("image") MultipartFile multipartFile) throws IOException {
-//        
-//	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-////	        reimbursementEntity.setReceiptImage(fileName);
-//         
-//	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
-//	 
-//	        String uploadDir = "reimbursement-receipts" + savedReimbursement.getId();
-//	 
-//	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-//	         
-//       return new RedirectView("/reimbursements", true);
-//	        
-//		}
+		
+		@PostMapping("/riembursements/save")
+	    public RedirectView saveReimbursement(ReimbursementEntity reimbursementEntity,
+	            @RequestParam("image") MultipartFile multipartFile) throws IOException {
+        
+	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//	        reimbursementEntity.setReceiptImage(fileName);
+         
+	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
+	 
+	        String uploadDir = "reimbursement-receipts" + savedReimbursement.getId();
+	 
+	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+	         
+       return new RedirectView("/reimbursements", true);
+	        
+		}
 		
 
 
