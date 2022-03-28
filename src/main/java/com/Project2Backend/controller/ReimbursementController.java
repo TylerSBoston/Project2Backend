@@ -71,7 +71,7 @@ public class ReimbursementController {
 		
 		//INSERT NEW REIMBURSEMENT
 		@PostMapping(value = "/reimbursements/new")
-		public ResponseEntity addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
+		public ResponseEntity<ReimbursementEntity> addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
 					return ResponseEntity.ok(reimbursementServiceImpl.save(reimbursementEntity));
 				
 		}
