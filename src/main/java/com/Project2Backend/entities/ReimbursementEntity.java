@@ -75,8 +75,14 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
-//	@Column(name="receipt")
-//	private String receiptImage;
+	@Column(name="receipt")
+	private String receiptImage;
+	
+	   public String getPhotosImagePath() {
+	        if (receiptImage == null || merchant == null) return null;
+	         
+	        return "/user-photos/" + reimbursementId + "/" + receiptImage;
+	    }
 	
 
 	
