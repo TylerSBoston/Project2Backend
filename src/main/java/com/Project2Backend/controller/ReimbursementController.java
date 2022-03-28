@@ -89,7 +89,7 @@ public class ReimbursementController {
          
 	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
 	 
-	        String uploadDir = "user-photos/" + savedReimbursement.getId();
+	        String uploadDir = "reimbursement-receipts" + savedReimbursement.getId();
 	 
 	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 	         

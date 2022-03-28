@@ -83,7 +83,7 @@ public class ReimbursementEntity {
 //	   public String getPhotosImagePath() {
 //	        if (receiptImage == null || merchant == null) return null;
 //	         
-//	        return "/reimbursement-photos/" + reimbursementId + "/" + receiptImage;
+//	        return "/reimbursement-receipts/" + reimbursementId + "/" + receiptImage;
 //	    }
 //	
 
