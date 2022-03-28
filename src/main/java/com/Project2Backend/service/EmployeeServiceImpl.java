@@ -35,6 +35,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public EmployeeEntity save(EmployeeEntity employeeEntity) {
 		return employeeDao.save(employeeEntity);
 	}
+
+
+
+	@Override
+	public EmployeeEntity updateEmployee(EmployeeEntity employeeEntity) {
+		// TODO Auto-generated method stub
+		return employeeDao.save(employeeEntity);
+	}
 	
 	
 	

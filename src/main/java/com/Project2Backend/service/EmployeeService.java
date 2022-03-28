@@ -15,6 +15,6 @@ public interface EmployeeService {
 
 	EmployeeEntity save(EmployeeEntity employeeEntity);
 	
-	
+	EmployeeEntity updateEmployee(EmployeeEntity employeeEntity);
 
 }
