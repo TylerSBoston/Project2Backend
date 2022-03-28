@@ -51,8 +51,8 @@ public class ReimbursementController {
 		
 		//FIND SINGLE REIMBURSEMENT BY ID
 		//ComeBack to
-		@GetMapping(value = "/reimbursements")
-		public ReimbursementEntity findById(@Validated   int reimbursementId) {
+		@GetMapping(value = "/reimbursements/{reimbursementId}")
+		public ReimbursementEntity findById(@PathVariable("reimbursementId")   int reimbursementId) {
 			
 			ReimbursementEntity reimbursementEntity = null;
 			try {
