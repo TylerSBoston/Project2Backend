@@ -32,6 +32,18 @@ public class ReimbursementServiceImpl implements ReimbursementService {
 	}
 
 	@Override
+	public ReimbursementEntity updateReimbursement(ReimbursementEntity reimbursementEntity) {
+		// TODO Auto-generated method stub
+		return reimbursementDao.save(reimbursementEntity);
+	}
+	
+	@Override
+	public ReimbursementEntity addReimbursement(ReimbursementEntity reimbursementEntity) {
+		// TODO Auto-generated method stub
+		return reimbursementDao.save(reimbursementEntity);
+	}
+
+	@Override
 	public ReimbursementEntity save(ReimbursementEntity reimbursementEntity) {
 		// TODO Auto-generated method stub
 		return reimbursementDao.save(reimbursementEntity);

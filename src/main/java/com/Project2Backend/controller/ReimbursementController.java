@@ -69,36 +69,43 @@ public class ReimbursementController {
 		}
 		
 		//INSERT NEW REIMBURSEMENT
-		@PostMapping(value = "/reimbursements")
+		@PostMapping(value = "/reimbursements/new")
 		public ReimbursementEntity addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
 					return reimbursementServiceImpl.save(reimbursementEntity);
 				
 		}
 		
-		@PutMapping(value = "/reimbursements/{reimId}")
-		public ResponseEntity<ReimbursementEntity> updateReimbursement(@Validated @PathVariable(value ="reimId")
-			int reimbursementId, @Validated @RequestBody ReimbursementEntity newReimbursement) throws SystemException{
+		@PutMapping(value = "/reimbursements/update")
+		public ReimbursementEntity updateReimbursement(@RequestBody ReimbursementEntity reimbursementEntity)
+			 throws SystemException{
+			return reimbursementServiceImpl.save(reimbursementEntity);
 		
-			ReimbursementEntity reim = reimbursementServiceImpl.findById(reimbursementId)
-					.orElseThrow(()-> new SystemException("Reimbursement not found for this id ::"+reimbursementId));
-		
-			reim.setReimbursementId(newReimbursement.getReimbursementId());
-			reim.setEmployeeId(newReimbursement.getEmployeeId());
-			reim.setStatusId(newReimbursement.getStatusId());
-			reim.setStatus(newReimbursement.getStatus());
-			reim.setExpenseType(newReimbursement.getExpenseType());
-			reim.setDateOfTransaction(newReimbursement.getDateOfTransaction());
-			reim.setDateSubmitted(newReimbursement.getDateSubmitted());
-			reim.setAmount(newReimbursement.getAmount());
-			reim.setDetails(newReimbursement.getDetails());
-			reim.setMerchant(newReimbursement.getMerchant());
-			final ReimbursementEntity updatedReim = reimbursementServiceImpl.save(newReimbursement);
-			return ResponseEntity.ok(updatedReim);
+	
 			
-			
-		}
+//			
+//		}
  	
- 	}
+ 	}}
+		
+		
+		
+		
+//		
+//		ReimbursementEntity reim = reimbursementServiceImpl.findById(reimbursementId)
+//				.orElseThrow(()-> new SystemException("Reimbursement not found for this id ::"+reimbursementId));
+//	
+//		reim.setReimbursementId(newReimbursement.getReimbursementId());
+//		reim.setEmployeeId(newReimbursement.getEmployeeId());
+//		reim.setStatusId(newReimbursement.getStatusId());
+//		reim.setStatus(newReimbursement.getStatus());
+//		reim.setExpenseType(newReimbursement.getExpenseType());
+//		reim.setDateOfTransaction(newReimbursement.getDateOfTransaction());
+//		reim.setDateSubmitted(newReimbursement.getDateSubmitted());
+//		reim.setAmount(newReimbursement.getAmount());
+//		reim.setDetails(newReimbursement.getDetails());
+//		reim.setMerchant(newReimbursement.getMerchant());
+//		final ReimbursementEntity updatedReim = reimbursementServiceImpl.save(newReimbursement);
+//		return ResponseEntity.ok(updatedReim);
 
 
 
