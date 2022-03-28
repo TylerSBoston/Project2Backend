@@ -15,8 +15,7 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
-
-
+import org.springframework.data.annotation.Transient;
 
 import com.Project2Backend.pojo.Reimbursement;
 
@@ -77,11 +76,11 @@ public class ReimbursementEntity {
 	
 	@Column(name="receipt")
 	private String receiptImage;
-	
+	@Transient
 	   public String getPhotosImagePath() {
 	        if (receiptImage == null || merchant == null) return null;
 	         
-	        return "/user-photos/" + reimbursementId + "/" + receiptImage;
+	        return "/reimbursement-photos/" + reimbursementId + "/" + receiptImage;
 	    }
 	
 
