@@ -77,15 +77,15 @@ public class ReimbursementEntity {
 	
 	
 //	NEED TO ADD receipt VARCHAR column in DATABASE FOR IMAGE UPLOAD
-	@Column(name="receipt")
-	private String receiptImage;
-	@Transient
-	   public String getPhotosImagePath() {
-	        if (receiptImage == null || merchant == null) return null;
-	         
-	        return "/reimbursement-photos/" + reimbursementId + "/" + receiptImage;
-	    }
-	
+//	@Column(name="receipt")
+//	private String receiptImage;
+//	@Transient
+//	   public String getPhotosImagePath() {
+//	        if (receiptImage == null || merchant == null) return null;
+//	         
+//	        return "/reimbursement-photos/" + reimbursementId + "/" + receiptImage;
+//	    }
+//	
 
 	
 	

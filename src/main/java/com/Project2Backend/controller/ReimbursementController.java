@@ -85,7 +85,7 @@ public class ReimbursementController {
 	            @RequestParam("image") MultipartFile multipartFile) throws IOException {
         
 	        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-	        reimbursementEntity.setReceiptImage(fileName);
+//	        reimbursementEntity.setReceiptImage(fileName);
          
 	        ReimbursementEntity savedReimbursement = reimbursementServiceImpl.save(reimbursementEntity);
 	 
