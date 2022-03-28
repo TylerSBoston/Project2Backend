@@ -75,8 +75,8 @@ public class ReimbursementController {
 				
 		}
 		
-		@PutMapping(value = "/reimbursements{reimbursementId}")
-		public ResponseEntity<ReimbursementEntity> updateReimbursement(@Validated @PathVariable(value ="reimbursementId")
+		@PutMapping(value = "/reimbursements/{reimId}")
+		public ResponseEntity<ReimbursementEntity> updateReimbursement(@Validated @PathVariable(value ="reimId")
 			int reimbursementId, @Validated @RequestBody ReimbursementEntity newReimbursement) throws SystemException{
 		
 			ReimbursementEntity reim = reimbursementServiceImpl.findById(reimbursementId)
