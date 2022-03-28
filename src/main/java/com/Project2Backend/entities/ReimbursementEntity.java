@@ -75,6 +75,9 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
+	@Column(name="receipt")
+	private String receiptImage;
+	
 	
 	
 	
@@ -124,6 +127,11 @@ public class ReimbursementEntity {
 		this.amount = amount;
 		this.details = details;
 		this.merchant = merchant;
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
