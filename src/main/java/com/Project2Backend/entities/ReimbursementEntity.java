@@ -74,6 +74,9 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
+	
+	
+//	NEED TO ADD receipt VARCHAR column in DATABASE FOR IMAGE UPLOAD
 	@Column(name="receipt")
 	private String receiptImage;
 	@Transient
