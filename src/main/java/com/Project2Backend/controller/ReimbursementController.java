@@ -5,8 +5,8 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -29,9 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Project2Backend.entities.ReimbursementEntity;
 
 import com.Project2Backend.exceptions.ReimbursementNotFoundException;
-
-
-
+import com.Project2Backend.exceptions.SystemException;
 import com.Project2Backend.service.ReimbursementServiceImpl;
 
 @RestController
@@ -54,7 +52,7 @@ public class ReimbursementController {
 		//FIND SINGLE REIMBURSEMENT BY ID
 		//ComeBack to
 		@GetMapping(value = "/reimbursements/{reimbursementId}")
-		public ReimbursementEntity findById(@PathVariable("reimbursementId")  int reimbursementId) {
+		public ReimbursementEntity findById(@Validated @PathVariable("reimbursementId")  int reimbursementId) {
 			
 			ReimbursementEntity reimbursementEntity = null;
 			try {
@@ -72,24 +70,18 @@ public class ReimbursementController {
 		
 		//INSERT NEW REIMBURSEMENT
 		@PostMapping(value = "/reimbursements")
-		@ResponseStatus(HttpStatus.CREATED)
-		public ReimbursementEntity addReimbursement(@Validated @RequestBody ReimbursementEntity reimbursementEntity){
+		public ReimbursementEntity addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
 					return reimbursementServiceImpl.save(reimbursementEntity);
 				
 		}
 		
 		@PutMapping(value = "/reimbursements{reimbursementId}")
-		public ReimbursementEntity updateReimbursement(@PathVariable("reimbursementId")
-			int reimbursementId, @Validated @RequestBody ReimbursementEntity newReimbursement){
-			
-			ReimbursementEntity reim = null;
-			try {
-				reim = reimbursementServiceImpl.findById(reimbursementId)
-						.orElseThrow(()-> new ReimbursementNotFoundException());
-			} catch (ReimbursementNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		public ResponseEntity<ReimbursementEntity> updateReimbursement(@Validated @PathVariable(value ="reimbursementId")
+			int reimbursementId, @Validated @RequestBody ReimbursementEntity newReimbursement) throws SystemException{
+		
+			ReimbursementEntity reim = reimbursementServiceImpl.findById(reimbursementId)
+					.orElseThrow(()-> new SystemException("Reimbursement not found for this id ::"+reimbursementId));
+		
 			reim.setReimbursementId(newReimbursement.getReimbursementId());
 			reim.setEmployeeId(newReimbursement.getEmployeeId());
 			reim.setStatusId(newReimbursement.getStatusId());
@@ -100,7 +92,8 @@ public class ReimbursementController {
 			reim.setAmount(newReimbursement.getAmount());
 			reim.setDetails(newReimbursement.getDetails());
 			reim.setMerchant(newReimbursement.getMerchant());
-			return reimbursementServiceImpl.save(reim);
+			final ReimbursementEntity updatedReim = reimbursementServiceImpl.save(newReimbursement);
+			return ResponseEntity.ok(updatedReim);
 			
 			
 		}
