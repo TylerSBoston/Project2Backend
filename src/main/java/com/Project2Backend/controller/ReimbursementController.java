@@ -5,8 +5,7 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,8 +35,11 @@ import com.Project2Backend.service.ReimbursementServiceImpl;
 public class ReimbursementController {
 	
 	ReimbursementServiceImpl reimbursementServiceImpl;
+	
 	@Autowired
-	public ReimbursementController(ReimbursementServiceImpl reimbursementServiceImpl) {
+	public ReimbursementController(ReimbursementServiceImpl reimbursementServiceImpl)
+	
+	{
 		this.reimbursementServiceImpl = reimbursementServiceImpl;
 	}
 	
@@ -69,8 +71,8 @@ public class ReimbursementController {
 		
 		//INSERT NEW REIMBURSEMENT
 		@PostMapping(value = "/reimbursements/new")
-		public ReimbursementEntity addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
-					return reimbursementServiceImpl.save(reimbursementEntity);
+		public ResponseEntity addReimbursement(@RequestBody ReimbursementEntity reimbursementEntity){
+					return ResponseEntity.ok(reimbursementServiceImpl.save(reimbursementEntity));
 				
 		}
 		
