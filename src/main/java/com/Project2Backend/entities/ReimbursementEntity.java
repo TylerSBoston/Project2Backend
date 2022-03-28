@@ -75,6 +75,9 @@ public class ReimbursementEntity {
 	@Column(name="merchant")
 	private String merchant;
 	
+	@Column(name="receipt")
+	private String receiptImage;
+	
 
 	
 	
@@ -106,16 +109,10 @@ public class ReimbursementEntity {
 	
 	
 
-	@Override
-	public String toString() {
-		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", statusId="
-				+ statusId + ", status=" + status + ", expenseType=" + expenseType + ", dateOfTransaction="
-				+ dateOfTransaction + ", dateSubmitted=" + dateSubmitted + ", amount=" + amount + ", details=" + details
-				+ ", merchant=" + merchant + "]";
-	}
+
 
 	public ReimbursementEntity(int employeeId, int statusId, String status, String expenseType,
-			String dateOfTransaction, String dateSubmitted, BigDecimal amount, String details, String merchant) {
+			String dateOfTransaction, String dateSubmitted, BigDecimal amount, String details, String merchant, String receiptImage) {
 		super();
 		this.employeeId = employeeId;
 		this.statusId = statusId;
@@ -126,11 +123,20 @@ public class ReimbursementEntity {
 		this.amount = amount;
 		this.details = details;
 		this.merchant = merchant;
+		this.receiptImage = receiptImage;
 	}
 
 	public String getId() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "ReimbursementEntity [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId + ", statusId="
+				+ statusId + ", status=" + status + ", expenseType=" + expenseType + ", dateOfTransaction="
+				+ dateOfTransaction + ", dateSubmitted=" + dateSubmitted + ", amount=" + amount + ", details=" + details
+				+ ", merchant=" + merchant + ", receiptImage=" + receiptImage + "]";
 	}
 
 
