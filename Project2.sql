@@ -178,9 +178,9 @@ insert into reimbursements(employee_id,status_id,status,reimbursement_type,date_
 	values	(2,4,'Approved','travel','2020-01-10',150,'hotel','mariot','2020-01-14'),
 			(2,4,'Approved','travel','2020-01-10',30,'gas','speedway','2020-01-14'),
 			(2,5,'Denied','travel','2020-01-10',300,'fancy restraunt','food place','2020-01-14'),
-			(1,4,'Approved',4,'2020-02-25',1200,'ohh new machinery','Bobs hardware','2020-02-25'),
-			(1,1,'New',5,'2020-02-26',3000,'worker injury compensation hospital visit','hospital','2020-02-26'),
-			(3,1,'New',3,'2020-02-27',140,'replace broken chair','furniture place','2020-02-28');
+			(1,4,'Approved','equitment','2020-02-25',1200,'ohh new machinery','Bobs hardware','2020-02-25'),
+			(1,1,'New','legal','2020-02-26',3000,'worker injury compensation hospital visit','hospital','2020-02-26'),
+			(3,1,'New','repairs and maintenance','2020-02-27',140,'replace broken chair','furniture place','2020-02-28');
 
 
 insert into reimbursement_updates(reimbursement_id,status,date_of_update,update_comment)
