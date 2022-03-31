@@ -94,10 +94,7 @@ public class ReimbursementEntity {
 
 
 
-	public ReimbursementEntity(Reimbursement rUpdate) {
-		// TODO Auto-generated constructor stub
-	}
-	
+
 	@SuppressWarnings("unused")
 	@Override
     public boolean equals(Object reimbursementId) {
@@ -134,9 +131,19 @@ public class ReimbursementEntity {
 //		this.receiptImage = receiptImage;
 	}
 
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public ReimbursementEntity(Reimbursement r) {
+		// TODO Auto-generated constructor stub
+		this.reimbursementId = r.getReimbursementId();
+		this.employeeId = r.getEmployeeId();
+		this.statusId = r.getStatusId();
+		this.dateOfTransaction = r.getDateOfTransaction();
+		this.dateSubmitted = r.getDateSubmitted();
+		this.amount = r.getAmount();
+		this.details = r.getDetails();
+		this.merchant = r.getMerchant();
+		this.status = r.getStatus();
+		this.expenseType = r.getExpenseType();
 	}
 
 	@Override
