@@ -44,9 +44,9 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findPending())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee("name");
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getLastName());
 				
-				reimbursements.add(new Reimbursement(reimbursement));
+				reimbursements.add(input);
 				
 			}
 			
@@ -63,9 +63,9 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findCompleted())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee("name");
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getLastName());
 				
-				reimbursements.add(new Reimbursement(reimbursement));
+				reimbursements.add(input);
 			}
 			
 			return reimbursements;
@@ -77,14 +77,14 @@ public class FinanceManagerService {
 		
 		
 
-
+			List<EmployeeEntity> employees = employeeDao.findAll();
 			LinkedList<Reimbursement> reimbursements = new LinkedList<Reimbursement>();
 			for(ReimbursementEntity reimbursement : reimbursementDao.findAll())
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-				input.setEmployee("name");
+				input.setEmployee(employees.get(reimbursement.getEmployeeId()-1).getFirstName() + " " + employees.get(reimbursement.getEmployeeId()-1).getLastName());
 				
-				reimbursements.add(new Reimbursement(reimbursement));
+				reimbursements.add(input);
 			}
 			
 			return reimbursements;
@@ -99,9 +99,9 @@ public class FinanceManagerService {
 			for(ReimbursementEntity reimbursement : reimbursementDao.findByReimbursementId(employee))
 			{
 				Reimbursement input = new Reimbursement(reimbursement);
-
 				
-				reimbursements.add(new Reimbursement(reimbursement));
+				
+				reimbursements.add(input);
 			}
 			
 			return reimbursements;
