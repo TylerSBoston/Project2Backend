@@ -124,10 +124,10 @@ public class FinanceManagerService {
 	}
 	public Reimbursement updateReimbursement(Reimbursement rUpdate) throws SystemException
 	{
-			
+			System.out.println(rUpdate.toString());
 			// convers reimbursmenent to entity, and back for return
 			return new Reimbursement(reimbursementDao.save(new ReimbursementEntity(rUpdate)));
-
+			
 	}
 	
 }
