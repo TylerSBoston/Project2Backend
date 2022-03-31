@@ -13,12 +13,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Component
 public class Reimbursement {
 	int reimbursementId = 0;
@@ -144,6 +146,7 @@ public class Reimbursement {
 	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
+	
 
 	
 }
