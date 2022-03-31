@@ -66,17 +66,16 @@ public class ReimbursementEntity {
 
 	public ReimbursementEntity(Reimbursement r) {
 		// TODO Auto-generated constructor stub
-		reimbursementId = r.getReimbursementId();
-		employeeId = r.getEmployeeId();
-		statusId = r.getStatusId();
-		dateOfTransaction = r.getDateOfTransaction();
-		dateSubmitted = r.getDateSubmitted();
-		amount = r.getAmount();
-		details = r.getDetails();
-		merchant = r.getMerchant();
-		status = r.getStatus();
-		expenseType = r.getExpenseType();
-		
+		this.reimbursementId = r.getReimbursementId();
+		this.employeeId = r.getEmployeeId();
+		this.statusId = r.getStatusId();
+		this.dateOfTransaction = r.getDateOfTransaction();
+		this.dateSubmitted = r.getDateSubmitted();
+		this.amount = r.getAmount();
+		this.details = r.getDetails();
+		this.merchant = r.getMerchant();
+		this.status = r.getStatus();
+		this.expenseType = r.getExpenseType();
 	}
 	
 	
