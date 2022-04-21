@@ -51,7 +51,7 @@ pipeline {
                	sh "docker image rm -f javalin-backend"
               // 	sh "docker image rm maven"
                	
-               	sh "docker-compose up"
+               	sh "docker-compose up -d"
             }
         }
     }
